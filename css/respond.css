@@ -1,0 +1,223 @@
+
+@media only screen and (min-width: 1599px) {
+.ucenterIndexUl1 li.indexMyLi0{width: 23%;}
+.ucenterIndexUl1 li.indexMyLi1{width: 41%;}
+.ucenterIndexUl1 li.indexMyLi2{width: 36%;}
+
+.swiper-slide .indexUlDiv2 dd{line-height: 26px;}
+.indexUlDiv2{position: relative;display: flex;align-items: center;}
+.continueA{position: absolute; right: 0; top: 23px; width: 150px; padding-left: 0; text-align: center; height: 88px; line-height: 88px; border-left: 1px solid #e7e7e7;clear: none;}
+.my-gongzh-div .indexUlDiv2 dl dt{line-height: 88px;}
+.my-gongzh-div .indexUlDiv2 dt a{font-size: 15px;}
+.my-gongzh-div .indexUlDiv2 .gongzh-set-dt{line-height: 30px; padding-top: 16px; padding-left: 0px;}
+.my-gongzh-div .indexUlDiv2 .gongzh-set-dt span{display: block; line-height: 30px;}
+.my-gongzh-li1 .indexUlDiv2 dl{position: relative; top: -14px;}
+
+.my-gongzh-div .my-gongzh-li1 .indexUlDiv2 .gongzh-set-dt span{line-height: 24px;}
+.my-gongzh-div .my-gongzh-li1 .indexUlDiv2 .gongzh-set-dt p{line-height: 24px;}
+.my-gongzh-div .my-gongzh-li1 .indexUlDiv2 dl dd a{height: 20px; line-height: 20px; background: #36BBB5; color: #fff; border-radius: 2px; display: inline-block; padding: 0 10px; font-size: 12px;}
+
+/*my data table*/
+.nanTableTh th,.ucenterTableSub th,.ucenterTableSub td{padding-left: 30px;}
+.ucenterTableSub .setDataTd a{margin-right: 20px;}
+
+/*.zhuanzhangimg{left: 800px;}*/
+.juhebiUl li span{padding-left: 90px;}
+.juhebiUl .labelLeft{width: 320px;}
+
+.exportForm .inputText{width: 200px;}
+.exportForm .selectStyle{width: 210px;}
+.newWorkForm .inputText{width: 460px;}
+
+.applyStyle{float: left; width: 640px;}
+.applyForm{float: left;}
+
+/*.companyVertifyStateUl{width: 550px; float: left; padding: 0;}*/
+.companyVertifyStateUl .labelRight{width: 400px;}
+.companyVertifyStateUl li{height: auto;}
+
+}
+
+@media only screen and (min-width: 1360px) and (max-width: 1599px) {
+
+.nanTableTh th,.ucenterTableSub th,.ucenterTableSub td{padding-left: 15px;}
+
+/*.companyVertifyStateUl{width: 500px; float: left; padding: 0;}*/
+.companyVertifyStateUl .labelLeft{width: 140px;}
+
+.companyVertifyStateUl.centerFormUl .labelLeft,.personVertifyStateUl .labelLeft{width: 140px;}
+.indexUlDiv2 dt a{display: inline-block; max-width: 200px;white-space: nowrap; overflow: hidden;}
+.my-gongzh-div .indexUlDiv2 dl dt a{line-height: 30px; padding-top: 16px;}
+.my-gongzh-div .continueA{top: -30px; line-height: 20px;}
+.my-gongzh-div .my-gongzh-li1 .continueA{top: -20px; line-height: 20px;}
+.companyVertifyStateUl .labelRight{width: 300px;}
+.companyVertifyStateUl li{height: auto;}
+.my-gongzh-div .indexUlDiv2 .gongzh-set-dt a{font-size: 14px;}
+
+}
+
+@media only screen and (min-width: 1266px) and (max-width: 1360px) {
+
+.ucenterIndexUl2 .indexUlDiv2{padding: 30px 10px 30px 15px; }
+.indexUlDiv2 dl{float: left; padding-left: 15px;}
+.indexUlDiv2 dt a{font-size: 15px; display: inline-block; max-width: 180px;white-space: nowrap; overflow: hidden;}
+.my-gongzh-div .indexUlDiv2 dl dt a{line-height: 30px; padding-top: 16px;}
+.continueA{padding-left: 75px;}
+.my-gongzh-div .continueA{top: -30px; line-height: 20px;}
+.my-gongzh-div .my-gongzh-li1 .continueA{top: -20px; line-height: 20px;}
+
+/*my data table*/
+.ucenterTableSub .setDataTd a{margin-right: 10px;}
+.nanTableTh th,.ucenterTableSub th,.ucenterTableSub td{padding-left: 10px;}
+
+/*vertify*/
+.useDescribe{font-size: 13px;}
+.companyVertifyStateUl .labelRight{width: 250px;}
+
+
+.collectLi .collectDiv{padding: 30px 10px;}
+.collectImg{position: absolute; top: 0; left: 0;}
+.collectImg img{width: 80px; height: 80px;}
+.collectInfo h3{font-size: 14px}
+.collectMain{padding-left: 90px;}
+.ipDiv{font-size: 12px;}
+
+.exportForm .inputText{width: 130px;}
+.exportForm .selectStyle{width: 140px;}
+.workTableDetail td{font-size: 12px;}
+.ucenterTable td, .ucenterTable th{padding-left: 15px;}
+
+.centerFormUl .smsLine .inputText{width: 110px;}
+.smsLine #endTime,.smsLine #startTime{width: 150px;}
+
+}
+
+
+@media only screen and (max-width:1266px) {
+
+.ucenterIndexUl2 .indexUlDiv2{padding: 30px 10px 30px 15px; }
+.indexUlDiv2 dl{float: left; padding-left: 15px;}
+.indexUlDiv2 dt a{font-size: 14px; display: inline-block; width: 160px; overflow: hidden;white-space: nowrap;}
+.my-gongzh-div .indexUlDiv2 dl dt a{line-height: 30px; padding-top: 16px;}
+.continueA{padding-left: 75px;}
+
+.my-gongzh-div .continueA{top: -30px; line-height: 20px; padding-left: 95px;}
+.my-gongzh-div .my-gongzh-li1 .continueA{top: -20px; line-height: 20px;}
+.lastData{text-align: center; text-indent: -2px;}
+
+
+
+/*my data table*/
+.nanTableTh th,.ucenterTableSub th,.ucenterTableSub td{padding-left: 10px;}
+.ucenterTableSub .setDataTd a{margin-right: 10px;}
+.buyDataLi .packageUl li{font-size: 12px;}
+
+/*vertify*/
+.useDescribe{line-height: 18px; width: 500px;font-size: 13px;}
+.useDescribe p{padding-bottom: 8px;}
+.companyVertifyStateUl .labelRight{width: 250px;}
+
+
+/*collect*/
+.collectLi .collectDiv{height: 180px;padding: 15px 20px;}
+.collectInfo{width: 100%; height: 100%; position: relative; overflow: hidden;}
+.collectImg{width: 100%; height: 80px; text-align: center;}
+.collectImg img{width: 80px; height: 80px;}
+.collectMain{padding-left: 0; padding-top: 80px; text-align: center;}
+.collectInfo h3{font-size: 16px;line-height: 20px; height: 20px; margin: 10px 0; overflow: hidden;}
+.collectInfo h3 a{color: #606060;display:inline-block;}
+.collectPrice,.collectFree{line-height: 24px; height: 24px; overflow: hidden;}
+.collectPrice b{color: #fe514a;font-size: 16px; padding-right: 2px;}
+.collectOther{line-height: 20px; padding-top: 3px;}
+.collectOther i.iconfont{font-size: 20px; position: relative; top: 3px; padding-right: 3px; display: inline-block; width: 20px;}
+.ipDiv{font-size: 12px;}
+
+.juhebiUl .labelLeft{width: 180px;}
+.juhebiUl li span{padding-left: 10px;}
+
+.exportDiv label{width: 90px;}
+.exportForm .inputText{width: 110px;}
+.exportForm .selectStyle{width: 120px;}
+.newWorkForm .inputText{width: 300px;}
+.newWorkForm .activityUl .inputText{width: 360px;}
+.workTableDetail td{font-size: 12px;}
+.ucenterTable td, .ucenterTable th{padding-left: 10px;}
+.tableDl textarea.inputText{width: 420px;}
+
+
+.my-gongzh-div .indexUlDiv2 .gongzh-set-dt a{
+	overflow: hidden;
+	white-space: normal !important;
+	font-size: 12px;
+}
+
+
+}
+
+
+@media only screen and (max-width:1366px) {
+	body{font-size: 12px;}
+	.noLogs, .noPriceContent h4,.centerlayerDiv .layerTitle, .buyDataContent .buyTitle{font-size: 14px;}
+	.noLogs{font-size: 16px;}
+	.centerBtn,.addSomeBtn{font-size: 12px;}
+	.purchaseTabUl li a{font-size: 14px;}
+	.ucenterTableSub .setDataTd .centerIcon{padding: 2px 10px;}
+	.collectInfo h3,.certifyMainContent .centerFormUl .vertifyLiTitle{font-size: 14px;}
+	.ipConfigTitle{font-size: 14px;}
+	.payQuestion .layerContent p{font-size: 18px;}
+	.companyVertifyStateUl .labelLeft,.personVertifyStateUl .labelLeft{width: 140px;}
+	.certifyMainContent .centerFormUl .labelLeft{width: 140px;}
+
+	.my-gongzh-div .indexUlDiv2 .gongzh-set-dt a{
+		overflow: hidden;
+		font-size: 12px;
+	}
+
+}
+@media only screen and (max-width:1598px) {
+
+	/*index*/
+	.ucenterIndexUl1 .indexMyLi0{float: left; width: 27%;}
+	.ucenterIndexUl1 .indexMyLi1{float: left; width: 35%; padding: 28px 0;}
+	.ucenterIndexUl1 .indexMyLi2{float: left; width: 38%;}
+	.ucenterIndexUl1 .indexMyDiv .czfp{padding-top: 0; padding-left: 86px; clear: both;}
+	.ucenterIndexUl1 .indexMyDiv .czfp a{color: #36BBB5; margin-left: 10px;}
+	.ucenterIndexUl1 .indexMyDiv2 dd i{padding: 0 16px 4px 10px;}
+	.ucenterIndexUl1 .indexMyDiv2 dd font{font-size: 14px;}
+	.ucenterIndexUl1 .indexMyDiv2{padding-right: 10px;}
+	.ucenterIndexUl1 .indexMyDiv1 dd span{font-size: 22px;}
+	.ucenterIndexUl1 .indexMyDiv1 dd .moneyDeci{font-size: 16px;}
+	.ucenterIndexUl1 .indexMyLi0 .vip-div1 em{font-size: 20px;}
+	.ucenterIndexUl1 .indexMyLi0 .vip-div1 div{font-size: 16px;}
+	.ucenterIndexUl1 .indexMyDiv1 dl {float: left;padding: 0 0 0 25px;}
+	.ucenterIndexUl1 .indexMyDiv{height: 68px; padding-right: 25px;}
+
+}
+@media only screen and (min-width: 1366px) and (max-width: 1600px) {
+	/*.ucenterIndexUl1 .indexMyLi0 .vip-div2 a{padding-right: 20px;}*/
+	.vip-main{padding: 0 36px;}
+	.vip-tab-content .item-left{padding: 0 36px;}
+	.vip-score{padding-left: 56px;}
+	.vip-tab-content .item-right{padding-left: 48px;}
+	.vip-tab-content .item-right .label{margin-right: 12px;}
+	.pkg-para .pkg-items{margin-right: 8px;}
+
+}
+@media only screen and (max-width:1366px) {
+	.ucenterIndexUl1 .indexMyLi0 .vip-div1 div{font-size: 14px;}
+	.vip-main{padding: 0 16px 0 20px;width: 300px;}
+	.vip-tab-content .item-left{padding: 0 16px 0 20px;width: 308px;}
+	.vip-main .vip-li1{font-size: 14px;}
+	.vip-main .vip-li1 em{font-size: 18px;}
+	.vip-main li label{width: 100px;}
+	.vip-main .vip-li2 span em{font-size: 40px;}
+	.vip-score{padding-left: 30px;}
+	.vip-tab-content .item-right{padding-left: 22px;}
+	.vip-tab-content .item-right .label{margin-right: 8px;}
+	.pkg-para .pkg-items{margin-right: 6px;}
+	.pkg-para .time-item{width: 140px;}
+	.vip-score .vip-p1 b{font-size: 14px;}
+	.vip-score .vip-p1 span{font-size: 14px;}
+	.score-details-div{right: 64px;}
+	.vip-table .score-td{font-size: 14px;}
+}

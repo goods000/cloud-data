@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>充值明细</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" type="text/css" href="css/reset.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="header"></div>
+		<!-- main start -->
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<div id="nav" name="4" num="2"></div>
+			
+			<!-- main content start -->
+			<section id="ucenterSection">
+				<h2 class="centerTitle borderTitle">充值明细</h2>
+				<form action="/payLogs" id="formSubmit" method="post" name="" class="centerFormUl exportForm">
+					<div class="clearfix secondLine">
+						<div class="moneyListDiv clearfix centerFormUl">
+							<label class="labelLeft line_h">总充值金额 ：</label>
+							<div class="labelRight">
+								<span><font style="font-size: 20px; padding-right: 5px;" color="#FF5918">8.880</font>元</span>
+							</div>
+						</div>
+						<div class="exportDiv">
+							<label>查询时间：</label>
+							<input type="" id="startTime" value="2019-12-04" name="startTime" readonly="readonly" class="laydate-icon inputText date_img">
+							<span>&nbsp;至&nbsp;</span>
+							<input type="" id="endTime" value="2019-12-06" name="endTime" readonly="readonly" class="laydate-icon inputText date_img">
+						</div>
+						<div class="exportDiv exportDivBtn">
+							<label>&nbsp;</label>
+							<input type="hidden" value="0" name="isexport" id="isexport">
+							<button type="submit" class="centerBtn fourBtn" id="queryBtn" onclick="this.form.isexport.value='0'">查询
+            				</button>
+						</div>
+					</div>
+				</form>
+				<table class="ucenterTable">
+					<tbody>
+						<tr>
+							<th width="10%">序号</th>
+							<th width="20%">订单</th>
+							<th width="20%">名称</th>
+							<th width="20%">金额</th>
+							<th width="30%">购买时间</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td class="">245465444</td>
+							<td class="">话费充值</td>
+							<td class="">666.00</td>
+							<td class="">2019-08-20</td>
+						</tr>
+						<!--<tr>
+							<td colspan="5" style="text-align:center;" class="noLogs">你还没有进行过充值!</td>
+						</tr>-->
+					</tbody>
+				</table>
+
+			</section>
+		</div>
+		<!-- main content end -->
+		</div>
+		<script type="text/javascript">
+			laydate.render({elem: '#startTime',theme: 'grid'});
+			laydate.render({elem: '#endTime',theme: 'grid'});
+			$(function() { //分页跳转
+				$('.goPageInput').keydown(function(e) {
+					if(e.keyCode == 13) {
+						goPage('.goPageInput')
+					}
+				})
+				$('#okSearch').click(function() {
+					goPage('.goPageInput');
+				})
+			});
+
+			function goPage(selected) {
+				var num = $(selected).val();
+				var max = $(selected).attr('max');
+				if(isNaN(num)) {
+					alert('请输入数字!');
+					$(selected).val(1); //如果输入的不是数字,则默认为1
+					return false;
+				}
+				if((num - max) > 0) {
+					num = max;
+				}
+				if(num < 1) {
+					num = 1;
+				}
+				location.href = $(selected).attr('action') + num;
+			}
+
+			/*layer date*/
+			var start = {
+				elem: '#startTime',
+				format: 'YYYY-MM-DD',
+				max: '2099-06-16', //最大日期
+				istoday: true,
+				choose: function(datas) {
+					end.min = datas; //开始日选好后，重置结束日的最小日期
+					end.start = datas //将结束日的初始值设定为开始日
+				}
+			};
+			var end = {
+				elem: '#endTime',
+				format: 'YYYY-MM-DD',
+				max: '2099-06-16',
+				istoday: true,
+				choose: function(datas) {
+					start.max = datas; //结束日选好后，重置开始日的最大日期
+				}
+			};
+			laydate(start);
+			laydate(end);
+		</script>
+	</body>
+
+</html>

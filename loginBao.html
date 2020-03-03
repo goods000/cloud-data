@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>登录保护</title>
+		<meta name="csrf-token" content="aLBcFEnLPuYzBQdttNdTdnOwXnVDrEiw7mFfjNWt">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<link rel="stylesheet" type="text/css" href="csspoints.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+		<div id="header"></div>
+
+		<!-- main start -->
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="3" num="2"></div>
+			
+			<!-- 正文内容 -->
+			<section id="ucenterSection">
+				<h2 class="centerTitle">登录二次验证</h2>
+				<form class="ipForm" id="setSecondMobilePhone" action="/ucenter/safeCenter/second/change" method="post">
+					<div class="second-bg">
+						<dl class="online-des">
+							<dt style="padding-bottom:5px;"><b>温馨提示：</b></dt>
+							<dd>1、为了保障您的账户安全，一些敏感的操作会触发二次验证，我们会通过核对手机验证码等形式来确保操作者可信</dd>
+							<dd>2、开启登录二次验证后，至少选择一个手机号码</dd>
+							<dd>3、被选择的号码，可用于登录时候接收二次校验的手机验证码</dd>
+
+							<dd><span style="color: #FF5918">注：每次开启、关闭或选择二次验证手机号的时候会发送验证码到：13530354377 (即注册绑定的手机号)</span>
+							</dd>
+						</dl>
+						<ul class="clearfix centerFormUl" style="height: auto">
+							<li class="clearfix buyDataLi" style="height: auto;">
+								<label class="labelLeft">账户UID：</label>
+								<div class="labelRight">
+									<span style="font-size: 14px; padding-right: 5px;">13530354377</span>
+								</div>
+							</li>
+							<li class="clearfix">
+								<label class="labelLeft">开启验证：</label>
+								<div class="labelRight">
+									<label>
+                                    <span class="iconfont waringOn onOff" style="display:none" >&#xe609;</span>
+                                    <span class="iconfont waringOff onOff"   >&#xe608;</span>
+                                    <input type="checkbox" class="onOffCheckbox" id="onOffCheckbox"
+                                           name="second_check"
+                                           value="0"/>
+                                </label>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+				</form>
+			
+			</section>
+			<div class="ContentDiv" style="display: none" id="setSecondOpen">
+				<form class="formWaring" name="setSecondOpenForm" id="setSecondOpenForm" action="" method="post">
+					<ul class="centerFormUl">
+						<li class="clearfix disabledMoney">
+							<label class="labelLeft"><span class="required">*</span>状态：</label>
+							<div class="labelRight">
+								<select class="inputText" name="openCheck">
+									<option selected value="1">开启</option>
+									<option value="0">关闭</option>
+								</select>
+							</div>
+						</li>
+						<li class="clearfix">
+							<label class="labelLeft"><span class="required">*</span>手机号码：</label>
+							<div class="labelRight">13530354377(仅注册绑定的手机号)</div>
+							<input type="hidden" value="13530354377" name="mainMobile">
+						</li>
+
+						<li class="clearfix">
+							<label class="labelLeft"><span class="required">*</span>验证码：</label>
+							<div class="labelRight">
+								<input type="text" name="secondCode" id="secondCode" style="width: 110px" value="" class="inputText" />
+								<input type="button" class="centerBtn getValicodeDiv" id="code" style="width: 120px" value="获取验证码">
+								<i class="errorTips"><span class="iconfont">&#xe604;</span><em></em></i>
+							</div>
+						</li>
+						<li class="clearfix" style="height: auto;">
+							<label class="labelLeft">&nbsp;</label>
+							<div class="labelRight">
+								<input type="button" class="centerBtn subBtn" value="保存设置">
+							</div>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+		<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				$('.onOff').click(function() {
+					layer.open({
+						type: 1,
+						title: ['手机号码添加'],
+						content: $('#setSecondOpen'),
+						area: ['500px', 'auto']
+					});
+				})
+				
+				//倒计时
+				function resetCode(){
+					$('#code').val('60s');
+					var second = 60;
+					var timer = null;
+					timer = setInterval(function(){
+						second -= 1;
+						if(second >0 ){
+							$('#code').val(second+"s");
+						}else{
+							clearInterval(timer);
+							$('#code').val('获取验证码');
+						}
+					},1000);
+				}
+
+				//获取验证码
+				$('.getValicodeDiv').click(function() {
+					var that = $(this)
+					that.val("发送中...").prop("disabled", true);
+					//隐藏错误提示
+					$('.errorTips').hide();
+					resetCode()
+				})
+
+				//获取验证码
+				$('.getValicodeForm').click(function() {
+					//隐藏错误提示
+					var that = $(this)
+					that.val("发送中...").prop("disabled", true);
+
+					$('.errorTips-1').css('display', 'none')
+					var open = $('#onOffCheckbox').val();
+					var mobile = $('.second_mobile:checked').length;
+
+					if(open == '1' && !mobile) {
+						layer.msg('您已开启登录二次验证，请确保一个手机号接收二次验证码', {
+							icon: 0,
+							time: 5000,
+							shade: 0.3,
+							shadeClose: true
+						});
+						return false;
+					}
+
+					$.ajax({
+						url: '/ucenter/mobileCode/safeChecked',
+						type: 'post',
+						data: "type=34",
+						dataType: 'json',
+						success: function(obj) {
+							if(obj.code == '1') {
+								resetSmsBtn(120, that);
+							} else {
+								var reason = obj.reason ? obj.reason : obj.info;
+								that.parent().find('.errorTips').show().find('em').html(reason);
+								that.val("获取验证码").css({
+									"background": "#2AABE4"
+								}).prop("disabled", false);
+							}
+						}
+					})
+				})
+				//开启关闭二次验证，校验
+				$('.subBtn').click(function() {
+					//隐藏错误提示
+					$('.errorTips').css('display', 'none')
+					var valicode = $("#secondCode").val();
+
+					if(!valicode || valicode.length != 6) {
+						showError('验证码不正确', $("#secondCode"));
+						$("#valicode").focus()
+						return false;
+					} else {
+						$(".subBtn").val('保存中...').prop('disabled', true);
+						$("#setSecondOpenForm").ajaxSubmit({
+							dataType: 'json',
+							success: function(obj) {
+								var code = obj.code;
+
+								if(code == 0) {
+									layer.msg(obj.reason, {
+										icon: 1,
+										time: 1200,
+										shade: 0.3,
+										shadeClose: true
+									}, function() {
+										location.reload()
+									});
+								} else {
+									showError(obj.reason, $("#secondCode"));
+									$("#secondCode").focus();
+									$(".subBtn").val('保存设置').prop('disabled', false);
+								}
+							}
+						})
+					}
+				})
+
+				$('.subSetMobileBtn').click(function() {
+					$(this).prop('disabled', true)
+					$('.errorTips-2').hide();
+					var valicode = $("#setSecondCode").val();
+					var open = $('#onOffCheckbox').val();
+					var mobile = $('.second_mobile:checked').length;
+
+					if(open == '1' && !mobile) {
+						layer.msg('您已开启登录二次验证，请确保一个手机号接收二次验证码', {
+							icon: 0,
+							time: 5000,
+							shade: 0.3,
+							shadeClose: true
+						});
+						return false;
+					}
+
+					if(!valicode || valicode.length != 6) {
+						// layer.msg('请填写正确的验证码', {icon: 0,time: 2200,shade:0.3}, function(){});
+						$('.errorTips-2').show().find('em').html('请填写正确的验证码');
+						$("#valicode").focus();
+						return false;
+					} else {
+						$(".subSetMobileBtn").val('保存中...').prop('disabled', true);
+						$("#setSecondMobilePhone").ajaxSubmit({
+							dataType: 'json',
+							success: function(obj) {
+								var code = obj.code;
+								if(code == '0') {
+									layer.msg(obj.reason, {
+										icon: 1,
+										time: 1200,
+										shade: 0.3
+									}, function() {
+										location.reload()
+									});
+								} else {
+
+									layer.msg(obj.reason, {
+										icon: 0,
+										time: 4000,
+										shade: 0.3,
+										shadeClose: true
+									}, function() {});
+									$(".subSetMobileBtn").val('保存设置').prop('disabled', false);
+								}
+							}
+						})
+					}
+				})
+			})
+			//错误显示
+			function showError(msg, selector) {
+				selector.parent().find('.errorTips').show().find('em').html(msg);
+			}
+
+			function resetSmsBtn(index, selector) {
+				var init = setInterval(function() {
+					index--;
+					if(index <= 0) {
+						clearInterval(init);
+						selector.val("获取验证码").css({
+							"background": "#2AABE4"
+						}).prop("disabled", false);
+					} else {
+						selector.val("重新发送(" + index + ")").css({
+							"background": "#999"
+						}).prop("disabled", true);
+					}
+				}, 1000)
+			}
+		</script>
+
+	</body>
+
+</html>

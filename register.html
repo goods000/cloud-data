@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="csrf-token" content="qemzhLmXDxDRy0XYDx7AVzyTOipAfbuvpCqDxplh">
+		<meta name="encrypt-pub-key" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<title>云途数据-注册</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/register.css">
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<header class="reg-head">
+			<div class="width1000 clearfix">
+				<a class="juhe-logo" href="/" target="_blank" rel="noopener noreferrer"></a>
+				<div class="juhe-login">
+					<span>已有账号，</span>
+					<a href="login.html" target="_blank" rel="noopener noreferrer">立即登录</a>
+				</div>
+			</div>
+		</header>
+		<div class="reg-content">
+
+			<div class="reg-main">
+				<div class="reg-desc clearfix">
+					<h1>欢迎注册</h1>
+				</div>
+				<div class="reg-form">
+					<form id="mobileForm" name="registerForm" action="" method="post" onsubmit="return false;">
+						<div class="reg-row">
+							<input class="reg-input" id="username" name="username" type="text" placeholder="用户名（6~20位字母数字）" autocomplete="off" tabindex="1">
+							<p class="error"><span class="tip"></span><span class="info">昵称需在6-20位字母数字间</span></p>
+						</div>
+						<div class="reg-row">
+							<input class="reg-input" id="password" name="password" type="password" placeholder="密码" autocomplete="new-password" tabindex="2">
+							<p class="error"><span class="tip"></span><span class="info">请输入大于6位的密码</span></p>
+						</div>
+						<div class="reg-row">
+							<input class="reg-input" id="mobilephone" name="mobilephone" type="tel" placeholder="手机号码" autocomplete="off" tabindex="3">
+							<p class="error"><span class="tip"></span><span class="info">请输入正确的手机号</span></p>
+						</div>
+						<div class="reg-code clearfix">
+							<input class="reg-input-short" id="code_num" name="codeNum" type="text" placeholder="验证码" autocomplete="off" tabindex="4">
+							<input class="reg-smsbtn" id="reg_smsbtn" type="button" value="获取验证码">
+							<p class="error"><span class="tip"></span><span class="info">请输入验证码</span></p>
+						</div>
+						<div class="reg-agreement">
+							<input class="checked" id="mobile_checked" name="isRead" type="checkbox" checked="checked">
+							<label class="mobile_label active" for="mobile_checked"></label>
+							<span class="info">我已阅读并接受<a href="" target="_blank" rel="noopener noreferrer">《云途用户服务协议》</a></span>
+						</div>
+						<div class="reg-row">
+							<input type="hidden" name="type" value="1">
+							<input type="hidden" name="_token" value="qemzhLmXDxDRy0XYDx7AVzyTOipAfbuvpCqDxplh">
+							<input class="reg-btn" id="mobile_reg_btn" type="button" value="立即注册">
+							<p class="error"><span class="tip"></span><span class="info">系统异常</span></p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/validate.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var typeArray = [true, true];
+				var statusArray = [true, true, true, true, true, true, true];
+				var checkArray = [true, true, true, true, true, true, true];
+				var errorArray = [true, true];
+				var mailStatusArray = [true, true, true, true, true, true, true];
+				var mailCheckArray = [true, true, true, true, true, true, true];
+				var mailErrorArray = [true, true];
+				var type = getQueryString('type') === 'mail' ? 1 : 0;
+				if(!Object.create) {
+					Object.create = function(proto, props) {
+						if(typeof props !== 'undefined') {
+							throw 'The multiple-argument version of Object.create is not provided by this browser and cannot be shimmed.';
+						}
+
+						function creator() {}
+						creator.prototype = proto;
+						return new creator();
+					};
+				}
+
+				function getToken() {
+					return(generateMixed(6) + 'JhCN04');
+				}
+
+				function generateMixed(n) {
+					var chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+					var res = '';
+					for(var i = 0; i < n; i++) {
+						var id = Math.ceil(Math.random() * 35);
+						res += chars[id];
+					}
+					return res;
+				}
+
+				function initData() {
+					$('#username').val('');
+					$('#password').val('');
+					$('#mobilephone').val('');
+					$('#code_num').val('');
+					$('.error').hide();
+				}
+
+				function getQueryString(name) {
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+					var r = window.location.search.substr(1).match(reg);
+					if(r != null) {
+						return decodeURI(r[2]);
+					} else {
+						return null;
+					}
+				}
+
+				function Validator() {}
+
+				Validator.prototype = {
+					isEmpty: function(el) {
+						var value = $.trim(el.val());
+						if(value === '') {
+							return false;
+						} else {
+							el.closest('.reg-row,.reg-code').find('.error').fadeOut();
+							return true;
+						}
+					},
+					isRegisterUserName: function(el) {
+						var value = $.trim(el.val());
+						if(!isUserName(value)) {
+							return false;
+						} else {
+							el.closest('.reg-row').find('.error').fadeOut();
+							return true;
+						}
+					},
+					isPassword: function(el) {
+						var value = $.trim(el.val());
+						if(value.length < 6) {
+							return false;
+						} else {
+							el.closest('.reg-row').find('.error').fadeOut();
+							return true;
+						}
+					},
+					isPhone: function(el) {
+						var phone = $.trim(el.val());
+						if(!isMobile(phone)) {
+							return false;
+						} else {
+							el.closest('.reg-row').find('.error').fadeOut();
+							return true;
+						}
+					},
+					showError: function(el, text, needFocus) {
+						el.closest('.reg-row,.reg-code').find('.info').html(text);
+						el.closest('.reg-row,.reg-code').find('.error').fadeIn();
+						if(needFocus) {
+							el.focus();
+						}
+					},
+					resetSmsBtn: function(index) {
+						$('#reg_smsbtn').prop('disabled', true);
+						var init = setInterval(function() {
+							index--;
+							if(index <= 0) {
+								clearInterval(init);
+								$('#reg_smsbtn').val('获取验证码').prop('disabled', false);
+							} else {
+								$('#reg_smsbtn').val('重新发送(' + index + ')');
+							}
+						}, 1000);
+					}
+				}
+				
+				//倒计时
+				function resetCode(){
+					$('#reg_smsbtn').val('60s');
+					var second = 60;
+					var timer = null;
+					timer = setInterval(function(){
+						second -= 1;
+						if(second >0 ){
+							$('#reg_smsbtn').val(second+"s");
+						}else{
+							clearInterval(timer);
+							$('#reg_smsbtn').val('获取验证码');
+						}
+					},1000);
+				}
+
+				function MobileValidator(data) {
+					this.username = data.username;
+					this.password = data.password;
+					this.mobile = data.mobile;
+					this.captcha = data.captcha;
+					this.codeNum = data.codeNum;
+					this.smsBtn = data.smsBtn;
+					this.checked = data.checked;
+					this.regBtn = data.regBtn;
+					this.changeImg = data.changeImg;
+					this.init();
+				}
+
+				MobileValidator.prototype = Object.create(Validator.prototype);
+				MobileValidator.prototype.construtor = MobileValidator;
+
+				MobileValidator.prototype.init = function() {
+					var $this = this;
+					var token = getToken();
+					this.username.on('blur', function() {
+						if(statusArray[0] === true) {
+							statusArray[0] = false;
+						}
+						if(!$this.isRegisterUserName($this.username)) {
+							$this.showError($this.username, '昵称需在6-20位字母数字间', false);
+						} else {
+							$.ajax({
+								url: '/common/checkUsed',
+								type: 'post',
+								data: {
+									token: token,
+									username: $.trim($this.username.val())
+								},
+								dataType: 'json',
+								success: function(obj) {
+									if(obj.code === '0') {
+										if(checkArray[0] === true) {
+											checkArray[0] = false;
+										}
+									} else if(obj.code === '-1') {
+										$this.showError($this.username, '该用户名已存在', false);
+									}
+								},
+								error: function() {
+									$this.showError($this.regBtn, '网络异常', false);
+								}
+							});
+						}
+					});
+
+					this.password.on('blur', function() {
+						if(statusArray[4] === true) {
+							statusArray[4] = false;
+						}
+						if(!$this.isPassword($this.password)) {
+							$this.showError($this.password, '请输入不小于6位的密码', false);
+						} else {
+							if(checkArray[4] === true) {
+								checkArray[4] = false;
+							}
+						}
+					});
+
+					this.mobile.on('blur', function() {
+						if(statusArray[1] === true) {
+							statusArray[1] = false;
+						}
+						if(!$this.isPhone($this.mobile)) {
+							$this.showError($this.mobile, '请输入正确的手机号', false);
+						} else {
+							if(checkArray[1] === true) {
+								checkArray[1] = false;
+							}
+							mobileBlur($this.mobile.val())
+						}
+					});
+
+					//刷新图片验证码
+					this.changeImg.on('click', function() {
+						$('#vercode_img').attr('src', '/vercode?' + new Date().getTime());
+					})
+
+					this.codeNum.on('blur', function() {
+						if(statusArray[0] === false && statusArray[1] === false && statusArray[2] === false && statusArray[3] === true) {
+							statusArray[3] = false;
+						}
+					})
+
+					//获取验证码
+					this.smsBtn.on('click', function() {
+						$(this).prop('disabled', true);
+						if(!$this.isRegisterUserName($this.username)) {
+							$this.showError($this.username, '昵称需在6-20位字母数字间', true);
+							$(this).prop('disabled', false)
+						} else if(!$this.isPassword($this.password)) {
+							$this.showError($this.password, '请输入不小于6位的密码', true);
+							$(this).prop('disabled', false)
+						} else if(!$this.isPhone($this.mobile)) {
+							$this.showError($this.mobile, '请输入正确的手机号', true);
+							$(this).prop('disabled', false)
+						} else if($this.captcha.length > 0 && !$this.isEmpty($this.captcha)) { //存在图形验证码时
+							$this.showError($this.captcha, '图形验证码有误', true);
+							$(this).prop('disabled', false)
+						} else { //发送验证码
+							if(statusArray[2] === true) {
+								statusArray[2] = false;
+							}
+							$(this).val('验证码发送中');
+							resetCode();
+						}
+					});
+
+					//立即注册
+					this.regBtn.on('click', function() {
+						$(this).val('注册中...').prop('disabled', true);
+						if(!$this.isRegisterUserName($this.username)) {
+							$this.showError($this.username, '昵称需在6-20位字母数字间', true);
+							$(this).val('立即注册').removeAttr('disabled');
+						} else if(!$this.isPassword($this.password)) {
+							$this.showError($this.password, '请输入不小于6位的密码', true);
+							$(this).val('立即注册').removeAttr('disabled');
+						} else if(!$this.isPhone($this.mobile)) {
+							$this.showError($this.mobile, '请输入正确的手机号', true);
+							$(this).val('立即注册').removeAttr('disabled');
+						} else if(!$this.isEmpty($this.codeNum)) {
+							$this.showError($this.codeNum, '验证码有误', true);
+							$(this).val('立即注册').removeAttr('disabled');
+						} else if(!$this.checked.is(':checked')) {
+							if(statusArray[6] === true) {
+								statusArray[6] = false;
+							}
+						} else { //基础验证通过
+							if(statusArray[5] === true) {
+								statusArray[5] = false;
+							}
+							$('#mobileForm').ajaxSubmit({
+								dataType: 'json',
+								success: function(obj) {
+									var code = obj.code,
+										info = obj.info;
+									if(code === '1') {
+										if(checkArray[5] === true) {
+											checkArray[5] = false;
+										}
+
+										<!-- 添加注册成功的统计:测试环境不加载该统计-->
+										window.zhad.push({
+											eventtype: 'js_submit'
+										});
+										if(((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i).test(navigator.userAgent))) {
+											meteor.track('form', {
+												convert_id: 1647329964016647
+											});
+										}
+										<!-- 添加注册成功的统计-->
+
+										window.location.href = obj.acturl
+									} else {
+										if(errorArray[1] === true) {
+											errorArray[1] = false;
+										}
+										if(code === '-1') { //用户名有误
+											$this.showError($this.username, info, true);
+										} else if(code === '-2') { //手机号有误
+											$this.showError($this.mobile, info, true);
+										} else if(code === '-3') { //验证码有误
+											$this.showError($this.codeNum, info, true);
+										} else if(code === '-4') {
+											$this.showError($this.password, info, true);
+										} else if(code === '-100') { //系统级错误
+											$this.showError($this.regBtn, info, false);
+										}
+										$this.regBtn.val('立即注册').prop('disabled', false);
+									}
+								},
+								error: function() {
+									$this.showError($this.regBtn, '网络异常', false);
+								}
+							})
+						}
+					});
+				}
+
+				var mobile = new MobileValidator({
+					username: $('#username'),
+					password: $('#password'),
+					mobile: $('#mobilephone'),
+					captcha: $('#captcha'),
+					codeNum: $('#code_num'),
+					smsBtn: $('#reg_smsbtn'),
+					checked: $('#mobile_checked'),
+					regBtn: $('#mobile_reg_btn'),
+					changeImg: $('#change_img')
+				})
+
+				$('.mobile_label').click(function(e) {
+					e.preventDefault();
+					if($('#mobile_checked').is(':checked')) {
+						$('#mobile_checked').prop('checked', false);
+						$('#mobile_reg_btn').prop('disabled', true);
+						$(this).removeClass('active');
+					} else {
+						$('#mobile_checked').prop('checked', true);
+						$('#mobile_reg_btn').prop('disabled', false);
+						$(this).addClass('active');
+					}
+				})
+
+				getPubKey();
+				setRequestMt();
+			})
+		</script>
+	
+	</body>
+
+</html>

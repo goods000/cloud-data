@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>IP白名单管理</title>
+		<meta name="csrf-token" content="aLBcFEnLPuYzBQdttNdTdnOwXnVDrEiw7mFfjNWt">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<link rel="stylesheet" type="text/css" href="css/points.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.centerFormUl .labelRight .inputText {
+				width: 160px
+			}
+		</style>
+		<script>
+			var CSRF_TOKEN = 'aLBcFEnLPuYzBQdttNdTdnOwXnVDrEiw7mFfjNWt'
+		</script>
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+		<div id="header"></div>
+
+		<!-- main start -->
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="3" num="1"></div>
+			
+			<!-- 正文内容 -->
+			<section id="ucenterSection">
+				<h2 class="centerTitle borderTitle">IP白名单设置</h2>
+				<form class="ipForm" action="/ucenter/safeCenter/whiteIp" method="post">
+					<div class="rightBackground iPWhite">
+						<ul class="ipUl clearfix">
+							<li class="ipLi">
+								<div class="ipDiv">
+									<label>
+                                    <input type="checkbox" />
+                                    <img src="img/phone.png"/>
+                                   	 话费接口
+                                </label>
+
+								</div>
+							</li>
+							<li class="ipLi">
+								<div class="ipDiv">
+									<label>
+                                    <input type="checkbox" />
+                                    <img src="img/iso.png"/>
+                                   		 加油接口
+                                </label>
+
+								</div>
+							</li>
+						</ul>
+						<p class="ipallP">
+							<a class="ipAllLi centerIcon" href="javascript:;"></a>
+						</p>
+						<p class="ipConfigTitle"><span class="required">*</span>IP白名单设置</p>
+						<div class="clearfix setIpkk">
+							<textarea name="ips" style="width: 200px;height: 200px" class="ipText">163.168.1.1</textarea>
+
+							<dl class="ipDesDl">
+								<dt>格式说明：</dt>
+								<dd>一行写一个IP地址，如：</dd>
+								<dd>192.168.1.124</dd>
+								<dd>192.168.1.246</dd>
+								<dd style="color:#ff5918">如需取消接口白名单限制，只需取消对应数据的选择即可</dd>
+								<dd>(充值类业务如话费、油卡等，强烈建议绑定服务器IP白名单)</dd>
+							</dl>
+						</div>
+						<button type="button" class="centerBtn ipBtn">确定</button>
+						<i class="errorTips" hidden="true"><span
+                                class="iconfont">&#xe604;</span><em>错误</em></i>
+					</div>
+				</form>
+			</section>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>接口测试</title>
+		<meta name="csrf-token" content="ykoGpaaRpmMbdLjF6lZxniUFAUH6lhHu2FNtahiD">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<link rel="stylesheet" type="text/css" href="css/points.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+		<div id="header"></div>
+
+		<!-- main start -->
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="2" num="1"></div>
+
+			<!-- 正文内容 -->
+			<section id="ucenterSection">
+				<h2 class="centerTitle">
+		            <a class="titleA" href="interfaceOil.html">我的接口</a>
+		            <i>&nbsp;&gt;</i>
+		            <span>接口测试</span>
+		        </h2>
+				<div class="buyDataContent rightBackground">
+					<form action="" method="post" class="buyDataForm clearfix" target="_blank" rel="noopener noreferrer">
+						<ul class="centerFormUl">
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">我的数据：</label>
+								<div class="labelRight">
+									<select name="action" id="" class="selectStyle bak">
+										<option value="">话费接口</option>
+										<option value="">加油卡接口</option>
+									</select>
+								</div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">接口名称：</label>
+								<div class="labelRight">
+									<select name="action" id="" class="selectStyle bak">
+										<option value="">提交加油卡充值</option>
+										<option value="">检测手机号时候能够充值</option>
+									</select>
+								</div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">接口地址：</label>
+								<div class="labelRight">
+									<input type="text" id="" name="pkgNums" class="buyDataNum inputText" value="http://op.juhe.cn/ofpay/mobile/telquery" readonly="readonly"/>
+								</div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">请求方式：</label>
+								<div class="labelRight">
+									<select name="action" id="" class="selectStyle bak">
+										<option value="">GEI</option>
+										<option value="">POST</option>
+									</select>
+								</div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">请求参数：</label>
+								<div class="labelRight"></div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">&nbsp;</label>
+								<div class="labelRight">
+									<table class="ucenterTable">
+										<tbody>
+											<tr>
+												<th width="10%">参数名</th>
+												<th width="20%">类型</th>
+												<th width="20%">是否必填</th>
+												<th width="20%">说明</th>
+												<th width="30%">值</th>
+											</tr>
+											<tr>
+												<td>​dtype</td>
+												<td class="">string</td>
+												<td class="">否</td>
+												<td class="">返回的格式，json或xml，默认json</td>
+												<td class="">
+													<input type="text" id="" name="pkgNums" class="buyDataNum inputText" value=""/>
+												</td>
+											</tr>
+											<!--<tr>
+												<td colspan="5" style="text-align:center;" class="noLogs">你还没有进行过充值!</td>
+											</tr>-->
+										</tbody>
+									</table>
+								</div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">&nbsp;</label>
+								<div class="labelRight"></div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="">
+									<button type="button" class="centerBtn" id="">发送请求</button>
+									<span class="tips">（*为了准确性，所有请求均基于真实环境请求，请悉知）</span>
+								</label>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">请求详情：</label>
+								<div class="labelRight">
+									<p>请求地址：http://v.juhe.cn/sms/send</p>
+									<p>请求参数：mobile=&tpl_id=&tpl_value=&dtype=&key=cabfc647ef78e8a3f43d67783085d9ce</p>
+									<p>请求方式：GET</p>
+								</div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;clear: both;">
+								<label class="labelLeft">返回内容：</label>
+								<div class="labelRight">
+									<!--<pre>
+										<code id="response" class="json hljs">
+										{"<span class="hljs-attribute">reason</span>":<span class="hljs-value"><span class="hljs-string">"错误的充值类型1"</span></span>,
+										"<span class="hljs-attribute">result</span>":<span class="hljs-value"><span class="hljs-literal">null</span></span>,
+										"<span class="hljs-attribute">error_code</span>":<span class="hljs-value"><span class="hljs-number">208701</span>
+										</span>}</code>
+									</pre>-->
+									<div class="prediv">
+					                   	<pre style="background: #fafafa; max-height: 400px; overflow: auto">
+					                   		<code style="padding: 0" class="json hljs">
+					                   		{<span class="hljs-attr">"reason"</span>: <span class="hljs-string">"成功"</span>,
+										    <span class="hljs-attr">"result"</span>: {<span class="hljs-attr">"cardid"</span>: <span class="hljs-string">"191404"</span>, <font color="red">/*卡类ID*/</font>
+										        <span class="hljs-attr">"cardname"</span>: <span class="hljs-string">"江苏电信话费100元直充"</span>,  <font color="red">/*卡类名称*/</font>
+										        <span class="hljs-attr">"inprice"</span>: <span class="hljs-number">98.4</span>,  <font color="red">/*购买价格*/</font>
+										        <span class="hljs-attr">"game_area"</span>: <span class="hljs-string">"江苏苏州电信"</span>  <font color="red">/*手机号码归属地*/</font>
+										    },
+										    <span class="hljs-attr">"error_code"</span>: <span class="hljs-number">0</span>
+											}</code>
+					                   	</pre>
+					                </div>
+								</div>
+							</li>
+						</ul>
+					</form>
+					
+				</div>
+			
+			</section>
+
+		</div>
+
+		<script type="text/javascript">
+			
+		</script>
+
+	</body>
+
+</html>

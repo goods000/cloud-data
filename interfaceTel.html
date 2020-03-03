@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>话费接口</title>
+		<link rel="stylesheet" href="css/ucenter.css">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/api-details.css">
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="js/apides.js" type="text/javascript" charset="utf-8"></script>-->
+	</head>
+
+	<body>
+		<!--头部-->
+		<div id="header"></div>
+		
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="2" num="1"></div>
+			
+			<section id="ucenterSection">
+				<h2 class="centerTitle b_bottom">
+		            <a class="titleA" href="myData.html">我的数据</a>
+		            <i>&nbsp;&gt;</i>
+		            <span>我的接口</span>
+		        </h2>
+				<!--接口数据-->
+				<div class="api-mains-content width100">
+					<div class="api-mains width1200 ">
+						<div class="api-img-des">
+							<div class="div-for-svg">
+								<img src="img/big_phone.png"/>
+							</div>
+							<ul class="api-pp clearfix">
+								<li>
+									<img src="img/id.png"/>
+									<div>85</div>
+								</li>
+								<li>
+									<img src="img/in.png"/>
+									<div id="api-apply-count">32665</div>
+								</li>
+								<li>
+									<img src="img/start.png"/>
+									<div id="favorite-count">369</div>
+								</li>
+							</ul>
+						</div>
+						<div class="api-infos">
+							<div class="clearfix title-api">
+								<h1>话费接口</h1>
+								<p><span>支持HTTPS</span></p>
+							</div>
+							<div class="user-info">
+								<span><i class="iconfont icon-geren-renzheng"></i>限个人实名用户使用</span>
+								<span><i class="iconfont icon-qiye-qiye"></i>限企业实名用户使用</span>
+								<span><i class="iconfont icon-qiye-renzheng"></i>本接口需提供应用场景审核</span>
+							</div>
+							<p class="api-des-info"><strong>话费API接口技术接入服务。为企业提供话费API接口，通过接口自由实现PC端、H5、APP等方式接入。</strong></p>
+							<div id="api-package-side" style="min-height: 130px">
+								<ul class="price-ul clearfix">
+									<li class="active">按实际订单计费</li>
+								</ul>
+								<p class="last-price">
+									<b class="red" style="font-size:14px;">¥ ***</b>
+									<span>价格详情请联系客服</span>
+								</p>
+								<div class="buy-apply-div">
+									<a class="now-btn" href="javascript:frameLogin(1)" data="/ucenter/datacenter/apiApply/85">立即申请</a>
+									<!--<a class="" id="favorite" href="javascript:;" didtype="1" did="85">收藏</a>-->
+									<a class="pdf-download" href="javascript:;" style="width: 100px;font-weight: normal;margin-left: 5px;color:#36BBB5;height: 38px;line-height: 38px;font-size:14px;border: 1px solid #36BBB5;background: none;text-align: center;border-radius: 2px;" title="下载【话费接口】离线文档">下载离线文档</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 数据list -->
+				<div class="docs-api-tab width100">
+					<div class="width100 tab-pos1">
+						<div class="width1200">
+							<ul class="tabul clearfix width1200">
+								<li id="api-feature" class="active move-api-set"><span>产品功能</span></li>
+								<li id="apilists" class="add-api-set" show="0"><span>API文档</span></li>
+								<li id="errorcode" class="move-api-set" show="0" did="85"><span>错误码参照</span></li>
+								<li id="sdkandqa" class="move-api-set" show="0" did="85"><span>示例代码</span></li>
+								<li id="apicontact" class="move-api-set"><span>联系我们</span></li>
+							</ul>
+							<!-- <a class="api-now" href="javascript:;">立即调用</a> -->
+						</div>
+					</div>
+				</div>
+		
+				<div id="docs-api-content" class="width1200 clearfix">
+					<div id="docs-api-main" style="min-height: 500px">
+						<div class="tabDiv">
+							<div class="docs-api-show">
+								<div class="product-content">
+									<div class="product-aways">
+										<h3>功能介绍<span> / Introduction</span></h3>
+										<ul class="product-ul">
+											<li>三网支持，支持移动、联通、电信三网手机话费直充</li>
+											<li>到账及时，平均到账时间1分钟</li>
+											<li>成功率高，话费订单充值成功率>99%</li>
+											<li>高效稳定，安全便捷的API接口快速接入</li>
+										</ul>
+										<p class="product-info-des">话费API接口技术接入服务，为企业提供话费API接口，通过接口自由实现PC端、H5、APP等方式接入。为中小型企业、商家活动、自媒体推广提供一站式话费营销服务，通过活动销售、赠送、积分兑换等方式营销话费，为企业客户提供安全、经济、专业的服务，从而帮助企业、商家拓展新客户并提高现有客户活跃度，提高客户对企业服务的满意度。</p>
+										<style>
+											.document-container {margin-top: 20px;}
+											.document-container .type td {width: 92px;height: 42px;border: 1px solid #e1ebef;text-align: center;font-size: 14px;color: #5b5b5b}
+											.document-container .type .icon1 {width: 142px;background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/recharge/sprite_2.png) -593px -1035px no-repeat}
+											.document-container .type .icon2 {width: 142px;background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/recharge/sprite_2.png) -735px -1035px no-repeat}
+											.document-container .type .icon3 {width: 142px;background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/recharge/sprite_2.png) -593px -1120px no-repeat}
+										</style>
+										<div class="document-container">
+											<div style="line-height:25px; color:#999; font-size:14px;">以下是三网话费支持面值</div>
+											<table class="type">
+												<tr>
+													<td class="icon1" rowspan="2"></td>
+													<td>1元</td>
+													<td>2元</td>
+													<td>5元</td>
+													<td>10元</td>
+													<td>20元</td>
+													<td>30元</td>
+												</tr>
+												<tr>
+													<td>50元</td>
+													<td>100元</td>
+													<td>200元</td>
+													<td>300元</td>
+													<td>500元</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td class="icon2" rowspan="2"></td>
+													<td>1元</td>
+													<td>2元</td>
+													<td>5元</td>
+													<td>10元</td>
+													<td>20元</td>
+													<td>30元</td>
+												</tr>
+												<tr>
+													<td>50元</td>
+													<td>100元</td>
+													<td>200元</td>
+													<td>300元</td>
+													<td>500元</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td rowspan="2" class="icon3"></td>
+													<td>1元</td>
+													<td>2元</td>
+													<td>5元</td>
+													<td>10元</td>
+													<td>20元</td>
+													<td>30元</td>
+												</tr>
+												<tr>
+													<td>50元</td>
+													<td>100元</td>
+													<td>200元</td>
+													<td>300元</td>
+													<td>500元</td>
+													<td></td>
+												</tr>
+											</table>
+										</div>
+									</div>
+									<div class="product-aways">
+										<h3>业务场景<span> / Scenes</span></h3>
+										<ul class="ul-scenes clearfix">
+											<li>
+												<h4>电商平台</h4>
+												<p class="s-content">适用于各类含有话费充值中心模块的电商平台，快速实现手机话费直充功能。</p>
+											</li>
+											<li class="scenes-second">
+												<h4>活动营销</h4>
+												<p class="s-content">适用于各种赠送手机话费活动、游戏抽奖以及其他客户关怀赠送等。</p>
+											</li>
+											<li>
+												<h4>网站/APP</h4>
+												<p class="s-content">可应用于任何有话费充值功能需求的网站/APP。</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="product-aways">
+									<h3>快速调用API<span> / FastCall</span></h3>
+									<p class="FastCall"><img width="920" height="89" src="img/quick-start.png"></p>
+								</div>
+							</div>
+							<!--api-->
+							<div id="docs-api-area" class="docs-api-show clearfix" style="display: none;">
+								<ul class="api-sub-list">
+									<li class="api-aid active ">
+										<a class="selected " href="" onclick="return false">检测手机号码是否能充值</a>
+									</li>
+									<li class="api-aid ">
+										<a class="" href="" onclick="return false">根据手机号和面值查询商品信息</a>
+									</li>
+									<li class="api-aid ">
+										<a class="" href="" onclick="return false">手机直充接口</a>
+									</li>
+									<li class="api-aid ">
+										<a class="" href="" onclick="return false">订单状态查询</a>
+									</li>
+									<li class="api-aid ">
+										<a class="" href="" onclick="return false">状态回调配置</a>
+									</li>
+								</ul>
+								<div class="api-sub-content">
+									<div class="simpleline"><strong>接口地址：</strong><span class="url">http://op.juhe.cn/ofpay/mobile/telquery</span></div>
+								    <div class="simpleline"><strong>返回格式：</strong><span class="url">json</span></div>
+								    <div class="simpleline"><strong>请求方式：</strong><span class="url">http get/post</span></div>
+								    <div class="simpleline"><strong>请求示例：</strong><span class="url">http://op.juhe.cn/ofpay/mobile/telquery?cardnum=30&amp;phoneno=18913515635&amp;key=您申请的KEY</span></div>
+								    <div class="simpleline"><strong>接口备注：</strong><span>根据手机号和面值查询商品信息</span></div>
+								    <div class="simpleline"><a class="api-test-tools" href="APItest.html" rel="noopener noreferrer">API测试工具</a></div>
+								    <div class="simpleTable">
+								        <p class="linep">请求参数说明：</p>
+								        <table class="api-table" border="0" cellspacing="0" cellpadding="0">
+								            <tbody>
+								            	<tr class="title">
+									                <th width="20"></th>
+									                <th width="100">名称</th>
+									                <th width="60">必填</th>
+									                <th width="80">类型</th>
+									                <th>说明</th>
+									            </tr>
+									            <tr>
+							                        <td>&nbsp;</td>
+							                        <td class="url">phoneno</td>
+							                        <td class="url">是</td>
+							                        <td class="url">string</td>
+							                        <td>手机号码</td>
+							                    </tr>
+							                                    <tr>
+							                        <td>&nbsp;</td>
+							                        <td class="url">cardnum</td>
+							                        <td class="url">是</td>
+							                        <td class="url">string</td>
+							                        <td>充值金额,目前可选：1、2、5、10、20、30、50、100、200、300、500</td>
+							                    </tr>
+							                                    <tr>
+							                        <td>&nbsp;</td>
+							                        <td class="url">key</td>
+							                        <td class="url">是</td>
+							                        <td class="url">string</td>
+							                        <td>在个人中心-&gt;我的数据,接口名称上方查看</td>
+							                    </tr>
+							                </tbody>
+									    </table>
+								    </div>
+								    <div class="simpleTable">
+								        <p class="linep">返回参数说明：</p>
+								        <table class="api-table" border="0" cellspacing="0" cellpadding="0">
+								            <tbody>
+								            	<tr class="title">
+									                <th width="20"></th>
+									                <th width="100">名称</th>
+									                <th width="80">类型</th>
+									                <th>说明</th>
+									            </tr>
+								                <tr>
+							                        <td>&nbsp;</td>
+							                        <td class="url">error_code</td>
+							                        <td class="url">int</td>
+							                        <td class="url">返回码</td>
+							                    </tr>
+							                                    <tr>
+							                        <td>&nbsp;</td>
+							                        <td class="url">reason</td>
+							                        <td class="url">string</td>
+							                        <td class="url">返回说明</td>
+							                    </tr>
+							                                    <tr>
+							                        <td>&nbsp;</td>
+							                        <td class="url">result</td>
+							                        <td class="url">string</td>
+							                        <td class="url">返回结果集</td>
+							                    </tr>
+							                </tbody>
+								        </table>
+								    </div>
+								    <div class="simpleTable">
+						                <p class="linep">JSON返回示例：</p>
+						                <div class="prediv">
+						                   	<pre style="background: #fafafa; max-height: 400px; overflow: auto"><code style="padding: 0" class="json hljs">{
+											    <span class="hljs-attr">"reason"</span>: <span class="hljs-string">"成功"</span>,
+											    <span class="hljs-attr">"result"</span>: {<span class="hljs-attr">"cardid"</span>: <span class="hljs-string">"191404"</span>, <font color="red">/*卡类ID*/</font>
+											        <span class="hljs-attr">"cardname"</span>: <span class="hljs-string">"江苏电信话费100元直充"</span>,  <font color="red">/*卡类名称*/</font>
+											        <span class="hljs-attr">"inprice"</span>: <span class="hljs-number">98.4</span>,  <font color="red">/*购买价格*/</font>
+											        <span class="hljs-attr">"game_area"</span>: <span class="hljs-string">"江苏苏州电信"</span>  <font color="red">/*手机号码归属地*/</font>
+											    },
+											    <span class="hljs-attr">"error_code"</span>: <span class="hljs-number">0</span>
+												}</code>
+						                   	</pre>
+						                </div>
+						            </div>
+								</div>
+							</div>
+								
+							<!-- 错误代码--->
+							<div class="docs-api-show">
+							    <div class="simpleTable">
+							        <p class="linep">服务级错误码参照(error_code)：</p>
+							        <table class="api-table" border="0" cellspacing="0" cellpadding="0">
+							            <tbody><tr>
+							                <th width="20">&nbsp;</th>
+							                <th width="200">错误码</th>
+							                <th>说明</th>
+							            </tr>
+							            </tbody>
+							            	<tbody id="dataErrorCode">
+							            		<tr>
+							            			<td>&nbsp;</td>
+							            			<td class="url">208501</td>
+							            			<td class="text">不允许充值的手机号码及金额</td>
+							            		</tr>
+							            		<tr><td>&nbsp;</td><td class="url">208502</td><td class="text">请求手机号和面值查询商品信息失败，请重试</td></tr><tr><td>&nbsp;</td><td class="url">208503</td><td class="text">运营商地区维护，暂不能充值</td></tr><tr><td>&nbsp;</td><td class="url">208504</td><td class="text">请求手机号和面值查询商品信息错误，具体请参考reason</td></tr><tr><td>&nbsp;</td><td class="url">208505</td><td class="text">错误的手机号码</td></tr><tr><td>&nbsp;</td><td class="url">208506</td><td class="text">错误的充值金额</td></tr><tr><td>&nbsp;</td><td class="url">208507</td><td class="text">充值失败，具体请参考reason</td></tr><tr><td>&nbsp;</td><td class="url">208508</td><td class="text">请求充值失败，请重试</td></tr><tr><td>&nbsp;</td><td class="url">208509</td><td class="text">错误的订单号</td></tr><tr><td>&nbsp;</td><td class="url">208510</td><td class="text">请求订单状态失败，请重试</td></tr><tr><td>&nbsp;</td><td class="url">208513</td><td class="text">查询订单失败，具体参照reason说明</td></tr><tr><td>&nbsp;</td><td class="url">208514</td><td class="text">不合规范的订单号（8-32位）</td></tr><tr><td>&nbsp;</td><td class="url">208515</td><td class="text">校验值sign错误</td></tr><tr><td>&nbsp;</td><td class="url">208516</td><td class="text">重复的订单号（近60天订单周期内单号不能重复）（需要自行进行二次确认，是否进行失败处理）</td></tr><tr><td>&nbsp;</td><td class="url">208517</td><td class="text">当前账户可用余额不足</td></tr></tbody>
+							        </table>
+							    </div>
+							    <div class="simpleTable">
+							        <p class="linep">系统级错误码参照：</p>
+							        <table class="api-table" border="0" cellspacing="0" cellpadding="0">
+							            <tbody><tr>
+							                <th width="20">&nbsp;</th>
+							                <th width="200">错误码</th>
+							                <th>说明</th>
+							                <th width="150">旧版本（resultcode）</th>
+							            </tr>
+							            </tbody>
+							            	<tbody id="sysErrorCode">
+							            		<tr>
+							            			<td>&nbsp;</td>
+							            			<td class="url">10001</td>
+							            			<td class="text">错误的请求KEY</td>
+							            			<td class="text">101</td>
+							            		</tr>
+							            		<tr><td>&nbsp;</td><td class="url">10002</td><td class="text">该KEY无请求权限</td><td class="text">102</td></tr><tr><td>&nbsp;</td><td class="url">10003</td><td class="text">KEY过期</td><td class="text">103</td></tr><tr><td>&nbsp;</td><td class="url">10004</td><td class="text">错误的OPENID</td><td class="text">104</td></tr><tr><td>&nbsp;</td><td class="url">10005</td><td class="text">应用未审核超时，请提交认证</td><td class="text">105</td></tr><tr><td>&nbsp;</td><td class="url">10007</td><td class="text">未知的请求源</td><td class="text">107</td></tr><tr><td>&nbsp;</td><td class="url">10008</td><td class="text">被禁止的IP</td><td class="text">108</td></tr><tr><td>&nbsp;</td><td class="url">10009</td><td class="text">被禁止的KEY</td><td class="text">109</td></tr><tr><td>&nbsp;</td><td class="url">10011</td><td class="text">当前IP请求超过限制</td><td class="text">111</td></tr><tr><td>&nbsp;</td><td class="url">10012</td><td class="text">请求超过次数限制</td><td class="text">112</td></tr><tr><td>&nbsp;</td><td class="url">10013</td><td class="text">测试KEY超过请求限制</td><td class="text">113</td></tr><tr><td>&nbsp;</td><td class="url">10014</td><td class="text">系统内部异常<font color="red">(调用充值类业务时，请务必联系客服或通过订单查询接口检测订单，避免造成损失)</font></td><td class="text">114</td></tr><tr><td>&nbsp;</td><td class="url">10020</td><td class="text">接口维护</td><td class="text">120</td></tr><tr><td>&nbsp;</td><td class="url">10021</td><td class="text">接口停用</td><td class="text">121</td></tr></tbody>
+							        </table>
+							    </div>
+							    <div class="simpleTable">
+							        <p class="linep">错误码格式说明（示例：200201）：</p>
+							        <table class="api-table" border="0" cellspacing="0" cellpadding="0">
+							            <tbody><tr>
+							                <th width="20">&nbsp;</th>
+							                <th width="200">2</th>
+							                <th width="200">002</th>
+							                <th>01</th>
+							            </tr>
+							            <tr>
+							                <td>&nbsp;</td>
+							                <td>服务级错误（1为系统级错误）</td>
+							                <td>服务模块代码(即数据ID)</td>
+							                <td>具体错误代码</td>
+							            </tr>
+							        </tbody></table>
+							    </div>
+							</div>
+							<!-- 示例代码--->
+							<div class="docs-api-show">
+							    <div class="simpleTable">
+							        <p class="linep">完整教学代码示例：</p>
+					                    <table id="code_table" class="api-table" border="0" cellspacing="0" cellpadding="0">
+					                    	<tbody>
+					                    		<tr class="title">
+					                    			<td width="40">&nbsp;</td>
+					                    			<td width="100">语言</td>
+					                    			<td>标题</td>
+					                    			<td>提供者</td>
+					                    			<td>时间</td>
+					                    		</tr>
+					                    		<tr><td>&nbsp;</td><td class="url">PHP</td><td><a href="http://code.juhe.cn/docs/177" class="blue" target="_blank">话费充值接口示例代码</a></td><td>JoneDwyane</td><td>2015-06-16 17:11:38</td></tr><tr><td>&nbsp;</td><td class="url">C#</td><td><a href="http://code.juhe.cn/docs/1341" class="blue" target="_blank">手机话费充值接口调用示例</a></td><td>JoneDwyane</td><td>2015-09-15 13:34:26</td></tr><tr><td>&nbsp;</td><td class="url">Go</td><td><a href="http://code.juhe.cn/docs/1479" class="blue" target="_blank">手机话费充值接口调用示例</a></td><td>JoneDwyane</td><td>2015-09-15 19:17:51</td></tr><tr><td>&nbsp;</td><td class="url">JAVA</td><td><a href="http://code.juhe.cn/docs/181" class="blue" target="_blank">手机话费充值-java示例</a></td><td>健哥</td><td>2016-04-20 17:21:11</td></tr><tr><td>&nbsp;</td><td class="url">C#</td><td><a href="http://code.juhe.cn/docs/200" class="blue" target="_blank">手机话费充值示例</a></td><td>test</td><td>2015-07-17 11:40:48</td></tr></tbody></table>
+					            </div>
+							    <div class="simpleTable">
+							        <p class="linep">常见问题：</p>
+							        <table id="code_table" class="api-table" border="0" cellspacing="0" cellpadding="0">
+							            <tbody><tr>
+							                <th width="20">&nbsp;</th>
+							                <th width="200">内容</th>
+							                <th>详细</th>
+							            </tr>
+							            <tr>
+							                <td>&nbsp;</td>
+							                <td class="url">常见问题:</td>
+							                <td class="url"><a href="http://www.juhe.cn/qa/index/1577096951" class="blue" target="_blank" rel="noopener noreferrer">http://www.juhe.cn/qa/index/1577096951</a>
+							                </td>
+							            </tr>
+							        </tbody></table>
+							    </div>
+							</div>
+							<!-- contact us -->
+							<div class="docs-api-show">
+								<div class="simpleline simpleTable">
+									<p class="linep">联系我们</p>
+									<table class="api-table" border="0" cellspacing="0" cellpadding="0">
+										<tr class="title">
+											<td width="40">&nbsp;</td>
+											<td width="200">内容</td>
+											<td>详细</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td class="text">售前咨询①:</td>
+											<td class="url">0512-87169036</td>
+										</tr>
+		
+										<tr>
+											<td>&nbsp;</td>
+											<td class="text">售前咨询②:</td>
+											<td class="url">0512-88869172</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td class="text">客服热线:</td>
+											<td class="url">400-882-7715</td>
+										</tr>
+		
+										<tr>
+											<td>&nbsp;</td>
+											<td class="text">在线客服QQ:</td>
+											<td class="url">
+												<a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=800076065&f=1&ty=1&aty=0&a=&from=6" target="_blank" rel="noopener noreferrer">800076065</a>
+											</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td class="text">接口测试:</td>
+											<td class="text">
+												<a href="/box/index/id/85" target="_blank" rel="noopener noreferrer">API测试工具</a>
+											</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td class="text">技术支持:</td>
+											<td class="url">info@juhe.cn</td>
+										</tr>
+		
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		
+			</section>
+		</div>
+
+		<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			//选项卡
+			function tabs(tabTit, on, tabCon) {
+			    $(tabCon).each(function () {
+			        if ($(tabTit + ' li').hasClass('move-api-set') && $('#realAid').val() != 0) {
+			            $(this).children().eq(0).show();
+			        } else {
+			            $(this).children().eq(1).show();
+			        }
+			    });
+			    $(tabTit).each(function () {
+			        if ($(tabTit + ' li').hasClass('move-api-set') && $('#realAid').val() != 0) {
+			            $(this).children().eq(0).addClass(on);
+			            $(this).children().eq(1).removeClass(on);
+			        } else {
+			            $(this).children().eq(1).addClass(on);
+			        }
+			    });
+			    $(tabTit).children().click(function () {
+			        $(this).addClass(on).siblings().removeClass(on);
+			        var index = $(tabTit).children().index(this);
+			        $(tabCon).children().eq(index).show().siblings().hide();
+			    });
+			}
+			tabs(".tabul", "active", ".tabDiv");
+			$('.apides').each(function () {
+			    $(this).mouseover(function () {
+			        $(this).find('.apidescipe').show();
+			    }).mouseout(function () {
+			        $(this).find('.apidescipe').hide();
+			    })
+			})
+			
+			$(document).ready(function() {
+				$("body").on('click', ".codetabli", function() {
+					$(".codetabli").removeClass("active");
+					var tabId = $(this).attr("data");
+					$(this).addClass("active");
+					$(".code-demo-show").css("display", "none");
+					$("#" + tabId).css("display", "");
+				});
+
+				$('body').on('click', '.juhe_apiapps_sample', function() {
+					var data = $(this).attr('data');
+					if(apiapp_demo[data]) layer.open(apiapp_demo[data]);
+				});
+			});
+
+			initPackages();
+		</script>
+
+	</body>
+
+</html>

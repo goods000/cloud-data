@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>系统操作日志</title>
+		<meta name="csrf-token" content="aLBcFEnLPuYzBQdttNdTdnOwXnVDrEiw7mFfjNWt">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<link rel="stylesheet" type="text/css" href="csspoints.css" />
+		<link rel="stylesheet" type="text/css" href="css/activity.css" />
+		<link rel="stylesheet" type="text/css" href="css/sms.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<!--<style>
+			.origin-data {color: #03c5ff}
+			.new-data {color: red}
+		</style>-->
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+		<div id="header"></div>
+
+		<!-- main start -->
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="3" num="5"></div>
+			
+			<!-- 正文内容 -->
+			<section id="ucenterSection" class="smsSection">
+				<ul class="purchaseTabUl clearfix newWorkTab">
+					<li class="active">
+						<a href="">操作日志</a>
+					</li>
+					<li class="">
+						<a href="loginLog.html">登录日志</a>
+					</li>
+				</ul>
+
+				<div class="ucenterTable select-sms frame" style="margin: 0 0;background: none;">
+					<div class="centerFormUl clearfix">
+						<form action="/ucenter/safeCenter/system" method="post" id="ajaxDataList" class="exportForm clearfix smslot-form bak">
+							<div class="exportDiv">
+								<label>操作类型：</label>
+								<select name="action" id="search-action-type" class="selectStyle bak">
+									<option value="">--选择操作--</option>
+									<option value="updateUserPassword">更新密码</option>
+									<option value="54SmsTplDelete">删除短信API模板</option>
+									<option value="288SmsTplDelete">删除金融短信模板</option>
+									<option value="mobileEmailChange">用户手机或邮箱变更</option>
+									<option value="secondCheckLog">二次验证开启关闭变更</option>
+									<option value="secondCheckMobile">二次验证码手机号变更</option>
+									<option value="whiteIpChange">更新白名单</option>
+									<option value="changeMemberContact">更新实名联系人</option>
+								</select>
+							</div>
+							<input type="hidden" name="page" value="1" id="paginate-page">
+						</form>
+					</div>
+				</div>
+				<div class="ucenterTable tem-tab" id="systemActionLog"><table class="ucenterTable activityTable getlistTable" style="width: 100%">
+				    <tbody>
+					    <tr>
+					        <th style="width: 50px">#</th>
+					        <th style="width: 200px">操作</th>
+					        <th style="width: 200px">Ip</th>
+					        <th>操作时间</th>
+					    </tr>
+				        <tr>
+				            <td>1</td>
+				            <td class="activityTd1">更新白名单</td>
+				            <td class="no-bottom">119.123.35.237</td>
+				            <td class="activityTd1">2019-12-21 10:38:42</td>
+				        </tr>
+				        <tr>
+				            <td>2</td>
+				            <td class="activityTd1">更新白名单</td>
+				            <td class="no-bottom">219.134.114.49</td>
+				            <td class="activityTd1">2019-12-18 18:16:53</td>
+				        </tr>
+				        <tr>
+				            <td>3</td>
+				            <td class="activityTd1">更新白名单</td>
+				            <td class="no-bottom">219.134.114.49</td>
+				            <td class="activityTd1">2019-12-18 18:16:46</td>
+				        </tr>
+				        <tr>
+				            <td>4</td>
+				            <td class="activityTd1">更新白名单</td>
+				            <td class="no-bottom">219.134.114.49</td>
+				            <td class="activityTd1">2019-12-18 18:16:41</td>
+				        </tr>
+				        <tr>
+				            <td>5</td>
+				            <td class="activityTd1">更新白名单</td>
+				            <td class="no-bottom">219.134.114.49</td>
+				            <td class="activityTd1">2019-12-18 18:16:36</td>
+				        </tr>
+				    </tbody>
+				</table>
+			</div>
+			</section>
+		</div>
+
+		<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+
+			$(document).ready(function() {
+
+				$.ajax({
+					url: '/ucenter/siteMsg/count',
+					type: 'get',
+					dataType: 'json',
+					success: function(obj) {
+						var count = obj.result.newMsgCount;
+						if(count > 99) {
+							count = '99+'
+						}
+						if(count) {
+							$('#new-msg-count').html(count)
+						}
+					}
+				})
+				//ucenter 统一使用的提交方式:ajaxsubmit,所以当用户登录失效的时候无法跳转到指定页面,
+				//添加下面对button 按钮的监视,如果为失效继续下面动作,如果点击按钮的时候登录失效了,就跳转到指定页面,如登录页面
+				$('.ajax-check-login,button,input:button').click(function(event) {
+					var login = true;
+					$.getJSON('/login/loginStatus', function(obj) {
+						if(obj.code == '-1') {
+							if(self == top) {
+								window.location.href = obj.acturl;
+							} else {
+								parent.window.location.reload();
+							}
+							login = false;
+						}
+					})
+
+					if(!login) {
+						event.stopImmediatePropagation();
+					}
+				})
+
+				$("input[name=q]").focus(function() {
+					document.onkeydown = function(e) {
+						var ev = document.all ? window.event : e;
+						if(ev.keyCode == 13) {
+							$("#searchBtn").click();
+						}
+					}
+				})
+
+			})
+			// 退出登录
+			function logout() {
+				$.getJSON('/logout', function(obj) {
+					window.location.href = '/';
+				})
+			}
+
+			$("input[name=q]").focus(function() {
+				document.onkeydown = function(e) {
+					var ev = document.all ? window.event : e;
+					if(ev.keyCode == 13) {
+						$("#searchBtn").click();
+					}
+				}
+			})
+
+			// header里的搜索框
+			$("#searchBtn").click(function() {
+				var q = $("input[name=q]").val();
+				q = q.replace(/\//g, '');
+
+				if(q.length == '') {
+					$("input[name=q]").focus();
+					return false;
+				}
+
+				var searchUrl = '/docs/s/q/%40q%40';
+				searchUrl = searchUrl.replace(/%40q%40/, encodeURIComponent(q));
+				window.location.href = searchUrl;
+			})
+
+			$(document).ready(function() {
+
+			})
+		</script>
+		<script src="/js/ucenter/paginateAj.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/ucenter/safeCenter/actionLog.js?v=1.3" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>密码修改</title>
+		<meta name="csrf-token" content="aLBcFEnLPuYzBQdttNdTdnOwXnVDrEiw7mFfjNWt">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<link rel="stylesheet" type="text/css" href="css/points.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+		<div id="header"></div>
+		
+		<!-- main start -->
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="3" num="3"></div>
+			
+			<!-- 正文内容 -->
+			<section id="ucenterSection">
+				<h2 class="centerTitle">密码修改</h2>
+				<div class="ContentDiv">
+					<form class="moneyListForm pwdForm" method="post" action="/ucenter/safeCenter/editPwd">
+						<div class="clearfix">
+							<ul class="centerFormUl">
+								<li class="clearfix">
+									<label class="labelLeft">用户名：</label>
+									<div class="labelRight">
+										<span>13530354377</span>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">原始密码：</label>
+									<div class="labelRight">
+										<input type="text" name="oldPassword" class="inputText pwdinput" />
+										<i class="errorTips errorOld" hidden="true"><span class="iconfont">&#xe604;</span><em></em></i>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">新建密码：</label>
+									<div class="labelRight">
+										<input type="text" name="newPassword" class="inputText pwdinput" />
+										<i class="errorTips errorNew" hidden="true"><span class="iconfont">&#xe604;</span><em></em></i>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">确认密码：</label>
+									<div class="labelRight">
+										<input type="text" name="newPassword2" class="inputText pwdinput" />
+										<i class="errorTips errorRepeat" hidden="true"><span class="iconfont">&#xe604;</span><em></em></i>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">&nbsp;</label>
+									<div class="labelRight">
+										<button type="button" class="centerBtn">确定</button>
+										<i class="errorTips errorRepeat" hidden="true"><span class="iconfont">&#xe604;</span><em></em></i>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+		</div>
+
+		<script src="js/jquery.form.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/json.parse.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.pwdinput').focus(function() {
+				$(this).attr('type', 'password');
+			});
+
+			// 任何表单元素有输入行为时，隐藏错误提示
+			$(':input').on('input', function() {
+				$('.errorTips').hide();
+			})
+
+			// 原始密码输入完毕，检查原始密码是否正确
+			$(':input[name=oldPassword]').blur(function() {
+				$('.errorTips').hide();
+				if(!$(this).val()) {
+					$(':input[name=oldPassword]').siblings('.errorTips').show().find('em').html('请输入原始密码');
+					$(this).focus()
+					return false;
+				}
+				var that = $(this)
+				$.post(
+					"/ucenter/safeCenter/checkOldPwd", {
+						oldPassword: $(':input[name=oldPassword]').val()
+					},
+					function(data) {
+						if(1209 == data.code) {
+							$(':input[name=oldPassword]').siblings('.errorTips').show().find('em').html('原始密码输入错误');
+							that.focus()
+						} else if(1008 == data.code) {
+							$(':button.centerBtn').siblings('.errorTips').show().find('em').html(data.reason);
+						}
+					},
+					"json" //json,html,xml,text
+				);
+			})
+
+			$('.pwdForm').find('.centerBtn').click(function() {
+				// 隐藏错误提示
+				$('.errorTips').hide();
+
+				if(!$(':input[name=oldPassword]').val()) {
+					$(':input[name=oldPassword]').focus();
+					$(':input[name=oldPassword]').siblings('.errorTips').show().find('em').html('请输入原始密码');
+					return false;
+				} else if(!$(':input[name=newPassword]').val()) {
+					$(':input[name=newPassword]').focus();
+					$(':input[name=newPassword]').siblings('.errorTips').show().find('em').html('请输入新建密码');
+					return false;
+				} else if(!$(':input[name=newPassword2]').val()) {
+					$(':input[name=newPassword2]').focus();
+					$(':input[name=newPassword2]').siblings('.errorTips').show().find('em').html('请输入确认密码');
+					return false;
+				} else if($(':input[name=newPassword]').val() !== $(':input[name=newPassword2]').val()) {
+					$(':input[name=newPassword]').focus();
+					$('.pwdForm').find('.centerBtn').siblings('.errorTips').show().find('em').html('两次输入的密码不一致');
+					return false;
+				}
+				var that = $(this);
+				that.prop('disabled', true);
+				$('.pwdForm').ajaxSubmit({
+					dataType: 'json',
+					success: function(obj) {
+						if(obj.code) {
+							layerError(obj.reason)
+						} else {
+							layer.msg('密码更新成功', {
+								icon: 1,
+								shadeClose: true,
+								shade: 0.3
+							}, function() {
+								logout();
+							})
+						}
+						that.prop('disabled', false);
+					}
+				})
+			})
+		</script>
+
+	</body>
+
+</html>

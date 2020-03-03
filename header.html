@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<header class="clearfix" id="header">
+			<a href="index.html" class="centerLogo"  rel="noopener noreferrer">
+				<img src="img/logo.png" alt="云途数据" />
+			</a>
+			<div class="centerSearch">
+				<input class="searchText" name="q" type="text" placeholder="搜索" />
+				<button id='searchBtn' type="button" class="searchBtn seachIcon"></button>
+			</div>
+			<ul class="headerUl clearfix">
+				<li class="myMsg">
+					<a href="news.html">
+						<span>未读消息（<font color="#63C3CA" id="new-msg-count">10</font>）</span>
+					</a>
+				</li>
+				<li class="headerLi1">
+					<div class="headerInfo"><span>13647836224</span><i class="headerIcon1 centerIcon"></i></div>
+					<a class="centerLogout" href="home.html">退出登录</a>
+				</li>
+				<li>
+					<a href="problem.html"  rel="noopener noreferrer">常见问题</a>
+				</li>
+				<li class="headerLi3">
+					<div class="headerFoucs"><span>关注云途</span><i class="headerIcon1 centerIcon"></i></div>
+					<div class="juheCode">
+						<img src="https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/logo/qrcode_for_gh_949f737d8e63_258.jpg" style="width: 100px">
+					</div>
+				</li>
+				<li>
+					<a class="headerContact" href="contactUs.html"  rel="noopener noreferrer">联系我们</a>
+				</li>
+			</ul>
+		</header>
+	</body>
+	<script src="js/ucenterPublic.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		// 退出登录
+			function logout() {
+				$.getJSON('/logout', function(obj) {
+					window.location.href = '/';
+				})
+			}
+
+			$("input[name=q]").focus(function() {
+				document.onkeydown = function(e) {
+					var ev = document.all ? window.event : e;
+					if(ev.keyCode == 13) {
+						$("#searchBtn").click();
+					}
+				}
+			})
+
+			// header里的搜索框
+			$("#searchBtn").click(function() {
+				var q = $("input[name=q]").val();
+				q = q.replace(/\//g, '');
+
+				if(q.length == '') {
+					$("input[name=q]").focus();
+					return false;
+				}
+
+				var searchUrl = '/docs/s/q/%40q%40';
+				searchUrl = searchUrl.replace(/%40q%40/, encodeURIComponent(q));
+				window.location.href = searchUrl;
+			})
+
+			$(document).ready(function() {
+
+				$("input[name=q]").focus(function() {
+					document.onkeydown = function(e) {
+						var ev = document.all ? window.event : e;
+						if(ev.keyCode == 13) {
+							$("#searchBtn").click();
+						}
+					}
+				})
+			})
+
+			$('a[href="http://crm2.qq.com/page/portalpage/wpa.php?uin=800076065&f=1&ty=1&aty=0&a=&from=6"]').bind('click', function() {
+				nslog(1121);
+			});
+	</script>
+</html>

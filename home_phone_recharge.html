@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>话费立即缴费</title>
+		<meta name="csrf-token" content="ykoGpaaRpmMbdLjF6lZxniUFAUH6lhHu2FNtahiD">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css"/>
+		<link rel="stylesheet" type="text/css" href="css/home-white.css"/>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.width1200{margin: 6% auto 0;}
+		</style>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header-nav">
+				<div class="header-logo">
+					<a class="header-logo-pic"></a>
+				</div>
+				<div class="header-menu">
+					<div class="header-menu-item  active ">
+						<a class="header-title" href="home.html">首页</a>
+					</div>
+					<div class="header-menu-item  ">
+						<a class="header-title" href="">个人中心</a>
+					</div>
+					<div class="header-menu-item  ">
+						<a class="header-title" href="">API</a>
+					</div>
+				</div>
+				<div class="header-action">
+					<div class="header-line"></div>
+					<div class="header-status">
+						<a class="header-btn1" href="login.html">登录</a>
+						<a class="header-btn2" href="register.html">注册</a>
+					</div>
+					<!--<div class="header-status">
+						<a class="hui">账号：13636822478</a>
+						<a class="header-btn1" href="">退出</a>-->
+					</div>
+				</div>
+			</div>
+		</header>
+		
+		<div class="width1200">
+			<div class="buyDataContent rightBackground">
+					<h1 class="buyTitle">
+		                <img src="img/phone.png"/>
+		                <span>话费充值</span>
+                    </h1>
+					<form action="" method="post" class="buyDataForm clearfix" target="_blank" rel="noopener noreferrer">
+						<ul class="centerFormUl">
+							<li class="clearfix buyDataLi">
+								<label class="labelLeft">手机号码：</label>
+								<div class="labelRight">
+									<input type="number" id="" name="pkgNums" class="buyDataNum inputText" value="" placeholder="请输入手机号码"/>
+								</div>
+							</li>
+							<li class="clearfix buyDataLi">
+								<label class="labelLeft">充值金额：</label>
+								<div class="labelRight specs">
+									<span class="inputText gg active">10元</span>
+									<span class="inputText gg">50元</span>
+									<span class="inputText gg">100元</span>
+									<span class="inputText gg">200元</span>
+									<span class="inputText gg">500元</span>
+								</div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">充值方式：</label>
+								<div class="labelRight">
+									<select name="action" id="search-action-type" class="selectStyle bak">
+										<option value="">--选择操作--</option>
+										<option value="">微信支付</option>
+										<option value="">支付宝支付</option>
+										<option value="">余额支付</option>
+									</select>
+								</div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">&nbsp;</label>
+								<div class="labelRight"></div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">&nbsp;</label>
+								<div class="labelRight">
+									<button type="button" class="centerBtn" id="">确定支付</button>
+								</div>
+							</li>
+							<li class="clearfix" style="padding-top: 18px;">
+								<label class="labelLeft">&nbsp;</label>
+								<div class="labelRight tips">
+									充值时间为每天9:00-18:00,18:00后充值将延时到帐
+								</div>
+							</li>
+						</ul>
+					</form>
+					<div id="payQuestion" style="display:none">
+						<div class="payQuestion centerlayerDiv">
+							<h3 class="layerTitle">
+					            <span>支付宝在线充值</span>
+					            <a class="layerCloseA iconfont" href="javascript:void(0);">&#xe625;</a>
+					        </h3>
+							<div class="layerContent">
+								<p>
+									<font color="#03c5ff"><i class="iconfont">&#xe632;</i></font>请在新页面完成充值</p>
+								<button type="button" class="centerBtn paySuccess">充值成功</button>&nbsp;&nbsp;
+								<button type="button" class="centerBtn payFailed inputBtn">遇到问题</button>
+							</div>
+						</div>
+					</div>
+
+					<div id="wechat-qr-code" style="display: none">
+						<div style="width:360px;height:260px;padding:10px 20px;">
+							<div style="width:360px;background-color:#fff">
+								<div class="qr-code" style="display:inline-block;"></div>
+								<img width="130px" src="https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/logo/v1/wechat-pay-demo.png" />
+							</div>
+							<p style="margin:10px auto;text-align:center;font-size:16px">请使用微信扫描二维码支付</p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="white_bak">
+					<dl class="online-des frame">
+						<dt style="padding-bottom:5px;"><b>云途数据充值须知 ：     </b></dt>
+						<dd>1、目前支持话费充值与中石化实体卡充值业务,加油卡副卡无法进行充值,不支持电子卡充值业务。</dd>
+						<dd>2、每张卡每天充值不得超过6次,超过6次会导致充值到帐延迟与到帐时间。</dd>
+						<dd>3、平台充值时间：早上9:00-18:00,工作时间后充值及周六、日及节假日期间充值可能会出现延迟到次日到帐。</dd>
+						<dd>4、充值时为10-30分钟左右到账,夜间充值可能存在延迟到账,每日22:45至次日凌晨2:00为中石化官方维护时间,期间充值可能延迟,所有订单将于中石化维护完成后统一充值,如出现充值不到帐问题,可联系客服及时处理。</dd>
+						<dd>5、为确保账户资金安全,充值后金额自动储存在“待圈存金额中”,请前往任意加油站的自助终端设备上行圈存。</dd>
+						<dd>
+							<span style="color: #FF5918">
+								6、话费、加油卡充值,请您谨慎核对电话号码及充值卡号和身份信息,如果自己输入错误号码,支付充值成功,将不予退款,责任自负。
+							</span>
+						</dd>
+					</dl>
+				</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		$(".specs").children().each(function(){
+			$(this).click(function(){
+				$(this).addClass("active").siblings().removeClass("active");
+			})
+		})
+	</script>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>申请数据</title>
+		<meta name="csrf-token" content="rb6gSAZ9hznCNMrni75uscBi5QlgsV9xrzeKK0uj">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<link rel="stylesheet" type="text/css" href="css/points.css" />
+		<link rel="stylesheet" href="css/apply.css">
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+		<div id="header"></div>
+
+		<!-- main start -->
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="2" num="1"></div>
+
+			<!-- 正文内容 -->
+			<section id="ucenterSection">
+				<h2 class="centerTitle">
+            <a class="titleA" href="myData.html">我的数据</a>
+            <i>&nbsp;&gt;</i>
+            <span>申请数据</span>
+        </h2>
+				<div class="rightBackground clearfix">
+					<form class="search-content" action="">
+						<input class="search-api-text" id="keyword" name="keyword" value="" type="text" placeholder="请输入想要检索的API">
+						<button class="search-api-btn" type="submit" id="api-search-button">&nbsp;</button>
+					</form>
+					<div class="apply-content">
+						<div class="apply-left">
+							<ul class="dataCategory">
+								<li id="" class="active">生活服务</li>
+
+							</ul>
+						</div>
+						<div class="apply-right">
+							<div class="opacityTop"></div>
+							<div class="opacityBottom"></div>
+							<div class="list-wrapper">
+								<ul class="cate-list dataList clearfix">
+									<li class="active" id="">
+										<img src="img/phone.png" />
+										<span class="span-folder">话费接口</span>
+									</li>
+
+									<li data-prenums="（初始赠送：100次）" id="data32">
+										<img src="img/iso.png" />
+										<span class="span-folder">加油卡接口</span>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="apply-main">
+					<form action="" method="post" class="apply-form-content">
+						<div class="select-line1 clearfix">
+							<div class="line-left">
+								<label>当前选择：</label>
+								<span id="nowSelectedData">
+                            		<img src="img/big_phone.png"/>
+		                            <b class="data-name">话费接口</b>
+		                        </span>
+								<span id="prenums">（初始赠送：20次）</span>
+								<input name="did" value="490" type="hidden" />
+							</div>
+							<div class="line-right legalFloat">
+								<!-- <div class="apply-protocol">我已仔细阅读<a href="">《聚合用户服务协议》</a>，并确保合法使用此数据，不得用于一切违法行为！</div> -->
+								<div class="apply-legal" id="juheLegal">
+									<input id="legal-check" class="apply-check" name="accepted" type="checkbox">
+									<label for="legal-check" class="label-check"></label>
+									<span class="legal-link">我已阅读并同意<a href="javascript:void(0)" class="apply-buy-legal">《API申请购买服务协议》</a>，并确保合法使用此数据，不得用于一切违法行为！</span>
+								</div>
+								<div class="apply-legal" id="gasCardLaw">
+									<input id="legal-check1" class="apply-check" name="accepted" type="checkbox">
+									<label for="legal-check1" class="label-check"></label>
+									<span class="legal-link">我已阅读并同意<a href="javascript:void(0)" class="apply-buy-legal">《API申请购买服务协议》</a><a href="javascript:void(0)" id="gasCardLawLink">《加油充值服务条款》</a>，并确保合法使用此数据，不得用于一切违法行为！</span>
+								</div>
+								<div class="apply-legal" id="phoneRechargeLaw">
+									<input id="legal-check2" class="apply-check" name="accepted" type="checkbox">
+									<label for="legal-check2" class="label-check"></label>
+									<span class="legal-link">我已阅读并同意<a href="javascript:void(0)" class="apply-buy-legal">《API申请购买服务协议》</a><a href="javascript:void(0)" id="phoneRechargeLawLink">《话费充值服务条款》</a>，并确保合法使用此数据，不得用于一切违法行为！</span>
+								</div>
+								<div class="apply-legal" id="rechargeLaw">
+									<input id="legal-check3" class="apply-check" name="accepted" type="checkbox">
+									<label for="legal-check3" class="label-check"></label>
+									<span class="legal-link">我已阅读并同意<a href="javascript:void(0)" class="apply-buy-legal">《API申请购买服务协议》</a><a href="javascript:void(0)" id="rechargeLawLink">《充值服务条款》</a>，并确保合法使用此数据，不得用于一切违法行为！</span>
+								</div>
+								<li class="clearfix" id="gasCardLaw" style="display: none">
+									<label class="labelLeft">&nbsp;</label>
+									<div class="labelRight">
+										<label>
+								            <input type="checkbox" name="accepted" />&nbsp;&nbsp;我已阅读并接受
+								            <a style="color: #fe514a;" href="javascript:void(0)" id="gasCardLawLink">《加油充值服务条款》</a>
+								        </label>
+										<i class="errorTips"><span class="iconfont">&#xe604;</span><em>请接受加油充值服务条款</em></i>
+									</div>
+								</li>
+								<li class="clearfix" id="phoneRechargeLaw" style="display: none">
+									<label class="labelLeft">&nbsp;</label>
+									<div class="labelRight">
+										<label>
+								            <input type="checkbox" name="accepted" />&nbsp;&nbsp;我已阅读并接受
+								            <a style="color: #fe514a;" href="javascript:void(0)" id="phoneRechargeLawLink">《话费充值服务条款》</a>
+								        </label>
+										<i class="errorTips"><span class="iconfont">&#xe604;</span><em>请接受话费充值服务条款</em></i>
+									</div>
+								</li>
+								<li class="clearfix" id="rechargeLaw" style="display: none">
+									<label class="labelLeft">&nbsp;</label>
+									<div class="labelRight">
+										<label>
+								            <input type="checkbox" name="accepted" />&nbsp;&nbsp;我已阅读并接受
+								            <a style="color: #fe514a;" href="javascript:void(0)" id="rechargeLawLink">《充值服务条款》</a>
+								        </label>
+										<i class="errorTips"><span class="iconfont">&#xe604;</span><em>请接受充值服务条款</em></i>
+									</div>
+								</li>
+							</div>
+						</div>
+						<div class="select-line2 clearfix">
+							<div class="line-left">
+								<p class="recharge-show">*本代充值服务由充值服务提供方向您提供，聚合提示您，由于是代充值服务故聚合在任何情况下不提供充值发票，请慎重充值。</p>
+								<p class="recharge-show">本业务申请完毕，需签署纸质合同，方可开通进行对接使用。</p>
+							</div>
+							<div class="line-right">
+								<button type="button" class="centerBtn fourBtn" id="applyBtn">立即申请</button>
+								<p class="errorTips apply-errorTips" style="display: none"><span class="iconfont">&#xe604;</span><em></em></p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</section>
+			<div id="mobileLayerPop" style="display: none">
+				<div class="mobileLayer centerlayerDiv">
+					<h3 class="layerTitle">
+            <span>首次申请数据需要绑定手机号码</span>
+            <a class="layerCloseA iconfont" href="javascript:layer.closeAll();">&#xe625;</a>
+        </h3>
+					<form class="formWaring mobileForm" action="/ucenter/mobileCode/verifyCode" method="post">
+						<ul class="centerFormUl">
+							<li class="clearfix disabledLi">
+								<label class="labelLeft"><span class="required">*</span>手机号码：</label>
+								<div class="labelRight">
+									<input type="tel" name="mobile" id="sendToMobile" value="" class="inputText mobileInput" />
+									<i class="errorTips" style="display: none;"><span class="iconfont">&#xe604;</span><em></em></i>
+								</div>
+							</li>
+							<li class="clearfix disabledLi">
+								<label class="labelLeft"><span class="required">*</span>验证码：</label>
+								<div class="labelRight">
+									<input type="text" name="mobilecode" id="verifyCode" value="" class="inputText vecodeInput" />
+									<button type="button" class="inputBtn centerBtn smsBtn" style="padding: 0">获取验证码</button>
+									<i class="errorTips" style="display: none;"><span class="iconfont">&#xe604;</span><em>绑定手机号，才能申请数据</em></i>
+								</div>
+							</li>
+							<li class="clearfix disabledLi">
+								<label class="labelLeft">&nbsp;</label>
+								<div class="labelRight">
+									<button type="button" class="centerBtn">确定</button>
+								</div>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+
+			<div id="bankApiCheck" class="bankApiCheck" style="display: none">
+				<div>
+					<p style="font-weight: bolder;">致：天聚地合（苏州）数据股份有限公司</p>
+
+					<p style="font-weight: bolder;text-indent: 2em;margin-top: 10px">为切实加强业务的安全使用和规范管理，保障用户的合法权益，响应工信部、人行及公安等监管部门的政策要求， 现我公司就接受天聚地合大数据综合数据技术服务事宜，做出如下郑重承诺：</p>
+
+					<p style="font-weight: bolder;text-indent: 2em;margin-top: 10px ">一、我公司及商户所有业务均不涉嫌“714高炮”、“砍头息”等违规高利贷行为；不涉及“套路贷”和暴力、违法催收类行为；亦不涉及骚扰第三方联系人，以及诈骗、骚扰、涉黄、涉暴、危害国家安全和社会稳定的违法活动。如因此引发的外部投诉、负面舆情和违法责任将由我公司全部承担。</p>
+
+					<p style="font-weight: bolder;text-indent: 2em;margin-top: 10px">二、我公司及商户如出现任何违反上述承诺的情况，聚合科技有权单方面关停业务，以及单方面终止业务合作协议等。</p>
+
+					<p style="font-weight: bolder;text-indent: 2em;margin-top: 10px">三、此承诺函在我司与聚合科技所有项目合作期间均有效。</p>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="js/jquery.form.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/json.parse.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ucenterPublic.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/juheValidate.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+
+			$(document).ready(function() {
+
+				$.ajax({
+					url: '/ucenter/siteMsg/count',
+					type: 'get',
+					dataType: 'json',
+					success: function(obj) {
+						var count = obj.result.newMsgCount;
+						if(count > 99) {
+							count = '99+'
+						}
+						if(count) {
+							$('#new-msg-count').html(count)
+						}
+					}
+				})
+				//ucenter 统一使用的提交方式:ajaxsubmit,所以当用户登录失效的时候无法跳转到指定页面,
+				//添加下面对button 按钮的监视,如果为失效继续下面动作,如果点击按钮的时候登录失效了,就跳转到指定页面,如登录页面
+				$('.ajax-check-login,button,input:button').click(function(event) {
+					var login = true;
+					$.getJSON('/login/loginStatus', function(obj) {
+						if(obj.code == '-1') {
+							if(self == top) {
+								window.location.href = obj.acturl;
+							} else {
+								parent.window.location.reload();
+							}
+							login = false;
+						}
+					})
+
+					if(!login) {
+						event.stopImmediatePropagation();
+					}
+				})
+
+				$("input[name=q]").focus(function() {
+					document.onkeydown = function(e) {
+						var ev = document.all ? window.event : e;
+						if(ev.keyCode == 13) {
+							$("#searchBtn").click();
+						}
+					}
+				})
+
+			})
+			// 退出登录
+			function logout() {
+				$.getJSON('/logout', function(obj) {
+					window.location.href = '/';
+				})
+			}
+
+			$("input[name=q]").focus(function() {
+				document.onkeydown = function(e) {
+					var ev = document.all ? window.event : e;
+					if(ev.keyCode == 13) {
+						$("#searchBtn").click();
+					}
+				}
+			})
+
+			// header里的搜索框
+			$("#searchBtn").click(function() {
+				var q = $("input[name=q]").val();
+				q = q.replace(/\//g, '');
+
+				if(q.length == '') {
+					$("input[name=q]").focus();
+					return false;
+				}
+
+				var searchUrl = '/docs/s/q/%40q%40';
+				searchUrl = searchUrl.replace(/%40q%40/, encodeURIComponent(q));
+				window.location.href = searchUrl;
+			})
+
+			$(document).ready(function() {
+
+			})
+		</script>
+
+		<script src="js/apiApply.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var applyId = '490';
+			var difference = '0';
+			resetSmsBtn(difference);
+			$(function() {;
+			})
+		</script>
+
+	</body>
+
+</html>

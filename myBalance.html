@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的余额</title>
+		<meta name="csrf-token" content="nNtl3ByK8sQ1dFDakv3OD8DpalGXy3xkcBPor5Ui">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<link rel="stylesheet" type="text/css" href="csspoints.css" />
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css" />
+		<link rel="stylesheet" type="text/css" href="css/indexTop.css" />
+		<link rel="stylesheet" type="text/css" href="css/indexIcon.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+		<div id="header"></div>
+
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="4" num="1"></div>
+
+			<!-- 正文内容 -->
+			<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+				<section id="ucenterSection">
+					<h2 class="centerTitle">我的余额</h2>
+					<!-- <div class="ContentDiv"> -->
+					<div class="ContentDiv new-content-money">
+						<div class="moneyListDiv clearfix">
+							<ul class="moneyListUl centerFormUl clearfix" style="padding-bottom: 0px">
+								<li class="clearfix" style="width: 290px">
+									<label class="labelLeft">账户余额：</label>
+									<div class="labelRight">
+										<span><font style="font-size: 20px; padding-right: 5px;" color="#fe514a">8.880</font>元</span>
+									</div>
+								</li>
+
+								<li class="clearfix">
+									<label class="labelLeft">冻结资金：</label>
+									<div class="labelRight">
+										<span><font style="font-size: 16px; font-weight: bold; padding-right: 5px;" color="#3ed493">0.000</font>元</span>
+									</div>
+								</li>
+							</ul>
+							<ul class="moneyListUl centerFormUl clearfix" style="padding-top: 0px">
+								<li class="clearfix">
+									<label class="labelLeft">余额预警：</label>
+									<div class="labelRight">
+										<label>
+							                <span class="iconfont waringOn onOff" style="display: none;">&#xe609;</span>
+							                <span class="iconfont waringOff onOff">&#xe608;</span>
+							                <input type="checkbox" class="onOffCheckbox"/>
+							            </label>
+									</div>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+					<ul class="purchaseTabUl clearfix newWorkTab">
+						<li class="active">
+							<a>支付宝转账</a>
+						</li>
+						<li class="">
+							<a>微信转账</a>
+						</li>
+						<li class="">
+							<a>银行卡转账</a>
+						</li>
+					</ul>
+					<div class="ContentDiv tab-content">
+						<!--支付宝-->
+						<div class="moneyListDiv clearfix">
+							<ul class="centerFormUl zhuanzhang-ul zhuanzhang-money-ul">
+								<li class="clearfix" style="padding-top: 22px;">
+									<label class="labelLeft">充值金额：</label>
+									<div class="labelRight">
+										<input type="number" name="tradeno" id="tradeno" value="" class="inputText" />
+										<i class="hui">(100的倍数充值)</i>
+									</div>
+								</li>
+								<li class="clearfix" style="padding-top: 18px;">
+									<label class="labelLeft">充值方式：</label>
+									<div class="labelRight">
+										<img src="img/Alipay.png" />
+									</div>
+								</li>
+								<li class="clearfix" style="padding-top: 18px;">
+									<label class="labelLeft">&nbsp;</label>
+									<div class="labelRight">
+										<button type="button" class="centerBtn" id="">确定支付</button>
+									</div>
+								</li>
+
+							</ul>
+						</div>
+						<!--微信-->
+						<div class="moneyListDiv tab-list-money clearfix">
+							<ul class="centerFormUl zhuanzhang-ul zhuanzhang-money-ul">
+								<li class="clearfix" style="padding-top: 22px;">
+									<label class="labelLeft">充值金额：</label>
+									<div class="labelRight">
+										<input type="number" name="tradeno" id="tradeno" value="" class="inputText" />
+										<i class="hui">(100的倍数充值)</i>
+									</div>
+								</li>
+								<li class="clearfix" style="padding-top: 18px;">
+									<label class="labelLeft">充值方式：</label>
+									<div class="labelRight">
+										<img src="img/WeChat.png" />
+									</div>
+								</li>
+								<li class="clearfix" style="padding-top: 18px;">
+									<label class="labelLeft">&nbsp;</label>
+									<div class="labelRight">
+										<button type="button" class="centerBtn" id="">确定支付</button>
+									</div>
+								</li>
+
+							</ul>
+						</div>
+						<!--银行卡-->
+						<div class="moneyListDiv tab-list-money clearfix">
+							<ul class="centerFormUl zhuanzhang-ul zhuanzhang-money-ul">
+								<li class="clearfix" style="padding-top: 22px;">
+									<label class="labelLeft">充值金额：</label>
+									<div class="labelRight">
+										<input type="number" name="tradeno" id="tradeno" value="" class="inputText" />
+										<i class="hui">(100的倍数充值)</i>
+									</div>
+								</li>
+								<li class="clearfix" style="padding-top: 18px;">
+									<label class="labelLeft">充值方式：</label>
+									<div class="labelRight">
+										<img src="img/bankCard.png" />
+									</div>
+								</li>
+								<li class="clearfix" style="padding-top: 22px;">
+									<label class="labelLeft">选择银行卡：</label>
+									<div class="labelRight">
+										<select name="action" id="search-action-type" class="selectStyle bak">
+											<option value="">--选择操作--</option>
+											<option value="">中国建设银行</option>
+											<option value="">中国邮政银行</option>
+										</select>
+									</div>
+								</li>
+								<li class="clearfix" style="height: auto;">
+						            <label class="labelLeft">上传凭证：</label>
+						            <div class="labelRight">
+						            	<div class="opin">
+						            		<input type="file" name="idimg" id="idimg" class="fileText">
+							                <div id="image"  class="image">
+										        <img src="" />
+										    </div>
+						            	</div>
+						                <br><i class="tipsFile">图片大小不要超过2M，支持PNG，JPG格式</i>
+						            </div>
+						        </li>
+								<li class="clearfix" style="padding-top: 18px;">
+									<label class="labelLeft">&nbsp;</label>
+									<div class="labelRight">
+										<button type="button" class="centerBtn" id="">确定支付</button>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="ContentDiv" style="display: none" id="addMobilePhoneDive">
+						<span class="required" style="font-size: 12px;margin-left: 20px">*注：在此关闭任意号码预警，都将关闭余额预警功能；请至列表关闭指定号码预警；</span>
+						<form name="addMobilePhone" id="addMobilePhone" action="/ucenter/safeCenter/accountWarn" method="post">
+							<ul class="centerFormUl">
+								<li class="clearfix disabledMoney">
+									<label class="labelLeft"><span class="required">*</span>状态：</label>
+									<div class="labelRight">
+										<select class="inputText" name="warn_isopen">
+											<option value="1">开启</option>
+											<option value="0">关闭</option>
+										</select>
+									</div>
+								</li>
+								<li class="clearfix disabledMoney warn_moneyLi1">
+									<label class="labelLeft"><span class="required">*</span>预警阈值：</label>
+									<div class="labelRight">
+										<div class="labelRight">
+											<input type="tel" name="warn_money" value="1000" class="inputText" style="width: 170px;" />
+											<i class="errorTips" style="display: none;"><span class="iconfont">&#xe604;</span><em></em></i>
+										</div>
+									</div>
+								</li>
+								<li class="clearfix disabledMoney warn_moneyLi2">
+									<label class="labelLeft"><span class="required">*</span>预警号码：</label>
+									<div class="labelRight">
+										<div class="labelRight">
+											<select class="inputText" multiple="" id="warn_mobilephones" name="warn_mobilephone[]" style="height: 85px;">
+												<option value="13530354377">13530354377（系统默认）</option>
+
+											</select>
+											&nbsp;
+											<a style="color:#03c5ff;" href="warningNumber.html" target="_blank" rel="noopener noreferrer" class="mm">[号码管理]</a>
+										</div>
+									</div>
+								</li>
+								<li class="clearfix" style="height: auto;">
+									<label class="labelLeft">&nbsp;</label>
+									<div class="labelRight">
+										<input type="button" class="centerBtn subBtn" value="确定">
+									</div>
+								</li>
+							</ul>
+						</form>
+					</div>
+				</section>
+				<!-- main content end -->
+			</div>
+			<div id="payQuestion" style="display: none;margin: 0px 0px">
+				<div class="payQuestion centerlayerDiv">
+					<h3 class="layerTitle">
+                    <span>支付宝在线充值</span>
+                    <a class="layerCloseA iconfont" href="javascript:void(0);">&#xe625;</a>
+                </h3>
+					<div class="layerContent">
+						<p>
+							<font color="#03c5ff"><i class="iconfont">&#xe632;</i></font>请在新页面完成充值</p>
+						<button type="button" class="centerBtn paySuccess">充值成功</button>&nbsp;&nbsp;
+						<button type="button" class="centerBtn payFailed inputBtn">充值遇到问题</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="layer/layer.js?1.0" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var $div_li = $('ul.newWorkTab li');
+			$('ul.newWorkTab li').click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+				var index = $div_li.index(this) + 1;
+				$("div.ContentDiv > div").eq(index).show().siblings().hide();
+			})
+			
+			document.getElementById('idimg').onchange = function() {
+				var imgFile = this.files[0];
+			    var fr = new FileReader();
+			    fr.onload = function() {
+			        document.getElementById('image').getElementsByTagName('img')[0].src = fr.result;
+			    };
+			    fr.readAsDataURL(imgFile);
+			};
+
+
+			$(document).ready(function() {
+
+				//ucenter 统一使用的提交方式:ajaxsubmit,所以当用户登录失效的时候无法跳转到指定页面,
+				//添加下面对button 按钮的监视,如果为失效继续下面动作,如果点击按钮的时候登录失效了,就跳转到指定页面,如登录页面
+				$('.ajax-check-login,button,input:button').click(function(event) {
+					var login = true;
+					$.getJSON('/login/loginStatus', function(obj) {
+						if(obj.code == '-1') {
+							if(self == top) {
+								window.location.href = obj.acturl;
+							} else {
+								parent.window.location.reload();
+							}
+							login = false;
+						}
+					})
+
+					if(!login) {
+						event.stopImmediatePropagation();
+					}
+				})
+
+			})
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+
+				$('.waringOnItem,.waringOffItem').click(function() {
+					var that = $(this);
+					var id = that.attr('data-id');
+					var isopen = that.attr('data-value');
+					var mobile = that.attr('data-mobile');
+					if(id && isMobile(mobile)) {
+						$.ajax({
+							url: '/ucenter/safeCenter/accountWarn/' + id,
+							type: 'post',
+							data: 'isopen=' + isopen + '&mobile=' + mobile,
+							dataType: 'json',
+							success: function(obj) {
+								if(obj.code == 0) {
+									layerSuccess(obj.reason, 1)
+								} else {
+									layerError(obj.reason)
+								}
+							}
+						})
+					}
+				});
+
+				$('.remove-warn').click(function() {
+					var that = $(this);
+					var id = that.attr('data-id');
+					var isopen = that.attr('data-value');
+					var mobile = that.attr('data-mobile');
+					if(id && isMobile(mobile)) {
+						layer.confirm('确定移除该预警手机号吗？', {
+							title: '友情提示'
+						}, function() {
+							$.ajax({
+								url: '/ucenter/safeCenter/accountWarn/remove/' + id,
+								type: 'post',
+								data: 'isopen=' + isopen + '&mobile=' + mobile,
+								dataType: 'json',
+								success: function(obj) {
+									if(obj.code == 0) {
+										layerSuccess(obj.reason, 1)
+									} else {
+										layerError(obj.reason)
+									}
+								}
+							})
+						}, function() {
+							layer.closeAll();
+						})
+
+					}
+				})
+
+				$('.show-content').click(function() {
+					if($(this).next('div').css('display') == 'none') {
+						$(this).next().show()
+					} else {
+						$(this).next().hide()
+					}
+				})
+
+				// 要打开时
+				$('.waringOff,.waringOn').click(function() {
+					layer.open({
+						type: 1,
+						title: ['设置余额预警'],
+						content: $('#addMobilePhoneDive'),
+						area: ['500px', 'auto']
+					});
+					$(':input[name=name]').focus();
+
+					// 点击余额预警弹窗里的开启或关闭select时
+					$(':input[name=warn_isopen]').on('input', function() {
+						if('0' == $(this).val()) {
+							$(':input[name=warn_money]').attr('readonly', 'readonly');
+							$(':input[name=warn_money]').parents('.warn_moneyLi1').addClass('disabledLi');
+							$(':input[name=warn_mobilephone]').attr('readonly', 'readonly');
+							$(':input[name=warn_mobilephone]').parents('.warn_moneyLi2').addClass('disabledLi');
+						} else {
+							$(':input[name=warn_money]').removeAttr('readonly');
+							$(':input[name=warn_money]').parents('.warn_moneyLi1').removeClass('disabledLi');
+							$(':input[name=warn_mobilephone]').removeAttr('readonly');
+							$(':input[name=warn_mobilephone]').parents('.warn_moneyLi2').removeClass('disabledLi');
+						}
+					})
+
+				})
+
+				// 点击设置余额预警金额的确定按钮时
+				$('#addMobilePhoneDive .subBtn').click(function() {
+					$(this).val('执行中...').attr("disabled", "disabled");
+					if(!$('#warn_mobilephones').val()) {
+						$(this).val('确定').prop("disabled", false);
+						layerError('请选择开启或关闭预警的号码')
+
+					}
+					$('#addMobilePhone').ajaxSubmit({
+						dataType: 'json',
+						success: function(obj) {
+							if('0' != obj.code) {
+								layerError(obj.reason)
+								$('#addMobilePhoneDive .subBtn').val('确定').removeAttr("disabled");
+							} else {
+								layerSuccess(obj.reason, 1)
+							}
+						}
+					})
+				})
+
+				// 点击余额设置的input时
+				$(":input[name='warn_money']").on('input', function() {
+					$('.inputYesBtn').show();
+				})
+
+			})
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				//支付宝二维码
+				$('.zhuanzhang-btn').click(function() {
+					if("<{$memberInfo.vcard}>" != '1') {
+						$('.zhuanzhang-money-ul .errorTips').css({
+							display: 'block',
+							paddingBottom: '6px'
+						});
+						$('.zhuanzhang-money-ul .errorTips').find('em').html('请先完成实名认证，<a style="color:#03C5FF" href="/account/certify">去认证</a>');
+						return false;
+					}
+					layer.open({
+						type: 1,
+						title: false,
+						closeBtn: 0,
+						skin: 'layui-layer-nobg',
+						area: ['322px', '312px'],
+						content: $('#zhuanzhang-layer-img')
+					});
+				});
+
+				$("#zhibubaoBtn").click(function() {
+					var tradeno = $("#tradeno").val();
+					$('.zhuanzhang-money-ul .errorTips').css('display', 'none');
+					var param = {
+						tradeno: tradeno
+					};
+					//$(this).html('确定');
+					$(this).html('执行中...').attr("disabled", "disabled");
+
+					if(tradeno == '') {
+						$('.zhuanzhang-money-ul .errorTips').css({
+							display: 'block',
+							paddingBottom: '6px'
+						});
+						$('.zhuanzhang-money-ul .errorTips').find('em').html('订单号不能为空');
+						$("#zhibubaoBtn").html('确定').removeAttr("disabled");
+					} else {
+						$.ajax({
+							url: '/ucenter/account/money/aliQuery',
+							type: "POST",
+							data: param,
+							dataType: 'json',
+							success: function(json) {
+								if(json.code == 0) {
+									layer.msg(json.reason, {
+										icon: 1,
+										shade: 0.3
+									});
+									window.location.reload();
+								} else {
+									$('.zhuanzhang-money-ul .errorTips').css({
+										display: 'block',
+										paddingBottom: '6px'
+									});
+									$('.zhuanzhang-money-ul .errorTips').find('em').html(json.reason);
+									if(json.result.info) {
+										layer.msg(json.result.info, {
+											icon: 0,
+											shade: 0.3,
+											title: '友情提示',
+											shadeClose: true
+										})
+									}
+
+								}
+								$("#zhibubaoBtn").html('确定').removeAttr("disabled");
+							},
+						});
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

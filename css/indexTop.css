@@ -1,0 +1,418 @@
+.accountName {
+	font-size: 22px;
+	line-height: 30px;
+	padding-bottom: 10px
+}
+
+.accountName a {
+	color: #36BBB5
+}
+
+.newSection {
+	margin-top: 5px;
+	margin-bottom: 20px
+}
+
+.newSection .one-title {
+	font-size: 14px;
+	padding-left: 16px;
+	padding: 10px 0 10px 14px;
+	color: #909090;
+	height: 20px;
+	line-height: 20px;
+	position: relative
+}
+
+.newSection .one-title:after {
+	position: absolute;
+	left: 0;
+	top: 17px;
+	content: '';
+	height: 6px;
+	width: 6px;
+	background-color: #36BBB5
+}
+
+.newSection .newOne {
+	float: left;
+	position: relative;
+	/*width: 49%\9;
+	-webkit-width: calc(50% - 10px);
+	-moz-width: calc(50% - 10px);
+	width: calc(50% - 10px);*/
+	width: 25%;
+	height: 120px;
+	border-radius: 2px;
+	background: #fff
+}
+
+.newSection .newOne .per-top {
+	/*position: absolute;*/
+	left: 30px;
+	top: 20px
+}
+
+.newSection .newOne .per-top h3 {
+	padding-bottom: 10px
+}
+
+.newSection .newOne .per-top h3 a {
+	font-size: 28px;
+	color: #36BBB5;
+	line-height: 30px
+}
+
+.newSection .newOne .per-top .vertify-p {
+	font-size: 14px;
+	height: 25px;
+	line-height: 25px;
+	font-weight: bold;
+	padding: 5px 0
+}
+.vip-p.vip-suc{
+	color: #3ed493;
+	font-size: 14px;
+	height: 25px;
+	line-height: 25px;
+	font-weight: bold;
+	padding: 5px 0
+}
+.newSection .newOne .per-top .vertify-p span {
+	display: inline-block;
+	height: 25px;
+	padding-left: 28px
+}
+.vip-p.vip-suc span {
+	display: inline-block;
+	height: 25px;
+	padding-left: 28px
+}
+
+.newSection .newOne .per-top .vertify-p a {
+	color: #36BBB5;
+	margin-left: 10px
+}
+
+.newSection .newOne .per-top .vertify-p.vertify-suc {
+	color: #3ed493
+}
+
+.newSection .newOne .per-top .vertify-p.vertify-suc span {
+	background: url(../img/cerSuc.png) left center no-repeat
+}
+.vip-p.vip-suc span {
+	background: url(../img/vip-p.png) left center no-repeat
+}
+
+.newSection .newOne .per-top .vertify-p.vertify-fail {
+	color: #fe514a
+}
+
+.newSection .newOne .per-top .vertify-p.vertify-fail span {
+	background: url(../img/cerFail.png) left center no-repeat
+}
+
+.newSection .newOne .per-top .vertify-p.vertify-ing {
+	color: #F5B556
+}
+
+.newSection .newOne .app-vertifys {
+	position: absolute;
+	right: 16px;
+	bottom: 24px
+}
+
+.newSection .newOne .app-vertifys .vertifys-dl {
+	float: left;
+	text-align: center;
+	font-size: 14px
+}
+
+.newSection .newOne .app-vertifys .vertifys-dl dt {
+	padding: 0 14px;
+	height: 14px;
+	line-height: 14px;
+	font-weight: bold
+}
+
+.newSection .newOne .app-vertifys .vertifys-dl dd {
+	padding: 6px 14px 0
+}
+
+.newSection .newOne .app-vertifys .vertifys-dl dd a {
+	color: #606060
+}
+
+.newSection .newOne .app-vertifys .vertifys-dl.vertifys-fir dd,
+.newSection .newOne .app-vertifys .vertifys-dl.vertifys-fir dt {
+	padding-left: 0
+}
+
+.newSection .newOne .app-vertifys .vertifys-dl.vertifys-dl-two dt {
+	border-left: 1px solid #eee;
+	border-right: 1px solid #eee
+}
+
+.newSection .newThree {
+	float: right;
+	width: 49%\9;
+	-webkit-width: calc(50% - 10px);
+	-moz-width: calc(50% - 10px);
+	width: calc(50% - 10px);
+	height: 120px;
+	border-radius: 2px;
+	background: #fff;
+	position: relative
+}
+
+.newSection .newThree .three-main {
+	padding: 10px 0 0 30px
+}
+
+.newSection .newThree .three-main .your-manager {
+	color: #606060;
+	font-size: 16px;
+	font-weight: bold
+}
+
+.newSection .newThree .three-main .your-manager dt {
+	padding-bottom: 10px
+}
+
+.newSection .newThree .three-main img {
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	right: 30px;
+	bottom: 20px
+}
+
+.newSection .newTwo {
+	float: left;
+	margin-top: 20px;
+	width: 100%;
+	height: 200px;
+	border-radius: 2px;
+	background: #fff
+}
+
+.newSection .newTwo .newUl li {
+	float: left;
+	box-sizing: border-box;
+	padding-left: 30px;
+	padding-top: 36px
+}
+
+.newSection .newTwo .newUl li.newMoney {
+	width: 25%
+}
+
+.newSection .newTwo .newUl li.newVip {
+	width: 25%
+}
+
+.newSection .newTwo .newUl li.newPoint {
+	width: 25%
+}
+
+.newSection .newTwo .newUl li .title-p {
+	height: 14px;
+	padding-left: 10px;
+	margin-bottom: 18px;
+	border-left: 4px solid #36BBB5;
+	line-height: 14px;
+	color: #909090;
+	font-weight: bold;
+	font-size: 14px
+}
+
+.newSection .newTwo .newUl li .title-p a {
+	font-weight: normal;
+	font-size: 12px;
+	color: #F5B556
+}
+
+.newSection .newTwo .newUl li .title-p a.points-a1 {
+	margin-left: 20px
+}
+
+.newSection .newTwo .newUl li .money-yue {
+	height: 40px;
+	line-height: 40px;
+	color: #FF5918;
+	font-size: 30px
+}
+
+.newSection .newTwo .newUl li .news-points.money-yue {
+	color: #606060
+}
+
+.newSection .newTwo .newUl li .other-bottom {
+	padding-top: 30px
+}
+
+.newSection .newTwo .newUl li .other-bottom button {
+	color: #fff;
+	background-color: #36BBB5;
+	height: 30px;
+	border: 0 none;
+	border-radius: 2px;
+	line-height: 30px;
+	margin-right: 30px;
+	width: 100px
+}
+
+.newSection .newTwo .newUl li .other-bottom a {
+	color: #36BBB5;
+	line-height: 30px
+}
+
+.newSection .newTwo .newUl li .other-bottom .line {
+	color: #36BBB5
+}
+
+.newSection .newTwo .newUl li .login-des {
+	line-height: 22px;
+	position: relative;
+	top: -3px
+}
+
+.newSection .newTwo .newUl li .login-href.other-bottom {
+	padding-top: 4px
+}
+
+.newSection .newTwo .newUl li .vip-div1 {
+	float: left;
+	padding-right: 15px
+}
+
+.newSection .newTwo .newUl li .vip-div1 .vip-info {
+	position: relative;
+	padding-left: 34px;
+	height: 40px;
+	overflow: hidden;
+	line-height: 20px
+}
+
+.newSection .newTwo .newUl li .vip-div1 .vip-info .iconfont {
+	position: absolute;
+	left: 0;
+	top: 5px;
+	font-size: 30px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px
+}
+
+.newSection .newTwo .newUl li .vip-div1 .vip-info h6 {
+	font-size: 14px
+}
+
+.newSection .newTwo .newUl li .vip-div1 .vip-info h6.nodate {
+	position: relative;
+	top: 8px
+}
+
+.newSection .newTwo .newUl li .vip-div1 .vip-info p {
+	color: #909090
+}
+
+.newSection .newTwo .newUl li .vip-div1 .open-vip-a {
+	display: inline-block;
+	width: 100px;
+	color: #fff;
+	background-color: #36BBB5;
+	height: 30px;
+	border: 0 none;
+	border-radius: 2px;
+	line-height: 30px;
+	margin-right: 30px;
+	text-align: center
+}
+
+.newSection .newTwo .newUl li .vip-div2 {
+	float: left
+}
+
+.newSection .newTwo .newUl li .vip-div2 .vip-scores {
+	height: 30px;
+	overflow: hidden;
+	margin: 5px 0;
+	border-left: 1px solid #eee;
+	box-sizing: border-box;
+	position: relative;
+	padding-left: 46px
+}
+
+.newSection .newTwo .newUl li .vip-div2 .vip-scores i {
+	position: absolute;
+	left: 10px;
+	top: 0;
+	width: 30px;
+	height: 30px;
+	line-height: 15px;
+	color: #606060;
+	font-size: 12px
+}
+
+.newSection .newTwo .newUl li .vip-div2 .vip-scores span {
+	line-height: 30px;
+	font-size: 30px;
+	color: #606060
+}
+
+@media only screen and (max-width:1370px) {
+	.newSection .newTwo .newUl li .money-yue,
+	.newSection .newTwo .newUl li .vip-div2 .vip-scores span {
+		font-size: 24px
+	}
+	.newSection .newTwo .newUl li .title-p a.points-a1 {
+		margin-left: 10px
+	}
+	.newSection .newThree .three-main .your-manager {
+		font-size: 14px
+	}
+}
+
+@media only screen and (min-width:1800px) {
+	.newSection .newOne {
+		width: 25%;
+		/*width: 250px;
+		width: 49%\9;*/
+		height: 200px;
+		/*box-shadow: 0 0 9px rgba(76, 76, 76, 0.1)*/
+	}
+	.newSection .newOne .app-vertifys {
+		right: 0;
+		left: 30px
+	}
+	.newSection .newOne .per-top .vertify-p {
+		padding: 0
+	}
+	.newSection .newThree {
+		height: 200px;
+		width: 180px;
+		width: 49%\9
+	}
+	.newSection .newThree .three-main {
+		padding: 5px 0 0 30px
+	}
+	.newSection .newThree .three-main .your-manager dt {
+		padding-bottom: 6px
+	}
+	.newSection .newThree .three-main img {
+		width: 80px;
+		height: 80px;
+		position: absolute;
+		left: 30px;
+		bottom: 15px
+	}
+	.newSection .newTwo {
+		height: 200px;
+		width: 100%;
+		margin-top: 0;
+		/*-webkit-width: calc(100% - 450px);
+		-moz-width: calc(100% - 450px);
+		width: calc(100% - 450px)*/
+	}
+}

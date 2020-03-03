@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>预警号码管理</title>
+		<meta name="csrf-token" content="aLBcFEnLPuYzBQdttNdTdnOwXnVDrEiw7mFfjNWt">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<link rel="stylesheet" type="text/css" href="css/points.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.centerFormUl .labelRight .inputText {width: 160px}
+		</style>
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+		<div id="header"></div>
+
+		<!-- main start -->
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="3" num="4"></div>
+			
+			<!-- 正文内容 -->
+			<section id="ucenterSection">
+				<h2 class="centerTitle borderTitle">预警手机号码管理</h2>
+				<button type="button" class="addSomeBtn addMobilePhone" style="width: auto"><i class="iconfont">&#xe627;</i>添加预警号码&nbsp;</button>
+				<a href="loginBao.html"><button type="button" class="addSomeBtn" style="width: auto"><i class="iconfont">&#xe627;</i>设置登录二次验证&nbsp;</button></a>
+				<table class="ucenterTable workTable">
+					<tbody>
+						<tr>
+							<th width="8%">序号</th>
+							<th width="30%">姓名</th>
+							<th width="30%">手机号码</th>
+							<th width="24%">&nbsp;</th>
+							<th style="width: 100px">&nbsp;</th>
+						</tr>
+						<tr>
+							<td>#104B418</td>
+							<td>系统默认</td>
+							<td>13643888628</td>
+							<td></td>
+							<td>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="ContentDiv" style="display: none" id="addMobilePhoneDive">
+					<form class="formWaring" name="addMobilePhone" id="addMobilePhone" action="/ucenter/safeCenter/warn/add" method="post">
+						<ul class="centerFormUl">
+							<li class="clearfix">
+								<label class="labelLeft"><span class="required">*</span>姓名：</label>
+								<div class="labelRight">
+									<input type="text" name="name" id="name" value="" class="inputText" />
+									<i class="errorTips"><span class="iconfont">&#xe604;</span><em></em></i>
+								</div>
+							</li>
+							<li class="clearfix">
+								<label class="labelLeft"><span class="required">*</span>手机号码：</label>
+								<div class="labelRight">
+									<input type="text" name="mobilePhone" id="mobilePhone" value="" class="inputText" />
+									<input type="button" class="centerBtn getValicode" id="code" style="width: 120px" value="获取验证码">
+									<i class="errorTips"><span class="iconfont">&#xe604;</span><em></em></i>
+								</div>
+							</li>
+							<li class="clearfix">
+								<label class="labelLeft"><span class="required">*</span>验证码：</label>
+								<div class="labelRight">
+									<input type="text" name="valicode" id="valicode" value="" class="inputText" />
+									<i class="errorTips"><span class="iconfont">&#xe604;</span><em></em></i>
+								</div>
+							</li>
+							<li class="clearfix" style="height: auto;">
+								<label class="labelLeft">&nbsp;</label>
+								<div class="labelRight">
+									<input type="button" class="centerBtn subBtn" value="保存号码">
+								</div>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</section>
+		</div>
+
+		<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				//倒计时
+				function resetCode(){
+					$('#code').val('60s');
+					var second = 60;
+					var timer = null;
+					timer = setInterval(function(){
+						second -= 1;
+						if(second >0 ){
+							$('#code').val(second+"s");
+						}else{
+							clearInterval(timer);
+							$('#code').val('获取验证码');
+						}
+					},1000);
+				}
+				
+				$('.remove-warn-mobile').click(function() {
+					var that = $(this);
+					layer.confirm('确定要移除预警号码？移除号码前，请确保取消或关闭该号码的相关预警.', {
+						title: '移除预警号码',
+						btn: ['确定', '取消'] //按钮
+					}, function() {
+						$.ajax({
+							url: that.attr('action'),
+							data: 'id=' + that.attr('data-id') + '&mobile=' + that.attr('data-mobile'),
+							dataType: 'json',
+							type: 'post',
+							success: function(obj) {
+								if(obj.code == 0) {
+									layer.msg(obj.reason, {
+										icon: 1,
+										shade: 0.3,
+										shadeClose: true
+									}, function() {
+										location.reload();
+									})
+								} else {
+									if(obj.info) {
+										var msg = obj.info;
+									} else {
+										var msg = obj.reason;
+									}
+									layer.msg(msg, {
+										icon: 0,
+										shade: 0.3,
+										shadeClose: true
+									})
+								}
+							}
+						})
+					}, function() {
+						layer.closeAll()
+					});
+				})
+
+				var difference = parseInt('0');
+				if(difference > 0) {
+					resetSmsBtn($(".getValicode"), difference);
+				}
+
+				// 点击添加预警号码按钮时
+				$('.addMobilePhone').click(function() {
+					layer.open({
+						type: 1,
+						title: ['预警手机号码添加'],
+						content: $('#addMobilePhoneDive'),
+						area: ['500px', 'auto']
+					});
+					$(':input[name=name]').focus();
+				})
+
+				//提交
+				$('.subBtn').click(function() {
+					//隐藏错误提示
+					$('.errorTips').css('display', 'none')
+					var mobilephone = $("#mobilePhone").val();
+					var name = $("#name").val();
+					var valicode = $("#valicode").val();
+
+					if($.trim(name) == '') {
+						showError('姓名不能为空', $("#name"));
+						$("#name").focus()
+						return false;
+					} else if(!isMobile(mobilephone)) {
+						showError('错误的手机号码', $("#mobilePhone"));
+						$("#mobilePhone").focus()
+						return false;
+					} else if(valicode.length != 6) {
+						showError('验证码不正确', $("#valicode"));
+						$("#valicode").focus()
+						return false;
+					} else {
+						$(".subBtn").val('保存中...').prop('disabled', true);
+						$("#addMobilePhone").ajaxSubmit({
+							dataType: 'json',
+							success: function(obj) {
+								var code = obj.code;
+
+								if(code == 0) {
+									layer.msg(obj.reason, {
+										icon: 1,
+										time: 3000,
+										shade: 0.3,
+										shadeClose: true
+									}, function() {
+										window.location.reload()
+									});
+
+								} else {
+									if(code == 2209) { //姓名错误
+										showError(obj.reason, $("#name"));
+										$("#name").focus()
+									} else if(code == 2204 || code == 2208) { //手机码错误
+										showError(obj.reason, $("#mobilePhone"));
+										$("#mobilePhone").focus()
+									} else if(code == 2206) { //验证码错误
+										showError(obj.reason, $("#valicode"));
+										$("#valicode").focus();
+									}
+									$(".subBtn").val('保存号码').prop('disabled', false);
+								}
+							}
+						})
+					}
+				})
+
+				 //获取验证码
+				 $('.getValicode').click(function () {
+				     //隐藏错误提示
+				     $('.errorTips').css('display', 'none')
+				     var mobile = $("#mobilePhone").val();
+				     $(".getValicode").val('发送中...').prop("disabled", true);
+					
+				     if (!mobile) {
+				         showError('请填写手机号码', $(".getValicode"));
+				         $("#mobilePhone").focus()
+				         $(".getValicode").prop("disabled", false);
+				         return false;
+				     }
+				
+				     if (isMobile(mobile)) {
+				         $.post('<{R action="warn" method="sendsms"}>', {mobile: mobile}, function (e) {
+				             var o = json_parse(e);
+				             if (o.code != '-2' && o.code != '-5') {
+				                 resetSmsBtn(120);
+				             } else {
+				                 showError(o.info, $(".getValicode"));
+				             }
+				             $(".getValicode").prop("disabled", false);
+				         })
+				     } else {
+				         showError('错误的手机号码', $(".getValicode"));
+				         $(".getValicode").prop("disabled", false);
+				     }
+				 })
+
+				/**
+				 * 验证码发送
+				 */
+				$(".getValicode").click(function() {
+					var mobile = $("#mobilePhone").val();
+					smsSendGo($(this), 35, mobile)
+				})
+			})
+
+			function smsSendGo(that, type, mobile) {
+				$('.successTips').hide();
+				$('.errorTips').hide().find('em').html('');
+
+				if(!isMobile(mobile)) {
+					showError('错误的手机号码', $(".getValicode"));
+					$("#mobilePhone").focus()
+				} else {
+					that.val('发送中...').prop("disabled", true);
+					resetCode()
+//					$.post('/ucenter/safeCenter/warn/send', {
+//						mobile: mobile,
+//					}, function(obj) {
+//						if(obj.code == 0) {
+//							resetSmsBtn(that, 120);
+//							$('.successTips').show();
+//						} else {
+//							if(obj.reason) {
+//								showError(obj.reason, $(".getValicode"));
+//							} else if(obj.info) {
+//								showError(obj.info, $(".getValicode"));
+//							}
+//							that.val("获取验证码").css({
+//								"background": "#03c5ff"
+//							}).prop("disabled", false);
+//						}
+//					}, 'json')
+				}
+			}
+
+			//错误显示
+			function showError(msg, selector) {
+				selector.parent().find('.errorTips').show().find('em').html(msg);
+			}
+
+			function resetSmsBtn(that, index) {
+				var init = setInterval(function() {
+					index--;
+					if(index <= 0) {
+						clearInterval(init);
+						that.val("获取验证码").css({
+							"background": "#03c5ff"
+						}).prop("disabled", false);
+					} else {
+						that.val("重新发送(" + index + ")").css({
+							"background": "#999"
+						}).prop("disabled", true);
+					}
+				}, 1000)
+			}
+		</script>
+
+	</body>
+
+</html>

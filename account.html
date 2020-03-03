@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>账户信息</title>
+		<meta name="csrf-token" content="nNtl3ByK8sQ1dFDakv3OD8DpalGXy3xkcBPor5Ui">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<link rel="stylesheet" type="text/css" href="css/points.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+		<div id="header"></div>
+
+		<!-- main start -->
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="5" num="1"></div>
+
+			<!-- 正文内容 -->
+			<section id="ucenterSection">
+				<h2 class="centerTitle">账户信息</h2>
+				<div class="ContentDiv">
+					<form class="moneyListForm">
+						<div class="moneyListDiv">
+							<ul class="centerFormUl">
+								<li>
+									<label class="labelLeft">用户名：</label>
+									<div class="labelRight">
+										<span>13643833628</span>
+									</div>
+								</li>
+								<li>
+									<label class="labelLeft">用户类型：</label>
+									<div class="labelRight">
+										<label class="userLabelRadio">企业</label>
+									</div>
+								</li>
+								<li>
+									<label class="labelLeft">实名认证：</label>
+									<div class="labelRight">
+										<a class="centerBtn unvertifyBtn" href="authentication.html">未认证</a>
+										<!--<a class="centerBtn yesVertifyBtn" href="authentication.html">已认证</a>-->
+									</div>
+								</li>
+								<li>
+									<label class="labelLeft">OpenId：</label>
+									<div class="labelRight">
+										<span class="mobile-check-show-span">
+                                            <a href="javascript:;" data-code-type="30" class="mobile-check-show see_btn">查看</a>
+                                        </span>
+									</div>
+								</li>
+								<li>
+									<label class="labelLeft">绑定邮箱：</label>
+									<div class="labelRight">
+										<div class="changeDefault2">
+											<button type="button" style="height: auto;width: auto" data-type="bind" class="waringBtn centerBtn userEmailBind">绑定邮箱</button>
+										</div>
+									</div>
+								</li>
+								<li>
+									<label class="labelLeft">手机号码：</label>
+									<div class="labelRight">
+										<div class="changeDefault1">
+											<span>13530354377</span> &nbsp; &nbsp; &nbsp;<button type="button" style="height: auto;width: auto" data-type="unBind" class="waringBtn centerBtn mobilePhoneBind">解绑手机</button>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</form>
+				</div>
+			</section>
+			<div id="mobilePhoneBind" style="display: none">
+				<div class="mobileLayer centerlayerDiv" style="width: 520px;border-bottom: none">
+					<h3 class="layerTitle">
+            			<span>解绑手机号</span>
+            			<a class="layerCloseA iconfont" href="javascript:layer.closeAll();">&#xe625;</a>
+        			</h3>
+					<span style="color:red;padding: 15px">* <b>请确保已经移除次数预警</b></span><br>
+					<span style="color:red;padding: 15px">* 解绑手机号,校验当前绑定的号码</span><br>
+					<span style="color:red;padding: 15px">* 自动移除预警手机号和余额预警,</span><br>
+
+					<form class="formWaring mobileForm" action="/ucenter/account/info/update" method="post">
+						<input type="hidden" name="type" value="mobile">
+						<ul class="centerFormUl" style="padding: 10px">
+							<li class="clearfix disabledLi">
+
+								<label class="labelLeft" style="width: 130px"><span class="required">*</span>手机号码：</label>
+								<div class="labelRight">
+									<input type="tel" name="mobile" style="border: none;font-size: 14px" readonly id="mobile" value="13530354377" class="inputText mobileInput" />
+									<input type="hidden" name="codeType" readonly id="codeType" value="28" />
+								</div>
+							</li>
+							<li class="clearfix disabledLi" style="padding-bottom: 1px">
+								<label class="labelLeft" style="width: 130px"><span class="required">*</span>验证码：</label>
+								<div class="labelRight">
+									<input type="text" name="mobilecode" id="mobilecode" value="" class="inputText vecodeInput" />
+									<button type="button" id="smsBtn" class="inputBtn centerBtn smsBtn" style="padding: 0">获取验证码</button>
+								</div>
+							</li>
+							<li class="clearfix disabledLi" style="padding: 0px">
+								<label class="labelLeft" style="width: 130px">&nbsp;</label>
+								<div class="labelRight">
+									<i class="successTips" style="color : #03c5ff;display:none"><em>验证码已发送,请注意查收短信</em></i>
+								</div>
+							</li>
+							<li class="clearfix disabledLi" style="padding-top: 0px">
+								<label class="labelLeft" style="width: 130px">&nbsp;</label>
+								<div class="labelRight">
+									<button type="button" id="mobileVerify" class="centerBtn errorTips-lay">确定</button>
+									<i class="errorTips" style="display: none;left: 120px"><span class="iconfont">&#xe604;</span><em></em></i>
+								</div>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+
+			<!--绑定邮箱-->
+			<div id="userEmailBind" style="display: none">
+				<div class="emailcertify centerlayerDiv" style="width: 450px;border-bottom: none">
+					<h3 class="layerTitle">
+					    <span>绑定邮箱</span>
+					    <a class="layerCloseA iconfont" href="javascript:layer.closeAll();">&#xe625;</a>
+					</h3>
+					<span style="color:red;padding: 5px">* 解绑邮箱,校验当前绑定的邮箱</span><br>
+					<form class="formWaring emailForm" action="/ucenter/account/info/update" method="post">
+						<input type="hidden" name="type" value="email">
+						<ul class="centerFormUl">
+							<li class="clearfix disabledLi">
+								<label class="labelLeft" style="width: 100px"><span class="required">*</span>邮箱：</label>
+								<div class="labelRight">
+									<input type="text" name="email" id="mobile" value="" class="inputText mobileInput" />
+									<input type="hidden" name="codeType" id="codeTypeEmail" readonly value="26" />
+								</div>
+							</li>
+							<li class="clearfix disabledLi" style="padding-bottom: 1px">
+								<label class="labelLeft" style="width: 100px"><span class="required">*</span>验证码：</label>
+								<div class="labelRight">
+									<input type="text" style="width: 85px" name="emailcode" id="emailcode" value="" class="inputText vecodeInput" />
+									<button type="button" id="emailsend" class="inputBtn centerBtn emailsend" style="padding: 0">获取验证码</button>
+								</div>
+							</li>
+							<li class="clearfix disabledLi" style="padding: 0px">
+								<label class="labelLeft" style="width: 100px">&nbsp;</label>
+								<div class="labelRight">
+									<i class="successTips" style="color : #03c5ff;display:none"><em>验证码已发送,请到邮箱查看并完成绑定</em></i>
+								</div>
+							</li>
+							<li class="clearfix disabledLi" style="padding-top: 0px">
+								<label class="labelLeft" style="width: 100px">&nbsp;</label>
+								<div class="labelRight">
+									<button type="button" id="emailVerify" class="centerBtn errorTips-lay">确定</button>
+									<i class="errorTips" style="display: none;left: 120px"><span class="iconfont">&#xe604;</span><em>证码邮件已</em></i>
+								</div>
+							</li>
+						</ul>
+
+					</form>
+				</div>
+			</div>
+
+			<!--查看-->
+			<div class="ContentDiv" style="display: none" id="mobile-code-check-layer">
+				<ul class="centerFormUl">
+					<li class="clearfix">
+						<label class="labelLeft"><span class="required">*</span>手机号码：</label>
+						<div class="labelRight">13530354377 (仅注册绑定的手机号)</div>
+						<input type="hidden" id="mainMobile" value="13530354377" name="mainMobile">
+						<input type="hidden" name="codeType" id="codeTypeSafe" readonly value="30" />
+					</li>
+
+					<li class="clearfix">
+						<label class="labelLeft"><span class="required">*</span>验证码：</label>
+						<div class="labelRight">
+							<input type="text" name="safeCode" id="safeCode" style="width: 110px" value="" class="inputText" />
+							<button type="button" id="smsBtnSafe" class="inputBtn centerBtn smsBtn" style="padding: 0">获取验证码</button>
+							<input type="hidden" value="0" name="codeCheckType">
+						</div>
+					</li>
+					<li class="clearfix" style="height: auto;">
+						<label class="labelLeft">&nbsp;</label>
+						<div class="labelRight">
+							<input type="button" class="centerBtn submitCodeCheck  errorTips-lay" value="确定">
+							<i class="errorTips safe-check-error"><span class="iconfont">&#xe604;</span><em></em></i>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(document).ready(function() {
+				//点击修改
+				$('.userEmailBind').click(function() {
+					showBindLayer($('#userEmailBind'));
+				});
+
+				//点击确认
+				$('.mobilePhoneBind').click(function() {
+					showBindLayer($('#mobilePhoneBind'));
+				})
+
+				// 绑定手机表单，点击确定按钮时
+				$('#mobileVerify').click(function() {
+					$('.successTips').hide();
+					var that = $(this);
+					var mobile = $(":input[name='mobile']").val();
+					if(!isMobile(mobile)) {
+						$('.errorTips-lay').siblings('.errorTips').show().find('em').html('手机号码错误');
+						$(':input[name=mobile]').focus();
+						return false;
+					} else if(!$(':input[name=mobilecode]').val()) {
+						$('.errorTips-lay').siblings('.errorTips').show().find('em').html('请填写短信验证码');
+						$(':input[name=mobilecode]').focus();
+						return false;
+					} else {
+						that.html('变更中...').prop('disabled', true)
+
+						$('form.mobileForm').ajaxSubmit({
+							dataType: 'json',
+							success: function(obj) {
+								if(obj.code != 0) {
+									$('.errorTips-lay').siblings('.errorTips').show().find('em').html(obj.reason);
+									that.html('确定').prop('disabled', false)
+								} else {
+									layerSuccess(obj.reason, 1)
+								}
+							}
+						})
+					}
+
+				})
+
+				/**
+				 * 验证码发送
+				 */
+				$("#smsBtn").click(function() {
+					var type = $('#codeType').val()
+					var mobile = $("#mobile").val();
+					smsSendGo($(this), type, mobile)
+				})
+				/**
+				 * 验证码发送
+				 */
+				$("#smsBtnSafe").click(function() {
+					var type = $('#codeTypeSafe').val()
+					var mobile = $("#mainMobile").val();
+					smsSendGo($(this), type, mobile)
+				})
+
+				/**
+				 * 绑定邮箱
+				 */
+				$('#emailVerify').click(function() {
+					$('.successTips').hide();
+					$('.errorTips').hide().find('em').html('');
+					var email = $(":input[name='email']").val();
+
+					if(!isEmail(email)) {
+						$('.errorTips-lay').siblings('.errorTips').show().find('em').html('邮箱格式错误');
+
+						$(':input[name="email"]').focus();
+						return false;
+					} else if(!$(':input[name=emailcode]').val()) {
+						$('.errorTips-lay').siblings('.errorTips').show().find('em').html('请填写邮件验证码');
+						$(':input[name=emailcode]').focus();
+						return false;
+					} else {
+						var that = $(this)
+						that.html('变更中...').prop("disabled", true);
+						$('form.emailForm').ajaxSubmit({
+							dataType: 'json',
+							success: function(obj) {
+								if(obj.code == 0) {
+									layerSuccess(obj.reason, 1)
+								} else {
+									$('.errorTips-lay').siblings('.errorTips').show().find('em').html(obj.reason);
+									that.html('确定').prop("disabled", false);
+								}
+							}
+						})
+					}
+				})
+				// 点击发送短信按钮时
+				$("#emailsend").click(function() {
+					$('.successTips').hide();
+					$('.errorTips').hide().find('em').html('');
+					var email = $(":input[name='email']").val();
+					var that = $(this);
+					if(!isEmail(email)) {
+						$('.errorTips-lay').siblings('.errorTips').show().find('em').html('邮箱格式错误');
+
+						$(':input[name=email]').focus();
+					} else {
+						$(".emailsend").html('发送中...').prop("disabled", true);
+						$.post('/ucenter/account/info/sendEmail', {
+							email: email,
+							codeType: $('#codeTypeEmail').val(),
+						}, function(obj) {
+							if(obj.code == 0) {
+								resetSmsBtnBind(120, that);
+								$('.successTips').show();
+							} else {
+								$('.errorTips-lay').siblings('.errorTips').show().find('em').html(obj.reason);
+
+								that.html('获取验证码').prop("disabled", false);
+							}
+
+						}, 'json')
+					}
+				})
+			})
+
+			// 重置短信发送按钮
+			function resetSmsBtnBind(index, that) {
+				var init = setInterval(function() {
+					index--;
+					if(index <= 0) {
+						clearInterval(init);
+						that.html("获取验证码").css({
+							"background": "#fff"
+						}).prop("disabled", false);
+					} else {
+						that.html("重新发送(" + index + ")").css({
+							"background": "#f4f4f4"
+						}).prop("disabled", true);
+					}
+				}, 1000)
+			}
+
+			function showBindLayer(obj) {
+				if(obj.attr('data-type') == 'bind') {
+					$(':input[name=mobile]').val('')
+					$(':input[name=email]').val('')
+				}
+
+				$(':input[name=emailcode]').val('')
+				$(':input[name=mobilecode]').val('')
+
+				layer.open({
+					type: 1,
+					title: false,
+					closeBtn: false,
+					area: ['auto', '350px'],
+					content: obj
+				})
+			}
+
+			function showError(msg, selector) {
+				selector.next().next('.errorTips').show().find('em').html(msg);
+				selector.focus();
+			}
+
+			function smsSendGo(that, type, mobile) {
+				$('.successTips').hide();
+				$('.errorTips').hide().find('em').html('');
+
+				if(!isMobile(mobile)) {
+					$('.errorTips-lay').siblings('.errorTips').show().find('em').html('手机号码错误');
+					$(':input[name=mobile]').focus();
+				} else {
+					that.html('发送中...').prop("disabled", true);
+					$.post('/ucenter/account/info/sendCode', {
+						mobile: mobile,
+						codeType: type,
+					}, function(obj) {
+						if(obj.code == 0) {
+							resetSmsBtnBind(120, that);
+							$('.successTips').show();
+						} else {
+							$('.errorTips-lay').siblings('.errorTips').show().find('em').html(obj.reason);
+							that.html("获取验证码").css({
+								"background": "#fff"
+							}).prop("disabled", false);
+						}
+					}, 'json')
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

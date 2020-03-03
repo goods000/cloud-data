@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>认证中心</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" type="text/css" href="css/reset.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.companyVertifyStateUl,.personVertifyStateUl {width: 50%}
+			.companyVertifyStateUl.centerFormUl .labelLeft,.personVertifyStateUl .labelLeft {width: 140px;}
+			.centerFormUl .clearfix {clear: both;padding: 8px}
+			.centerFormUl .labelLeft {font-weight: normal;color: #999}
+			.labelLeft {width: 180px;}
+			.view-show .centerFormUl .clearfix {line-height: 15px;}
+			.btn-underline {color: #36BBB5;border: none;padding: 0px;background: none;text-decoration: underline;}
+		</style>
+	</head>
+
+	<body>
+		<div id="header"></div>
+		
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<div id="nav" name="5" num="2"></div>
+
+			<section id="ucenterSection">
+				<h2 class="centerTitle">实名认证<b style="color:#FF5918; padding-left:5px; font-size:14px;">（实名认证一经通过，后续付款方的银行开户名必须与聚合实名信息一致，否则不给予入账！且个人和企业认证不能互转）</b></h2>
+				
+				<!--实名认证-->
+            <div class="ContentDiv certifyMainContent">
+               	<ul class="centerFormUl radioCertifyUl">
+                   <li class="clearfix">
+                       <label class="labelLeft">认证类型：</label>
+                       <div class="labelRight">
+                           <label class="userLabelRadio"><input type="radio" name="type" value="1" /><img src="img/enterprise.png"/>个人认证</label>
+                           <label class="userLabelRadio userLabelRadiov"><input type="radio" name="type" value="2" checked="checked" /><img src="img/enterprise.png"/>企业认证</label>
+                       </div>
+                   </li>
+               	</ul>
+               	<form action="/account/certifyDo" method='post' id="verifyPersonForm" class="verifyPersonForm vertifyPersonForm vertifyForm"  style="display: none;" onSubmit="return false">
+				    <ul class="centerFormUl" style="padding-top: 0;">
+				        <li class="vertifyLiTitle titleBottom">基本信息填写 <span style="color:darkorange;padding: 15px;font-size: 14px"><b>(⚠️ 发票只能开实名认证的抬头,请谨慎填写; 姓名、身份证号、手机号必须属于同一个人，否则认证不通过)</b></span></li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required">*</span>姓名：</label>
+				            <div class="labelRight">
+				                <input type="text" name="realname" class="inputText" placeholder="该名称用于发票抬头，请谨慎填写" />
+				                <i class="errorTips errorName" hidden="true"><span class="iconfont">&#xe604;</span><em></em></i>
+				            </div>
+				        </li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required">*</span>身份证号码：</label>
+				            <div class="labelRight">
+				                <input type="text" name="idcard" class="inputText"  placeholder="请输入正确的身份证号码"/>
+				                <i class="errorTips errorCardId" hidden="true"><span class="iconfont">&#xe604;</span><em></em></i>
+				            </div>
+				        </li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required">*</span>手机号：</label>
+				            <div class="labelRight">
+				                <input type="text" name="real_mobile" id="mobile" class="inputText"  placeholder="实名认证用户的手机号"/>
+				                <i class="errorTips errorMobile" hidden="true"><span class="iconfont">&#xe604;</span><em></em></i>
+				            </div>
+				        </li>
+				        <li class="clearfix needMoblieCode" style="display: none">
+				            <label class="labelLeft"><span class="required">*</span>手机验证码：</label>
+				            <div class="labelRight">
+				                <input type="text" name="mobilecode" id="mobilecode" value="" style="width: 185px" class="inputText vecodeInput" />
+				                <button type="button" id="smsBtn" class="inputBtn centerBtn smsBtn" style="padding: 0">获取验证码</button>
+				                <i class="errorTips errorMobile"><span class="iconfont">&#xe604;</span><em>rewrew</em></i>
+				            </div>
+				        </li>
+				        <li class="clearfix" style="height: auto;">
+				            <label class="labelLeft"><span class="required">*</span>身份证正面：</label>
+				            <div class="labelRight">
+				                <input type="file" name="idimg" id="idimg" class="fileText" />
+				                <i class="errorTips errorZuzhi" hidden="true"><span class="iconfont">&#xe604;</span><em></em></i>
+				                <br /><i class="tipsFile">图片大小不要超过2M，支持PNG，JPG格式</i>
+				            </div>
+				        </li>
+				        <li class="clearfix" style="height: auto;">
+				            <label class="labelLeft"><span class="required">*</span>身份证反面：</label>
+				            <div class="labelRight">
+				                <input type="file" name="idimg2" id="idimg2" class="fileText" />
+				                <i class="errorTips errorZuzhi" hidden="true"><span class="iconfont">&#xe604;</span><em></em></i>
+				                <br /><i class="tipsFile">图片大小不要超过2M，支持PNG，JPG格式</i>
+				            </div>
+				        </li>
+				        <li class="clearfix">
+				            <label class="labelLeft">&nbsp;</label>
+				            <div class="labelRight">
+				                <button class="centerBtn fourBtn centerBtnPerson">提交认证</button>
+				            </div>
+				        </li>
+				    </ul>
+				    <ul class="centerFormUl" style="padding-top: 35px; margin-top: 5px; border-top: 1px solid #e7e7e7;">
+				        <li class="clearfix cardIdLi" style="height: 130px; padding-bottom: 0; overflow: hidden;">
+				            <label class="labelLeft">示例照片：</label>
+				            <div class="labelRight">
+				                <img src="https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/ucenter/cardId.jpg" alt="" />
+				            </div>
+				        </li>
+				        <li class="clearfix" style="height: auto;display:none">
+				            <label class="labelLeft">认证说明：</label>
+				            <div class="labelRight useDescribe">
+				                <p>用户在使用聚合数据完成应用或网站开发并上线，可提交认证审核。开发期间（2个月），未审核的应用并不影响接口的调用；</p>
+				                <p>为了使聚合数据更了解开发者的实际使用场景，为后续提供更好更优质的服务，请各开发者完善开发的应用的基本信息；</p>
+				                <p>申请的数据需要在2个月内提交审核并通过，否则将无法正常请求数据，如需延长期限请与在线客服联系。</p>
+				            </div>
+				        </li>
+				    </ul>
+				</form>
+                <form action="/account/certifyDoCompany" method="post" id="verifyCompanyForm" class="verifyCompanyForm vertifyCompanyForm vertifyForm">
+				    <ul class="centerFormUl" style="padding-top: 0;">
+				        <li class="vertifyLiTitle titleBottom">基本信息填写 <span style="color:darkorange;padding: 15px;font-size: 14px"><b>(⚠️ 发票只能开实名认证的抬头,请谨慎填写)</b></span></li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required">*</span>公司名称：</label>
+				            <div class="labelRight">
+				                <input type="text" name="company" class="inputText" placeholder="该名称用于发票抬头，请谨慎填写" />
+				                <i class="errorTips errorCompany" hidden="true">
+				                    <span class="iconfont">&#xe604;</span><em></em>
+				                </i>
+				            </div>
+				        </li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required">*</span>公司地址：</label>
+				            <div class="labelRight">
+				                <select id="province" name="province" class="selectStyle citySelect"></select>
+				                <select id="city" name="city" class="selectStyle citySelect"></select>
+				                <select id="area" name="area" class="selectStyle citySelect"></select>
+				                <i class="errorTips errorCompany" hidden="true">
+				                    <span class="iconfont">&#xe604;</span><em></em>
+				                </i>
+				            </div>
+				        </li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required">*</span>详细地址：</label>
+				            <div class="labelRight">
+				                <input type="text" id="address" name="address" class="inputText" />
+				                <i class="errorTips errorAddress" hidden="true">
+				                    <span class="iconfont">&#xe604;</span><em></em>
+				                </i>
+				            </div>
+				        </li>
+				        <li class="vertifyLiTitle" style="margin: 10px 0;">企业信息</li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required">*</span>社会统一编码：</label>
+				            <div class="labelRight">
+				                <input type="text" name="yyzz" class="inputText" />
+				                <i class="errorTips errorZhizhao" hidden="true">
+				                    <span class="iconfont">&#xe604;</span><em></em>
+				                </i>
+				            </div>
+				        </li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required"></span>税务登记证编号：</label>
+				            <div class="labelRight">
+				                <input type="text" name="swdj" class="inputText" />
+				                <i class="errorTips errorShui" hidden="true">
+				                    <span class="iconfont">&#xe604;</span><em></em>
+				                </i>
+				            </div>
+				        </li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required"></span>组织机构编号：</label>
+				            <div class="labelRight">
+				                <input type="text" name="zzjg" class="inputText" />
+				                <i class="errorTips errorZuzhi" hidden="true">
+				                    <span class="iconfont">&#xe604;</span><em></em>
+				                </i>
+				            </div>
+				        </li>
+				        <li class="clearfix" style="height: auto;">
+				            <label class="labelLeft"><span class="required">*</span>营业执照副本：</label>
+				            <div class="labelRight">
+				                <input type="file" name="yyzzImg" id="yyzzImg" class="fileText" />
+				                <i class="errorTips errorZuzhi" hidden="true">
+				                    <span class="iconfont">&#xe604;</span><em></em>
+				                </i>
+				                <br /><i class="tipsFile">图片大小不要超过2M，支持PNG，JPG格式</i>
+				            </div>
+				        </li>
+				        <li class="vertifyLiTitle titleBottom">联系人信息</li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required">*</span>联系人姓名：</label>
+				            <div class="labelRight">
+				                <input type="text" name="contactname" class="inputText" />
+				                <i class="errorTips errorName" hidden="true">
+				                    <span class="iconfont">&#xe604;</span><em></em>
+				                </i>
+				            </div>
+				        </li>
+				        <li class="clearfix">
+				            <label class="labelLeft"><span class="required">*</span>联系人电话：</label>
+				            <div class="labelRight">
+				                <input type="tel" name="contactphone" class="inputText" />
+				                <i class="errorTips errorTel" hidden="true">
+				                    <span class="iconfont">&#xe604;</span><em></em>
+				                </i>
+				            </div>
+				        </li>
+				        <li class="clearfix">
+				            <label class="labelLeft">&nbsp;</label>
+				            <div class="labelRight">
+				                <div class="centerBtn fourBtn centerBtnCompany">提交认证</div>
+				            </div>
+				        </li>
+				    </ul>
+				</form>
+            </div>
+				
+				<!--认证成功-->
+				<div class="ContentDiv" style="display: none;">
+					<div class="moneyListDiv clearfix">
+						<div class="vertifingList clearfix  view-show" style="padding-bottom: 20px;">
+							<h4 class="vertifyState texttitleBg" style="margin-bottom: 20px;padding-left: 50px">
+								<font color="#3ED493"><i class="iconfont" style="position: relative;top: 4px;">&#xe61b;</i>认证成功！</font>
+                            	<a href="javascript:;" class="apply-change-certify" style="font-size: 14px;color: #36BBB5;float: right;padding-right: 20px">申请实名变更</a>
+							</h4>
+
+							<ul class="centerFormUl companyVertifyStateUl">
+								<li class="clearfix">
+									<label class="labelLeft">认证类型：</label>
+									<div class="labelRight">
+										<span>企业认证</span>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">公司名称：</label>
+									<div class="labelRight">
+										<span>深圳市龙华新区古道今康养生堂</span>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">社会统一编码：</label>
+									<div class="labelRight">
+										<span>92440300MA5DKUN56R</span>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">税务登记证编号：</label>
+									<div class="labelRight">
+										<span></span>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">组织机构编号：</label>
+									<div class="labelRight">
+										<span></span>
+									</div>
+								</li>
+							</ul>
+							<ul class="centerFormUl companyVertifyStateUl">
+
+								<li class="clearfix">
+									<label class="labelLeft">公司地址：</label>
+									<div class="labelRight">
+										<span>广东省  深圳市  宝安区  龙华新区龙华街道清泉路幸福城润园一期1A502</span>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">联系人姓名：</label>
+									<div class="labelRight">
+										<span><input type="text" id="contact-name" name="contact-name" style="border:none;width: 105px" value="张三丰">
+            </span>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">联系人电话：</label>
+									<div class="labelRight">
+										<span>
+											<input type="text" id="contact-mobile" name="contact-mobile" style="border:none;width: 105px" value="13623826565">
+                							<button class="change-mobile btn-underline">联系人变更</button>
+                							<button class="save-change-data btn-underline" style="display:none;">保存</button></span>
+										</span>
+									</div>
+								</li>
+								<li class="clearfix">
+									<label class="labelLeft">营业执照副本：</label>
+									<div class="labelRight">
+										<span>营业执照.jpg&nbsp; &nbsp; &nbsp; </span>
+										<button type="button" class="changedBtn previewBtn">预览</button>
+										<img src="/account/getVcardImage/type/vcardimg" style="max-width:500px; max-height: 500px; display: none">
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			
+			</section>
+		</div>
+		<div class="ContentDiv" id="change-certify-form" style="display: none;border: none;font-weight: normal">
+			<form action="/ucenter/account/certify/update" method="post" id="verifyCompanyForm" class="verifyCompanyForm vertifyCompanyForm vertifyForm">
+				<input type="hidden" name="ctId" value="">
+				<ul class="centerFormUl" style="padding-top: 5px;">
+					<li class="clearfix">
+						<label class="labelLeft"><span
+                        class="required">*</span>变更类型：</label>
+						<div class="labelRight">
+							<select name="change_type" class="selectStyle change_type" style="width: 300px">
+
+								<option value="2">企业名称变更</option>
+
+							</select>
+						</div>
+					</li>
+					<li class="clearfix">
+						<label class="labelLeft changeLabelName"><span
+                        class="required">*</span>实名认证名称：</label>
+						<div class="labelRight">
+							<input type="text" name="new_name" class="inputText" value="" placeholder="该名称用于发票抬头，请谨慎填写" />
+							<i class="errorTips errorCompany" hidden="true">
+                        <span class="iconfont">&#xe604;</span><em></em>
+                    </i>
+						</div>
+					</li>
+					<li class="clearfix  hidden_4 hidden_2" style="height: auto;">
+						<label class="labelLeft changeLabelProve"><span class="required">*</span>变更登记通知书扫描件：</label>
+						<div class="labelRight">
+							<input type="file" name="prove_img" id="prove_img" value="" class="fileText" />
+							<i class="errorTips errorZuzhi" hidden="true">
+                        <span class="iconfont">&#xe604;</span><em></em>
+                    </i>
+							<br/><i class="tipsFile">图片大小不要超过2M，支持PNG，JPG，JPEG格式
+                    <a style="color:#03c5ff;display: none" class="change-template"  href="http://juhecn.oss-cn-hangzhou.aliyuncs.com/samples/%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81%E5%8F%98%E6%9B%B4%E8%AF%B4%E6%98%8E%E6%A8%A1%E6%9D%BF.docx">《实名变更说明模板》</a>
+                </i>
+						</div>
+					</li>
+					<li class="clearfix " style="height: auto;">
+						<label class="labelLeft changeLabelImg"><span class="required">*</span>营业执照扫描件：</label>
+						<div class="labelRight">
+							<input type="file" name="new_img" id="new_img" class="fileText" />
+							<i class="errorTips errorZuzhi" hidden="true">
+                        <span class="iconfont">&#xe604;</span><em></em>
+                    </i>
+							<br/><i class="tipsFile">图片大小不要超过2M，支持PNG，JPG，JPEG格式</i>
+						</div>
+					</li>
+					<li class="clearfix hidden_4">
+						<label class="labelLeft changeLabelNo"><span class="required">*</span>社会统一编码：</label>
+						<div class="labelRight">
+							<input type="text" name="new_no" class="inputText" value="" />
+							<i class="errorTips errorZhizhao" hidden="true">
+                        <span class="iconfont">&#xe604;</span><em></em>
+                    </i>
+						</div>
+					</li>
+					<li class="clearfix  hidden_4 ">
+						<label class="labelLeft"><span class="required">*</span>公司地址：</label>
+						<div class="labelRight">
+							<select id="province" name="province" class="selectStyle citySelect">
+								<option>省份</option>
+							</select>
+							<select id="city" name="city" class="selectStyle citySelect">
+								<option>地级市</option>
+							</select>
+							<select id="town" name="town" class="selectStyle citySelect">
+								<option>市、县级市、县</option>
+							</select>
+							<i class="errorTips errorCompany" hidden="true">
+                        <span class="iconfont">&#xe604;</span><em></em>
+                    </i>
+						</div>
+					</li>
+					<li class="clearfix  hidden_4">
+						<label class="labelLeft"><span class="required">*</span>详细地址：</label>
+						<div class="labelRight">
+							<input type="text" id="new_address" name="new_address" value="" class="inputText" />
+							<i class="errorTips errorAddress" hidden="true">
+                        <span class="iconfont">&#xe604;</span><em></em>
+                    </i>
+						</div>
+					</li>
+
+					<li class="clearfix hidden_4">
+						<label class="labelLeft"><span class="required">*</span>联系人姓名：</label>
+						<div class="labelRight">
+							<input type="text" name="new_contact" class="inputText" value="" />
+							<i class="errorTips errorName" hidden="true">
+                        <span class="iconfont">&#xe604;</span><em></em>
+                    </i>
+						</div>
+					</li>
+					<li class="clearfix hidden_4">
+						<label class="labelLeft"><span class="required">*</span>联系人电话：</label>
+						<div class="labelRight">
+							<input type="tel" name="new_mobile" class="inputText" value="" />
+							<i class="errorTips errorTel" hidden="true">
+                        <span class="iconfont">&#xe604;</span><em></em>
+                    </i>
+						</div>
+					</li>
+					<li class="clearfix">
+						<label class="labelLeft"><span class="required">*</span>变更情况描述：</label>
+						<div class="labelRight">
+							<textarea name="apply_remark" style="width: 290px;height: 40px" class="inputText"></textarea>
+							<i class="errorTips errorTel" hidden="true">
+                        <span class="iconfont">&#xe604;</span><em></em>
+                    </i>
+						</div>
+					</li>
+					<li class="clearfix" style="clear: both;margin-top: 30px">
+						<label class="labelLeft">&nbsp;</label>
+						<div class="labelRight">
+							<button class="centerBtn fourBtn change-certify-apply">提交变更申请</button>
+						</div>
+					</li>
+				</ul>
+			</form>
+		</div>
+		<script src="js/PCASClass.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			new PCAS("province","city","area");     //地址初始化
+			
+			var idimgSize, idimg2Size; // 个人认证图片的大小
+			var idimgSizeHuman, idimg2SizeHuman; // 易读的个人认证图片的大小
+			var yyzzImgSize; // 营业执照图片的大小
+			var yyzzImgSizeHuman; // 易读的营业执照图片的大小
+			var allowExt = ['JPG', 'PNG', 'JPEG'];
+			var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
+			var sizeLabel = ["B", "KB", "MB", "GB"];
+
+			function getFiletype(filename) {
+				var extStart = filename.lastIndexOf(".") + 1;
+				return filename.substring(extStart, filename.length).toUpperCase();
+			}
+
+			function isNick(nickname) {
+				var myreg = /^[\w\u4e00-\u9fa5]+$/;
+				if(!myreg.test(nickname)) {
+					return false;
+				}
+				return true;
+			}
+
+			function isEmail(email) {
+				//对电子邮件的验证
+				var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+				if(!myreg.test(email)) {
+					return false;
+				}
+				return true;
+			}
+
+			function promptinfo() {
+				var address = document.getElementById('address');
+				var province = document.getElementById('province');
+				var city = document.getElementById('city');
+				var town = document.getElementById('town');
+			}
+			// 判断上传的文件的大小
+			function fileChange(target) {
+				var fileSize = 0;
+				if(isIE && !target.files) {
+					var filePath = target.value;
+					var fileSystem = new ActiveXObject("Scripting.FileSystemObject");
+					var file = fileSystem.GetFile(filePath);
+					fileSize = file.Size;
+				} else {
+					fileSize = target.files[0].size;
+				}
+				return fileSize;
+			}
+			// 将文件大小转换成易读形式
+			function calFileSize(size) {
+				for(var index = 0; index < sizeLabel.length; index++) {
+					if(size < 1024) {
+						return round(size, 2) + sizeLabel[index];
+					}
+					size = size / 1024;
+				}
+				return round(size, 2) + sizeLabel[index];
+			}
+
+			function round(number, count) {
+				return Math.round(number * Math.pow(10, count)) / Math.pow(10, count);
+			}
+
+			// focus第一个input
+			$('.verifyPersonForm :input[name=realname]').focus();
+
+			// 高亮被选的认证类型
+			$('.userLabelRadio').each(function() {
+				if($(this).find('input').is(":checked")) {
+					$('.userLabelRadio').css('color', '#b3b3b3');
+					$(this).css('color', '#666');
+				}
+			}).click(function() {
+				if($(this).find('input').is(":checked")) {
+					$('.userLabelRadio').css('color', '#b3b3b3')
+					$(this).css('color', '#666');
+				}
+
+				// 选好认证类型后显示或隐藏表单
+				if('1' == $(this).find('input').val()) {
+					$('.verifyCompanyForm').hide();
+					$('.verifyPersonForm').show();
+					$('.verifyPersonForm :input[name=realname]').focus();
+				} else if('2' == $(this).find('input').val()) {
+					$('.verifyCompanyForm').show();
+					$('.verifyPersonForm').hide();
+					$('.verifyCompanyForm :input[name=company]').focus();
+				}
+			});
+
+			$(".type").click(function() {
+				var id = $(this).val();
+				$(".vertify").css({
+					display: "none"
+				});
+				$("#vertifyTable" + id).css({
+					display: ""
+				});
+			})
+
+			// input框有动作时隐藏错误提示
+			$(':input').on('input', function() {
+				$('.errorTips').hide();
+			}).on('change', function() {
+				$('.errorTips').hide();
+			})
+
+			$(":input[name='real_mobile']").blur(function() {
+				if($(this).val() == '13530354377') {
+					$('.needMoblieCode').hide();
+				} else {
+					$('.needMoblieCode').show();
+				}
+			})
+
+			/* 开始：个人认证部分 */
+			// 个人认证的提交表单按钮
+			$(".centerBtnPerson").click(function() {
+
+				$('.errorTips').hide(); // 隐藏所有的错误提示信息
+				var realname = $(":input[name='realname']").val();
+				var idcard = $(":input[name='idcard']").val();
+				var mobile = $(":input[name='real_mobile']").val();
+				var mobilecode = $(":input[name='mobilecode']").val();
+
+				var img = $("#idimg").val();
+				var img2 = $("#idimg2").val();
+				var fileExt = getFiletype(img);
+				var fileExt2 = getFiletype(img2);
+
+				if(!realname) {
+					$(":input[name='realname']").siblings('i').show().find('em').html('请填写真实姓名');
+					$(":input[name='realname']").focus();
+					return false;
+				} else if(!idcard) {
+					$(":input[name='idcard']").siblings('i').show().find('em').html('请填写身份证号');
+					$(":input[name='idcard']").focus();
+					return false;
+				} else if(!/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/.test(idcard)) {
+					$(":input[name='idcard']").siblings('i').show().find('em').html('身份证号格式错误');
+					$(":input[name='idcard']").focus();
+					return false;
+				} else if(!isMobile(mobile)) {
+					$(":input[name='real_mobile']").siblings('i').show().find('em').html('手机号格式错误');
+					$(":input[name='real_mobile']").focus();
+					return false;
+				} else if(mobile != '13530354377' && mobilecode.length != 6) {
+					$(":input[name='mobilecode']").siblings('i').show().find('em').html('请输入正确格式的验证码');
+					$(":input[name='mobilecode']").focus();
+					return false;
+				} else if(!$(':input[name=idimg]').val()) {
+					$(":input[name='idimg']").siblings('i').show().find('em').html('请选择身份证正面文件');
+					return false;
+				} else if($.inArray(fileExt, allowExt) == -1) {
+					$(":input[name='idimg']").siblings('i').show().find('em').html('选择的身份证正面文件格式不正确');
+					return false;
+				} else if(2 * 1024 * 1024 < idimgSize) {
+					$(":input[name='idimg']").siblings('i').show().find('em').html('请将图片控制在2MB内（当前图片大小为' + idimgSizeHuman + ')');
+					return false;
+				} else if(!$(':input[name=idimg2]').val()) {
+					$(":input[name='idimg2']").siblings('i').show().find('em').html('请选择身份证反面文件');
+					return false;
+				} else if($.inArray(fileExt2, allowExt) == -1) {
+					$(":input[name='idimg2']").siblings('i').show().find('em').html('选择的身份证反面文件格式不正确');
+					return false;
+				} else if(2 * 1024 * 1024 < idimg2Size) {
+					$(":input[name='idimg2']").siblings('i').show().find('em').html('请将图片控制在2MB内（当前图片大小为' + idimg2SizeHuman + ')');
+					return false;
+				}
+
+				$(".centerBtnPerson").prop("disabled", true).html('提交中...');
+				var form = new FormData(document.getElementById("verifyPersonForm"));
+				$.ajax({
+					url: "/account/certifyDo",
+					type: "post",
+					data: form,
+					processData: false,
+					contentType: false,
+					success: function(e) {
+						var obj = json_parse(e);
+						var code = obj.code;
+						if(code == '0') {
+							layer.msg('认证信息提交成功，请等待审核', {
+								icon: 1,
+								shade: 0.3,
+								shadeClose: true
+							}, function() {
+								window.location.reload();
+							})
+						} else {
+							layer.msg(obj.msg, {
+								icon: 0,
+								shade: 0.3,
+								shadeClose: true,
+								time: 5000
+							})
+							$(".centerBtnPerson").prop("disabled", false).html('提交认证');
+						}
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						if('413' == XMLHttpRequest.status) {
+							layer.msg('上传的图片文件过大，请控制在2MB内', {
+								icon: 0,
+								shade: 0.3,
+								shadeClose: true
+							})
+							$(".centerBtnPerson").removeAttr("disabled").html('提交认证');
+						} else {
+							layer.msg('上传出错，请重试', {
+								icon: 0,
+								shade: 0.3,
+								shadeClose: true
+							})
+							$(".centerBtnPerson").removeAttr("disabled").html('提交认证');
+						}
+					}
+				});
+			})
+			// 选择文件后，判断并记录文件的大小、格式等
+			$(':input[name=idimg]').change(function() {
+				if($(this).val()) {
+					idimgSize = fileChange(this);
+					idimgSizeHuman = calFileSize(idimgSize);
+					if(idimgSize > 2 * 1024 * 1024) {
+						$(this).siblings('i').show().find('em').html('请将图片控制在2MB内（当前图片大小为' + idimgSizeHuman + ')');
+					}
+
+					var img = $("#idimg").val();
+					var fileExt = getFiletype(img);
+					if($.inArray(fileExt, allowExt) == -1) {
+						$(":input[name='idimg']").siblings('i').show().find('em').html('选择的身份证正面文件格式不正确');
+					}
+				}
+			})
+			$(':input[name=idimg2]').change(function() {
+				if($(this).val()) {
+					idimg2Size = fileChange(this);
+					idimg2SizeHuman = calFileSize(idimg2Size);
+					if(idimg2Size > 2 * 1024 * 1024) {
+						$(this).siblings('i').show().find('em').html('请将图片控制在2MB内（当前图片大小为' + idimg2SizeHuman + ')');
+					}
+
+					var img2 = $("#idimg2").val();
+					var fileExt2 = getFiletype(img2);
+					if($.inArray(fileExt2, allowExt) == -1) {
+						$(":input[name='idimg2']").siblings('i').show().find('em').html('选择的身份证反面文件格式不正确');
+					}
+				}
+			})
+			/* 结束：个人认证部分 */
+
+			/* 开始：企业认证部分 */
+
+			// 企业认证的提交表单按钮
+			$(".centerBtnCompany").click(function() {
+				var par = /^[0-9a-z]{18}(\-\d{1,2})?$/i;
+
+				$('.errorTips').hide(); // 隐藏所有的错误提示信息
+				allowExt = ['JPG', 'PNG', 'JPEG'];
+				company = $(":input[name='company']").val();
+				province = $('.verifyCompanyForm').find(":input[name='province']").val();
+				city = $('.verifyCompanyForm').find(":input[name='city']").val();
+				town = $('.verifyCompanyForm').find(":input[name='town']").val();
+				address = $('.verifyCompanyForm').find(":input[name='address']").val();;
+				yyzz = $('.verifyCompanyForm').find(":input[name='yyzz']").val();
+				swdj = $('.verifyCompanyForm').find(":input[name='swdj']").val();
+				zzjg = $('.verifyCompanyForm').find(":input[name='zzjg']").val();
+				yyzzImg = $('.verifyCompanyForm').find(":input[name='yyzzImg']").val();
+				// img3 = $("#zzimg").val();
+				// img2 = $("#swimg").val();
+				fileExt = getFiletype(yyzzImg);
+				// fileExt3 = getFiletype(img3);
+				// fileExt2 = getFiletype(img2);
+				contactname = $('.verifyCompanyForm').find(":input[name='contactname']").val();
+				contactphone = $('.verifyCompanyForm').find(":input[name='contactphone']").val();
+
+				if(company.length < 2) {
+					$(":input[name='company']").focus();
+					$('.errorTips').hide();
+					$(":input[name='company']").siblings('i').show().find('em').html('错误的公司名称');
+					return false;
+				} else if(province == '省份') {
+					$(":input[name='province']").focus();
+					$('.errorTips').hide();
+					$(":input[name='province']").siblings('i').show().find('em').html('请选择省份');
+					return false;
+				} else if(city == '地级市') {
+					$(":input[name='city']").focus();
+					$('.errorTips').hide();
+					$(":input[name='city']").siblings('i').show().find('em').html('请选择城市');
+					return false;
+				} else if(!address) {
+					$(":input[name='address']").focus();
+					$('.errorTips').hide();
+					$(":input[name='address']").siblings('i').show().find('em').html('请输入详细地址');
+					return false;
+				} else if(!par.test(yyzz)) {
+					$(":input[name='yyzz']").focus();
+					$('.errorTips').hide();
+					$(":input[name='yyzz']").siblings('i').show().find('em').html('社会统一编码不符合规范');
+					return false;
+				}
+				//20160719取消对税务登记和组织机构代码的非空验证(三证合一)
+				//        else if(swdj.length<6 && zzjg.length<6){
+				//            $(":input[name='swdj']").focus();
+				//            $('.errorTips').hide();
+				//            $(":input[name='swdj']").siblings('i').show().find('em').html('税务登记编号或组织结构代码不符合规范');
+				//            return false;
+				//        }
+				else if(!$(':input[name=yyzzImg]').val()) {
+					$(":input[name='yyzzImg']").siblings('i').show().find('em').html('请选择营业执照副本文件');
+					return false;
+				} else if($.inArray(fileExt, allowExt) == -1) {
+					$('.errorTips').hide();
+					$(":input[name='yyzzImg']").siblings('i').show().find('em').html('选择的营业执照副本文件格式不正确');
+					return false;
+				} else if(2 * 1024 * 1024 < yyzzImgSize) {
+					$(":input[name='yyzzImg']").siblings('i').show().html('请将图片控制在2MB内（当前图片大小为' + yyzzImgSizeHuman + ')');
+					return false;
+				} else if($.trim(contactname) == '') {
+					$(":input[name='contactname']").focus();
+					$('.errorTips').hide();
+					$(":input[name='contactname']").siblings('i').show().find('em').html('请输入联系人姓名');
+					return false;
+				} else if($.trim(contactphone) == '') {
+					$(":input[name='contactphone']").focus();
+					$('.errorTips').hide();
+					$(":input[name='contactphone']").siblings('i').show().find('em').html('请输入联系人电话');
+					return false;
+				}
+
+				$(".centerBtnCompany").attr("disabled", "disabled").val('提交中...');
+
+				var form = new FormData(document.getElementById("verifyCompanyForm"));
+				$.ajax({
+					url: "/account/certifyDoCompany",
+					type: "post",
+					data: form,
+					processData: false,
+					contentType: false,
+					success: function(e) {
+						var obj = json_parse(e);
+						var code = obj.code;
+						if(code == '0') {
+							window.location.reload();
+						} else {
+							layer.alert(obj.msg);
+							$("#verifyCompanyForm .centerBtn").removeAttr("disabled").html('提交认证');
+						}
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						if('413' == XMLHttpRequest.status) {
+							layer.alert('上传的图片文件过大，请控制在2MB内');
+							$("#verifyCompanyForm .centerBtn").removeAttr("disabled").html('提交认证');
+						} else {
+							layer.alert('上传出错，请重试');
+							$("#verifyCompanyForm .centerBtn").removeAttr("disabled").html('提交认证');
+						}
+					}
+				});
+			})
+			// 选择文件后，判断并记录文件的大小、格式等
+			$(':input[name=yyzzImg]').change(function() {
+				if($(this).val()) {
+					yyzzImgSize = fileChange(this);
+					yyzzImgSizeHuman = calFileSize(yyzzImgSize);
+					if(yyzzImgSize > 2 * 1024 * 1024) {
+						$(this).siblings('i').show().find('em').html('请将图片控制在2MB内（当前图片大小为' + yyzzImgSizeHuman + ')');
+					}
+
+					var img = $("#yyzzImg").val();
+					var fileExt = getFiletype(img);
+					if($.inArray(fileExt, allowExt) == -1) {
+						$(":input[name='yyzzImg']").siblings('i').show().find('em').html('选择的文件格式不正确');
+					}
+				}
+			})
+
+			
+
+			/**
+			 * 验证码发送
+			 */
+			$("#smsBtn").click(function() {
+				var type = 36
+				var mobile = $("#mobile").val();
+				smsSendGo($(this), type, mobile)
+			})
+
+			function smsSendGo(that, type, mobile) {
+				$('.successTips').hide();
+				$('.errorTips').hide().find('em').html('');
+
+				if(!isMobile(mobile)) {
+					$(":input[name='real_mobile']").siblings('i').show().find('em').html('手机号格式错误');
+					$(':input[name=mobile]').focus();
+				} else {
+					that.html('发送中...').prop("disabled", true);
+					$.post('/ucenter/account/info/sendCode', {
+						mobile: mobile,
+						codeType: type,
+					}, function(obj) {
+						if(obj.code == 0) {
+							resetSmsBtnBind(120, that);
+						} else {
+							that.siblings('i').show().find('em').html(obj.reason);
+							that.html("获取验证码").css({
+								"background": "#fff"
+							}).prop("disabled", false);
+						}
+					}, 'json')
+				}
+			}
+
+			// 重置短信发送按钮
+			function resetSmsBtnBind(index, that) {
+				var init = setInterval(function() {
+					index--;
+					if(index <= 0) {
+						clearInterval(init);
+						that.html("获取验证码").css({
+							"background": "#fff"
+						}).prop("disabled", false);
+					} else {
+						that.html("重新发送(" + index + ")").css({
+							"background": "#f4f4f4"
+						}).prop("disabled", true);
+					}
+				}, 1000)
+			}
+		</script>
+
+		<script type="text/javascript">
+			var new_img, prove_img; // 营业执照图片的大小
+			var new_imgS, prove_imgS; // 易读的营业执照图片的大小
+			var new_imgSH, prove_imgSH; // 易读的营业执照图片的大小
+			$(document).ready(function() {
+				labelChange($('.change_type').val())
+				$('.change_type').change(function() {
+					var type = $(this).val();
+					$('.verifyCompanyForm').find("input").val('')
+					labelChange(type)
+				})
+
+				// 企业认证的提交表单按钮
+				$(".change-certify-apply").click(function() {
+
+					var par = /^[0-9a-z]{18}(\-\d{1,2})?$/i;
+					var type = $('.change_type').val();
+					$('.errorTips').hide(); // 隐藏所有的错误提示信息
+					allowExt = ['JPG', 'PNG', 'JPEG'];
+					var company = $(":input[name='new_name']").val();
+					var province = $('.verifyCompanyForm').find(":input[name='province']").val();
+					var city = $('.verifyCompanyForm').find(":input[name='city']").val();
+					var town = $('.verifyCompanyForm').find(":input[name='town']").val();
+					var address = $('.verifyCompanyForm').find(":input[name='new_address']").val();;
+					var newImg = $('.verifyCompanyForm').find(":input[name='new_img']").val();
+					var newNo = $('.verifyCompanyForm').find(":input[name='new_no']").val();
+					var proveImg = $('.verifyCompanyForm').find(":input[name='prove_img']").val();
+					var fileExt = getFiletype(newImg);
+					var fileExt1 = getFiletype(proveImg);
+					var newContact = $('.verifyCompanyForm').find(":input[name='new_contact']").val();
+					var newMobile = $.trim($('.verifyCompanyForm').find(":input[name='new_mobile']").val());
+					var remark = $('.verifyCompanyForm').find(":input[name='apply_remark']").val();
+					var prg = /[\"\'<>!]/;
+
+					if(company.length < 2 || prg.test(company)) {
+						$(":input[name='new_name']").focus();
+						$('.errorTips').hide();
+						$(":input[name='new_name']").siblings('i').show().find('em').html('错误的公司名称');
+						return false;
+					}
+
+					if(type != 4) {
+						//证件扫描件上传校验
+						if(!$(':input[name=prove_img]').val()) {
+							$(":input[name='prove_img']").siblings('i').show().find('em').html('请选择营业执照副本文件');
+							return false;
+						} else if($.inArray(fileExt1, allowExt) == -1) {
+							$('.errorTips').hide();
+							$(":input[name='prove_img']").siblings('i').show().find('em').html('选择的文件格式不正确');
+							return false;
+						} else if(2 * 1024 * 1024 < prove_imgS) {
+							$(":input[name='prove_img']").siblings('i').show().html('请将图片控制在2MB内');
+							return false;
+						}
+					}
+
+					//证件扫描件上传校验
+					if(!$(':input[name=new_img]').val()) {
+						$(":input[name='new_img']").siblings('i').show().find('em').html('请选择证件扫描件');
+						return false;
+					} else if($.inArray(fileExt, allowExt) == -1) {
+						$('.errorTips').hide();
+						$(":input[name='new_img']").siblings('i').show().find('em').html('选择的证件扫描件格式不正确');
+						return false;
+					} else if(2 * 1024 * 1024 < new_imgS) {
+						$(":input[name='new_img']").siblings('i').show().html('请将图片控制在2MB内');
+						return false;
+					}
+
+					if((newNo || type == 1 || type == 3) && !par.test(newNo)) {
+						$(":input[name='new_no']").focus();
+						$('.errorTips').hide();
+						$(":input[name='new_no']").siblings('i').show().find('em').html('证件编号不正确');
+						return false;
+					}
+
+					if(type == 1 || type == 3) {
+						if(province == '省份') {
+							$(":input[name='province']").focus();
+							$('.errorTips').hide();
+							$(":input[name='province']").siblings('i').show().find('em').html('请选择省份');
+							return false;
+						} else if(city == '地级市') {
+							$(":input[name='city']").focus();
+							$('.errorTips').hide();
+							$(":input[name='city']").siblings('i').show().find('em').html('请选择城市');
+							return false;
+						} else if(!address || prg.test(company)) {
+							$(":input[name='new_address']").focus();
+							$('.errorTips').hide();
+							$(":input[name='new_address']").siblings('i').show().find('em').html('请输入详细地址');
+							return false;
+						} else if($.trim(newContact) == '' || prg.test(newContact)) {
+							$(":input[name='new_contact']").focus();
+							$('.errorTips').hide();
+							$(":input[name='new_contact']").siblings('i').show().find('em').html('请输入联系人姓名');
+							return false;
+						} else if(!newMobile || !isMobile(newMobile)) {
+							$(":input[name='new_mobile']").focus();
+							$('.errorTips').hide();
+							$(":input[name='new_mobile']").siblings('i').show().find('em').html('请输入正确的联系人电话');
+							return false;
+						}
+					}
+
+					if(remark.length < 2 || remark.length > 100 || prg.test(company)) {
+						$(":input[name='apply_remark']").focus();
+						$('.errorTips').hide();
+						$(":input[name='apply_remark']").siblings('i').show().find('em').html('字数在2~100之间');
+						return false;
+					}
+
+					$(".change-certify-apply").attr("disabled", "disabled").html('提交中...');
+
+					$('#verifyCompanyForm').ajaxSubmit({
+						type: 'post',
+						dataType: 'json',
+						success: function(obj) {
+							if(obj.code == '0') {
+								layer.msg(obj.reason, {
+									icon: 1,
+									shade: 0.3,
+									time: 2000,
+									shadeClose: false
+								}, function() {
+									location.reload();
+								})
+							} else {
+								layer.alert(obj.reason);
+								$(".change-certify-apply").removeAttr("disabled").html('提交变更申请');
+							}
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							if('413' == XMLHttpRequest.status) {
+								layer.alert('上传的图片文件过大，请控制在2MB内');
+								$(".change-certify-apply").removeAttr("disabled").html('提交变更申请');
+							} else {
+								layer.alert('填写数据请勿带有特殊字符');
+								$(".change-certify-apply").removeAttr("disabled").html('提交变更申请');
+							}
+						}
+					})
+
+				})
+
+				// 选择文件后，判断并记录文件的大小、格式等
+				$(':input[name=new_img]').change(function() {
+					if($(this).val()) {
+						new_imgS = fileChange(this);
+						new_imgSH = calFileSize(new_imgS);
+						if(new_imgS > 2 * 1024 * 1024) {
+							$(this).siblings('i').show().find('em').html('请将图片控制在2MB内');
+						} else {
+							$(this).siblings('i').hide();
+
+						}
+
+						var img = $("#new_img").val();
+						var fileExt = getFiletype(img);
+						if($.inArray(fileExt, allowExt) == -1) {
+							$(":input[name='new_img']").siblings('i').show().find('em').html('选择的文件格式不正确');
+						}
+					}
+				})
+
+				// 选择文件后，判断并记录文件的大小、格式等
+				$(':input[name=prove_img]').change(function() {
+					if($(this).val()) {
+						prove_imgS = fileChange(this);
+						prove_imgSH = calFileSize(prove_imgS);
+						if(prove_imgS > 2 * 1024 * 1024) {
+							$(this).siblings('i').show().find('em').html('请将图片控制在2MB内');
+						} else {
+							$(this).siblings('i').hide();
+
+						}
+
+						var img = $("#prove_img").val();
+						var fileExt = getFiletype(img);
+						if($.inArray(fileExt, allowExt) == -1) {
+							$(":input[name='prove_img']").siblings('i').show().find('em').html('选择的文件格式不正确');
+						}
+					}
+				})
+			})
+
+			function labelChange(type) {
+				var req = '<span class="required">*</span>';
+				if(type == 4) {
+					$('.hidden_4').hide()
+				} else {
+					if(type == 2) {
+						$('.hidden_4').hide()
+						$('.hidden_2').show()
+					} else {
+
+						$('.hidden_4').show()
+					}
+				}
+
+				if(type == 1) {
+					$('.changeLabelName').html(req + '公司名称：')
+					$('.changeLabelImg').html(req + '营业执照扫描件：')
+					$('.changeLabelProve').html(req + '转企业认证情况说明扫描件：')
+					$('.change-template').show()
+				} else if(type == 2) {
+					$('.changeLabelName').html(req + '公司名称：')
+					$('.changeLabelImg').html(req + '新营业执照扫描件：')
+					$('.changeLabelProve').html(req + '变更登记通知书扫描件：')
+					$('.change-template').hide()
+
+				} else if(type == 3) {
+					$('.changeLabelName').html(req + '新主体名称：')
+					$('.changeLabelImg').html(req + '新主体营业执照扫描件：')
+					$('.changeLabelNo').html(req + '新社会统一编码：')
+					$('.changeLabelProve').html(req + '主体变更三方协议/授权书：')
+					$('.change-template').show()
+				} else if(type == 4) {
+					$('.changeLabelName').html(req + '姓名/公司名称：')
+					$('.changeLabelImg').html(req + '身份证/营业执照扫描件：')
+					$('.change-template').hide()
+
+				}
+
+			}
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.previewBtn').click(function() {
+					layer.closeAll();
+					layer.open({
+						type: 1,
+						shade: false,
+						title: false, //不显示标题
+						shade: 0.3,
+						shadeClose: true,
+						area: ['auto', 'auto'],
+						content: $(this).siblings('img'), //捕获的元素
+						cancel: function(index) {
+							layer.close(index);
+						}
+					});
+				})
+				$('.apply-change-certify').click(function() {
+					layer.open({
+						type: 1,
+						title: ['实名认证变更申请表', '#03c5ff'],
+						shade: 0.3,
+						area: ['680px', '485px'],
+						content: $('#change-certify-form')
+
+					})
+				})
+
+				$('.change-mobile').click(function() {
+					$('#contact-name,#contact-mobile').attr('style', 'border:none;border-bottom: #aaa solid 1px ;width:105px;')
+					$(this).hide()
+					$(this).next().show();
+				})
+
+				$('.save-change-data').click(function() {
+					var prg = /[\"\'<>!]/;
+					var name = $.trim($('#contact-name').val());
+
+					if(name == '' || prg.test(name) || name.length > 20) {
+						layer.msg('请填写正确的联系人姓名', {
+							icon: 0,
+							time: 2000,
+							shade: 0.3
+						})
+						return false;
+					}
+					var mobile = $.trim($('#contact-mobile').val());
+					if(!mobile || !isMobile(mobile)) {
+						layer.msg('请填写正确的联系人手机号', {
+							icon: 0,
+							time: 2000,
+							shade: 0.3
+						})
+						return false;
+					}
+					$(this).prop('disable', true)
+
+					$.ajax({
+						url: '/ucenter/account/certify/contactChange',
+						type: 'post',
+						dataType: 'json',
+						data: 'name=' + name + '&mobile=' + mobile + '&_verify=0c7324011da655141642ebb08f8da0d0',
+						success: function(obj) {
+							$(this).prop('disable', false)
+
+							if(obj.code == 0) {
+								layer.msg('变更成功', {
+									icon: 1,
+									shade: 0.3,
+									shadeClose: true
+								}, function() {
+									location.reload();
+								})
+							} else {
+								layer.msg(obj.reason, {
+									icon: 0,
+									shade: 0.3,
+									shadeClose: true
+								}, function() {})
+							}
+						}
+					})
+				})
+			})
+		</script>
+	</body>
+
+</html>

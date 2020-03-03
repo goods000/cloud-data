@@ -1,0 +1,655 @@
+body {
+	background: #f3f5f8
+}
+
+.reg-head {
+	width: 100%;
+	height: 66px;
+	background: #fff
+}
+
+.reg-head .width1000 {
+	width: 1000px;
+	margin: 0 auto
+}
+
+.reg-head .juhe-logo {
+	display: block;
+	float: left;
+	width: 230px;
+	height: 35px;
+	margin-top: 20px;
+	background: url('../img/login_logo.png') no-repeat
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:2),
+only screen and (-o-min-device-pixel-ratio:2),
+only screen and (min--moz-device-pixel-ratio:2),
+only screen and (min-device-pixel-ratio:2) {
+	.reg-head .juhe-logo {
+		display: block;
+		float: left;
+		width: 230px;
+		height: 26px;
+		margin-top: 20px;
+		background: url('https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/logo/v7/logo-white@2X.png') no-repeat;
+		background-size: 230px 26px
+	}
+}
+
+.reg-head .juhe-login {
+	float: right;
+	font-size: 14px;
+	line-height: 66px;
+	color: #8e8e8e
+}
+
+.reg-head .juhe-login a {
+	color: #36BBB5
+}
+
+.reg-content {
+	width: 1000px;
+	min-height: 550px;
+	padding-bottom: 70px;
+	margin: 80px auto 0;
+	background: #fff
+}
+
+.reg-content .reg-main {
+	width: 420px;
+	margin: 0 auto
+}
+
+.reg-content .reg-desc {
+	padding-top: 40px
+}
+
+.reg-content .reg-desc h1 {
+	font-size: 38px;
+	font-weight: 400;
+	color: #4b4b4b
+}
+
+.reg-content .reg-desc h2 {
+	font-size: 26px;
+	font-weight: 400;
+	color: #4b4b4b;
+	margin-top: 10px
+}
+
+.reg-content .reg-form {
+	margin-top: 30px
+}
+
+.reg-content .reg-form .reg-row {
+	margin-bottom: 24px;
+	height: 41px;
+	position: relative
+}
+
+.reg-content .reg-form input::-webkit-input-placeholder {
+	color: #a3a3a3
+}
+
+.reg-content .reg-form .reg-input {
+	width: 405px;
+	border: 1px solid #c5c5c5;
+	border-radius: 3px;
+	padding: 11px 0 11px 13px;
+	font-size: 14px;
+	transition: all .1s
+}
+
+.reg-content .reg-form .reg-input:focus {
+	border: 1px solid #36BBB5
+}
+
+.reg-content .reg-form .error {
+	width: 200px;
+	position: absolute;
+	left: 430px;
+	top: 10px;
+	display: none
+}
+
+.reg-content .reg-form .error .tip {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/sprite2.png) 0 -128px;
+	vertical-align: middle
+}
+
+.reg-content .reg-form .error .info {
+	color: #f15b5b;
+	font-size: 12px
+}
+
+.reg-content .reg-form .reg-code {
+	margin-bottom: 19px;
+	position: relative
+}
+
+.reg-content .reg-form .reg-input-short {
+	float: left;
+	width: 280px;
+	border: 1px solid #c5c5c5;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	padding: 11px 0 11px 13px;
+	font-size: 14px
+}
+
+.reg-content .reg-form .reg-input-short:focus {
+	border: 1px solid #36BBB5
+}
+
+.reg-content .reg-form #vercode_img {
+	margin-left: 12px;
+	position: relative;
+	top: -5px
+}
+
+.reg-content .reg-form #change_img {
+	float: right;
+	margin-top: 12px;
+	width: 18px;
+	height: 15px;
+	background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/sprite2.png) -52px -102px
+}
+
+.reg-content .reg-form .reg-smsbtn {
+	float: left;
+	width: 125px;
+	height: 41px;
+	border: 1px solid #c5c5c5;
+	border-left: none;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background: #f3f5f8;
+	font-size: 14px;
+	color: #5f5f5f;
+	transition: all .1s ease
+}
+
+.reg-content .reg-form .reg-smsbtn:hover {
+	background: #eee
+}
+
+.reg-content .reg-form .reg-smsbtn[disabled] {
+	cursor: default
+}
+
+.reg-content .reg-form .reg-agreement {
+	line-height: 16px;
+	margin-bottom: 30px;
+	position: relative
+}
+
+.reg-content .reg-form .checked {
+	display: none
+}
+
+.reg-content .reg-form .checked:checked+label {
+	background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/sprite2.png) -70px -102px
+}
+
+.reg-content .reg-form .checked+label {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/sprite2.png) -84px -102px;
+	cursor: pointer;
+	vertical-align: middle
+}
+
+.reg-content .reg-form .checked+label.active {
+	background: url(../img/register_chioce.png);
+}
+
+.reg-content .reg-form .info {
+	font-size: 12px;
+	color: #a3a3a3
+}
+
+.reg-content .reg-form .info a {
+	color: #36BBB5
+}
+
+.reg-content .reg-form .reg-btn {
+	width: 420px;
+	height: 50px;
+	border: none;
+	border-radius: 1px;
+	background: #36BBB5;
+	color: #fff;
+	font-size: 16px;
+	transition: all .2s ease
+}
+
+.reg-content .reg-form .reg-btn[disabled] {
+	background: #e0e0e0;
+	color: #5f5f5f;
+	cursor: default
+}
+
+.reg-content .reg-form .reg_to_mail,
+.reg-content .reg-form .reg_to_mobile {
+	font-size: 14px;
+	color: #a3a3a3;
+	cursor: pointer
+}
+
+.reg-content .mobile-success {
+	text-align: center;
+	padding-top: 145px
+}
+
+.reg-content .mobile-success .small {
+	margin-top: 20px;
+	font-size: 14px;
+	color: #bbb
+}
+
+.reg-content .mobile-success .small a {
+	color: #00aeff
+}
+
+.reg-content .mail-success {
+	width: 380px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 75px
+}
+
+.reg-content .mail-success .text {
+	display: inline-block;
+	margin-top: 20px;
+	font-size: 14px;
+	line-height: 1.8;
+	color: #666;
+	text-align: left
+}
+
+.reg-content .mail-success .mail-login {
+	display: block;
+	margin: 20px 0 40px;
+	width: 380px;
+	height: 50px;
+	line-height: 50px;
+	background: #00aeff;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	border-radius: 2px
+}
+
+.reg-content .mail-success .fail-info {
+	border-top: 1px solid #e7e7e7;
+	padding-top: 25px;
+	text-align: left;
+	padding-left: 7px;
+	color: #a3a3a3
+}
+
+.reg-content .mail-success .fail-info .fail-title {
+	font-size: 14px;
+	margin-bottom: 10px
+}
+
+.reg-content .mail-success .fail-info .fail-list li {
+	font-size: 12px;
+	line-height: 1.8
+}
+
+.reg-content .mail-success .fail-info .fail-list li a {
+	color: #00aeff
+}
+
+.reg-content .mail-fail {
+	width: 380px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 75px
+}
+
+.reg-content .mail-fail .fail-big {
+	font-size: 26px;
+	color: #fe4e25
+}
+
+.reg-content .mail-fail .fail-big span {
+	vertical-align: middle
+}
+
+.reg-content .mail-fail .fail-big .fail-pic {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/sprite2.png) 0 -102px;
+	margin-right: 10px
+}
+
+.reg-content .mail-fail .small {
+	margin-top: 15px;
+	font-size: 14px;
+	color: #666
+}
+
+.reg-content .mail-fail .mail-register {
+	display: block;
+	margin: 35px 0 20px;
+	width: 380px;
+	height: 50px;
+	line-height: 50px;
+	background: #00aeff;
+	font-size: 16px;
+	color: #fff;
+	border-radius: 2px
+}
+
+.reg-content .mail-fail .back {
+	font-size: 14px;
+	color: #00aeff
+}
+
+.reg-content .find-content {
+	width: 380px;
+	margin: 0 auto;
+	padding-top: 80px
+}
+
+.reg-content .find-content .steps-1 {
+	width: 344px;
+	height: 34px;
+	background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/sprite2.png);
+	margin: 0 auto 10px
+}
+
+.reg-content .find-content .steps-2 {
+	width: 344px;
+	height: 34px;
+	background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/sprite2.png) 0 -34px;
+	margin: 0 auto 10px
+}
+
+.reg-content .find-content .steps-3 {
+	width: 344px;
+	height: 34px;
+	background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/sprite2.png) 0 -68px;
+	margin: 0 auto 10px
+}
+
+.reg-content .find-content ul {
+	margin-bottom: 77px
+}
+
+.reg-content .find-content .step1,
+.reg-content .find-content .step2,
+.reg-content .find-content .step3 {
+	float: left;
+	font-size: 16px;
+	color: #8e8e8e
+}
+
+.reg-content .find-content .step1.active,
+.reg-content .find-content .step2.active,
+.reg-content .find-content .step3.active {
+	color: #00aeff
+}
+
+.reg-content .find-content .step2 {
+	margin-left: 95px
+}
+
+.reg-content .find-content .step3 {
+	margin-left: 105px
+}
+
+.reg-content .find-content .reg-row {
+	margin-bottom: 24px;
+	height: 41px;
+	position: relative
+}
+
+.reg-content .find-content .reg-input {
+	width: 365px;
+	border: 1px solid #c5c5c5;
+	border-radius: 3px;
+	padding: 11px 0 11px 13px;
+	font-size: 14px
+}
+
+.reg-content .find-content .reg-input:focus {
+	border: 1px solid #36BBB5
+}
+
+.reg-content .find-content .error {
+	width: 200px;
+	position: absolute;
+	left: 400px;
+	top: 10px;
+	display: none
+}
+
+.reg-content .find-content .error .tip {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/sprite2.png) 0 -128px;
+	vertical-align: middle
+}
+
+.reg-content .find-content .error .info {
+	color: #f15b5b;
+	font-size: 12px
+}
+
+.reg-content .find-content .reg-code {
+	margin-bottom: 30px;
+	position: relative;
+	display: none
+}
+
+.reg-content .find-content .reg-input-short {
+	float: left;
+	width: 225px;
+	border: 1px solid #c5c5c5;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	padding: 11px 0 11px 13px;
+	font-size: 14px
+}
+
+.reg-content .find-content .reg-input-short:focus {
+	border: 1px solid #36BBB5
+}
+
+.reg-content .find-content .reg-smsbtn {
+	float: left;
+	width: 140px;
+	height: 41px;
+	border: 1px solid #c5c5c5;
+	border-left: none;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background: #f3f5f8;
+	font-size: 14px;
+	color: #5f5f5f;
+	transition: all .1s ease
+}
+
+.reg-content .find-content .reg-smsbtn:hover {
+	background: #eee
+}
+
+.reg-content .find-content .mail-login,
+.reg-content .find-content .next-btn {
+	width: 380px;
+	height: 50px;
+	line-height: 50px;
+	background: #00aeff;
+	text-align: center
+}
+
+.reg-content .find-content .next-btn {
+	border: none;
+	border-radius: 2px;
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer
+}
+
+.reg-content .find-content .find-title {
+	font-size: 16px;
+	color: #666;
+	text-align: center
+}
+
+.reg-content .find-content .find-mail {
+	margin: 15px 0;
+	font-size: 14px;
+	color: #00aeff;
+	text-align: center
+}
+
+.reg-content .find-content .find-small {
+	font-size: 12px;
+	color: #a3a3a3;
+	text-align: center
+}
+
+.reg-content .find-content .mail-login {
+	display: block;
+	margin: 20px 0 40px;
+	font-size: 16px;
+	color: #fff;
+	border-radius: 2px
+}
+
+.reg-content .find-content .success-title {
+	font-size: 20px;
+	color: #00aeff;
+	text-align: center
+}
+
+.reg-content .find-content .success-info {
+	margin: 15px 0 5px;
+	font-size: 14px;
+	color: #a3a3a3;
+	text-align: center
+}
+
+.reg-content .big {
+	font-size: 26px;
+	color: #00aeff
+}
+
+.reg-content .big span {
+	vertical-align: middle
+}
+
+.reg-content .big .success-pic {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/sprite2.png) -26px -102px;
+	margin-right: 10px
+}
+
+@media only screen and (max-width:1000px) {
+	.reg-content .mail-success .text,
+	.reg-content .reg-form .reg_to_mail,
+	.reg-content .reg-form .reg_to_mobile {
+		text-align: center
+	}
+	body {
+		background: #fff
+	}
+	.reg-head {
+		width: 90%;
+		padding: 0 5%
+	}
+	.reg-head .width1000 {
+		padding-top: 15px;
+		width: 100%;
+		margin: 0
+	}
+	.reg-head .juhe-logo {
+		display: block;
+		float: left;
+		width: 126px;
+		height: 25px;
+		margin-top: 18px;
+		background-size: cover;
+		background-image: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/juhelogo-mobile.png)
+	}
+	.reg-content {
+		width: 70%;
+		min-height: 0;
+		margin: 20px auto 0;
+		padding-bottom: 20px
+	}
+	.reg-content .reg-main {
+		width: 100%
+	}
+	.reg-content .reg-desc {
+		padding-top: 10px
+	}
+	.reg-content .reg-desc h1 {
+		display: inline-block;
+		font-size: 30px
+	}
+	.reg-content .reg-desc h2 {
+		display: inline-block;
+		font-size: 18px
+	}
+	.reg-content .reg-form .reg-row {
+		margin-bottom: 26px
+	}
+	.reg-content .reg-form .reg-input {
+		-webkit-appearance: none;
+		width: 90%;
+		padding: 11px 5%
+	}
+	.reg-content .reg-form .error {
+		left: 0;
+		top: 42px
+	}
+	.reg-content .reg-form .reg-input-short {
+		box-sizing: border-box;
+		height: 41px;
+		-webkit-appearance: none;
+		width: 70%;
+		padding: 11px 0 11px 5%;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0
+	}
+	.reg-content .reg-form .reg-smsbtn {
+		width: 30%;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0
+	}
+	.reg-content .mail-fail,
+	.reg-content .mail-fail .mail-register,
+	.reg-content .mail-success .mail-login,
+	.reg-content .reg-form .reg-btn {
+		width: 100%
+	}
+	.reg-content .reg-form .reg-code {
+		margin-bottom: 25px
+	}
+	.reg-content .mail-success {
+		width: 100%;
+		padding-top: 50px
+	}
+}
+
+@media only screen and (max-width:600px) {
+	.reg-content {
+		width: 90%
+	}
+}

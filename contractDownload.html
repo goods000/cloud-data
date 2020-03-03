@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>合同模板下载</title>
+		<meta name="csrf-token" content="nNtl3ByK8sQ1dFDakv3OD8DpalGXy3xkcBPor5Ui">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ucenter.css" />
+		<link rel="stylesheet" type="text/css" href="css/respond.css" />
+		<link rel="stylesheet" type="text/css" href="css/points.css" />
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+		<div id="header"></div>		
+
+		<!-- main start -->
+		<div id="ucenterWrapper" class="ucenterWidth1 clearfix">
+			<!-- 左边导航 -->
+			<div id="nav" name="4" num="4"></div>
+			
+			<!-- 正文内容 -->
+			<section id="ucenterSection">
+				<h2 class="centerTitle borderTitle">合同模板下载中心</h2>
+				<table class="ucenterTable">
+					<tbody>
+						<tr>
+							<th width="15%">序号</th>
+							<th width="25%">合同模板名称</th>
+							<th width="40%">适用范围</th>
+							<th width="40%">下载模板</th>
+							<th width="5%"></th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>《充值类业务专用合同模板》</td>
+							<td>适用于话费、油卡等充值类业务</td>
+							<td>
+								<a href="" target="_blank"><span style="color: #36BBB5">点击下载</span></a>
+							</td>
+							<td>&nbsp;</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h2 class="centerTitle borderTitle">合同签订流程介绍<span style="color: #FF5918;margin-left: 20px;">(如有疑问，可咨询在线客服QQ：<a href="https://crm2.qq.com/page/portalpage/wpa.php?uin=800076065&f=1&ty=1&aty=0&a=&from=6" target="_blank"><span style="color: #FF5918">800076065)</span></a></span></h2>
+				<table class="ucenterTable">
+					<tbody>
+						<tr>
+							<th width="50%">充值类合同流程介绍（油卡，话费）</th>
+						</tr>
+						<tr>
+							<td><img src="http://juhe.oss-cn-hangzhou.aliyuncs.com/%E5%85%85%E5%80%BC%E4%B8%9A%E5%8A%A1%E5%90%88%E5%90%8C%E7%AD%BE%E7%BD%B2%E5%BC%80%E9%80%9A%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B.png" border="0" align="center"></td>
+						</tr>
+						<!--<tr>
+							<td colspan="2">*盖章：盖章签署页和骑缝章</td>
+						</tr>-->
+					</tbody>
+				</table>
+			</section>
+		</div>
+		<script type="text/javascript">
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+
+			$(document).ready(function() {
+
+				$.ajax({
+					url: '/ucenter/siteMsg/count',
+					type: 'get',
+					dataType: 'json',
+					success: function(obj) {
+						var count = obj.result.newMsgCount;
+						if(count > 99) {
+							count = '99+'
+						}
+						if(count) {
+							$('#new-msg-count').html(count)
+						}
+					}
+				})
+				//ucenter 统一使用的提交方式:ajaxsubmit,所以当用户登录失效的时候无法跳转到指定页面,
+				//添加下面对button 按钮的监视,如果为失效继续下面动作,如果点击按钮的时候登录失效了,就跳转到指定页面,如登录页面
+				$('.ajax-check-login,button,input:button').click(function(event) {
+					var login = true;
+					$.getJSON('/login/loginStatus', function(obj) {
+						if(obj.code == '-1') {
+							if(self == top) {
+								window.location.href = obj.acturl;
+							} else {
+								parent.window.location.reload();
+							}
+							login = false;
+						}
+					})
+
+					if(!login) {
+						event.stopImmediatePropagation();
+					}
+				})
+
+				$("input[name=q]").focus(function() {
+					document.onkeydown = function(e) {
+						var ev = document.all ? window.event : e;
+						if(ev.keyCode == 13) {
+							$("#searchBtn").click();
+						}
+					}
+				})
+
+			})
+			// 退出登录
+			function logout() {
+				$.getJSON('/logout', function(obj) {
+					window.location.href = '/';
+				})
+			}
+
+			$("input[name=q]").focus(function() {
+				document.onkeydown = function(e) {
+					var ev = document.all ? window.event : e;
+					if(ev.keyCode == 13) {
+						$("#searchBtn").click();
+					}
+				}
+			})
+
+			// header里的搜索框
+			$("#searchBtn").click(function() {
+				var q = $("input[name=q]").val();
+				q = q.replace(/\//g, '');
+
+				if(q.length == '') {
+					$("input[name=q]").focus();
+					return false;
+				}
+
+				var searchUrl = '/docs/s/q/%40q%40';
+				searchUrl = searchUrl.replace(/%40q%40/, encodeURIComponent(q));
+				window.location.href = searchUrl;
+			})
+
+			$(document).ready(function() {
+
+			})
+		</script>
+
+	</body>
+
+</html>

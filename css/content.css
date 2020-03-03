@@ -1,0 +1,400 @@
+a {
+	color: #00aeff
+}
+
+a:hover {
+	color: #00bdff
+}
+
+.center {
+	text-align: center
+}
+
+.width100 {
+	width: 100%;
+	min-width: 1200px
+}
+
+.width1200 {
+	width: 1200px;
+	margin: 0 auto;
+	position: relative
+}
+
+.ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis
+}
+
+.center {
+	text-align: center
+}
+
+body {
+	font-size: 14px;
+	font-weight: 400;
+	/*background: #fff;*/
+	font-family: 'å¾®è½¯é›…é»‘'
+}
+
+.contact-main {
+	padding-top: 66px;
+	background: url("../../../images/v6/docs//contact-bg.png") center top #121212 no-repeat
+}
+
+.contact-top {
+	height: 224px
+}
+
+.contact-top h2 {
+	font-size: 30px;
+	line-height: 44px;
+	color: #fff;
+	padding-top: 80px
+}
+
+.contact-top p {
+	color: #999;
+	font-size: 14px;
+	line-height: 20px
+}
+
+.contact-nav {
+	background: 0;
+	padding-top: 18px;
+	line-height: 46px
+}
+
+.contact-nav ul li {
+	float: left;
+	padding-right: 76px;
+	font-size: 16px
+}
+
+.contact-nav ul li a {
+	display: block;
+	color: #333;
+	height: 44px;
+	line-height: 44px;
+	cursor: pointer
+}
+
+.contact-nav ul li a:hover {
+	color: #00aeff
+}
+
+.contact-nav ul li span {
+	font-size: 20px;
+	padding-right: 10px;
+	position: relative;
+	top: 2px
+}
+
+.contact-nav ul .active a {
+	height: 42px;
+	line-height: 42px;
+	color: #00aeff;
+	border-bottom: 2px solid #00aeff
+}
+
+.topul {
+	position: fixed;
+	top: 0;
+	z-index: 33;
+	background: #fff;
+	box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1)
+}
+
+.contact-content {
+	padding-bottom: 70px
+}
+
+.contact-section {
+	padding: 70px 0 60px 40px;
+	width: 1160px;
+	border-top: 1px solid #eee
+}
+
+.contact-section .num {
+	font-size: 20px;
+	color: #333;
+	height: 50px;
+	line-height: 50px;
+	background: url("../img/contact-a1.png") left center no-repeat
+}
+
+.contact-section .num span {
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+	width: 50px;
+	text-align: center
+}
+
+.contact-section h3 {
+	font-size: 30px;
+	color: #333;
+	line-height: 60px;
+	font-weight: 400;
+	padding-top: 8px;
+	position: relative
+}
+
+.contact-section h3::before {
+	content: '';
+	position: absolute;
+	left: -40px;
+	top: 25px;
+	height: 16px;
+	width: 2px;
+	background: #333
+}
+
+.contact-section .des-p {
+	color: #999;
+	line-height: 20px;
+	font-size: 14px
+}
+
+#section1 {
+	height: 490px
+}
+
+#section1 ul {
+	width: 810px;
+	position: absolute;
+	right: 0;
+	top: 70px
+}
+
+#section1 li {
+	float: left;
+	width: 397px;
+	height: 240px;
+	background: #f8f8f8;
+	margin-left: 8px;
+	margin-bottom: 8px;
+	position: relative
+}
+
+#section1 li dl {
+	padding-left: 110px;
+	padding-top: 30px;
+	line-height: 26px;
+	color: #333
+}
+
+#section1 li dl dt {
+	font-size: 20px;
+	padding-bottom: 4px
+}
+
+#section1 li dl dd {
+	font-size: 14px
+}
+
+#section1 li .icon {
+	width: 50px;
+	height: 50px;
+	fill: currentColor;
+	overflow: hidden;
+	position: absolute;
+	left: 35px;
+	top: 30px
+}
+
+#section1 .des-p2 {
+	color: #999;
+	font-size: 12px;
+	position: absolute;
+	left: 30px;
+	top: 192px;
+	line-height: 20px
+}
+
+#section1 .des-p3 {
+	position: relative;
+	top: 300px;
+	font-size: 12px
+}
+
+#section2 {
+	height: 360px
+}
+
+#section2 ul {
+	padding-top: 50px
+}
+
+#section2 li {
+	padding-top: 90px;
+	float: left;
+	position: relative
+}
+
+#section2 li dl {
+	padding-left: 10px;
+	padding-top: 26px;
+	line-height: 26px;
+	color: #333
+}
+
+#section2 li dl dt {
+	font-size: 16px;
+	padding-bottom: 4px
+}
+
+#section2 li dl dd {
+	font-size: 14px;
+	color: #666
+}
+
+#section2 li dl dd a {
+	color: #00aeff
+}
+
+#section2 li dl dd a:hover {
+	color: #00bdff
+}
+
+#section2 .li1 {
+	width: 330px
+}
+
+#section2 .li2 {
+	width: 310px
+}
+
+#section2 .li3 {
+	width: 380px
+}
+
+#section2 .li4 {
+	width: 140px
+}
+
+#section2 .contact-svg2 {
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	left: 0;
+	top: 0
+}
+
+#section3 {
+	padding-bottom: 100px
+}
+
+#section3 .contact-tel {
+	position: absolute;
+	left: 370px;
+	top: 60px
+}
+
+#section3 .contact-tel li {
+	padding-top: 90px;
+	float: left;
+	position: relative
+}
+
+#section3 .contact-tel li dl {
+	padding-left: 10px;
+	padding-top: 26px;
+	line-height: 26px;
+	color: #333
+}
+
+#section3 .contact-tel li dl dt {
+	font-size: 16px;
+	padding-bottom: 4px
+}
+
+#section3 .contact-tel li dl dd {
+	font-size: 14px;
+	color: #666
+}
+
+#section3 .contact-tel li dl dd a {
+	color: #00aeff
+}
+
+#section3 .contact-tel li dl dd a:hover {
+	color: #00bdff
+}
+
+#section3 .contact-tel .li1 {
+	width: 310px
+}
+
+#section3 .contact-tel .li2 {
+	width: 380px
+}
+
+#section3 .contact-tel .contact-svg2 {
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	left: 0;
+	top: 0
+}
+
+#section3 .contact-svg3 {
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	left: -100px;
+	top: 0
+}
+
+#section4 {
+	background: url("http://juheimg.oss-cn-hangzhou.aliyuncs.com/www/v7/home/contact-map.png") 560px 160px no-repeat
+}
+
+#section4 dl {
+	width: 450px;
+	padding-top: 50px
+}
+
+#section4 dl dt {
+	line-height: 30px;
+	padding-bottom: 6px;
+	font-size: 16px;
+	color: #333
+}
+
+#section4 dl dd {
+	line-height: 24px;
+	border-bottom: 1px solid #eee;
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 3px
+}
+
+.contact-content svg {
+	width: 10px;
+	height: 10px
+}
+
+.contact-content .jiantoublue {
+	position: relative;
+	top: 262px
+}
+
+#section1 li .contact-jiantou1 {
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 32px;
+	top: 178px
+}
+
+#section4 dt {
+	position: relative
+}
+
+#section4 .contact-jiantou-blue {
+	position: absolute;
+	left: -20px;
+	top: 9px
+}
